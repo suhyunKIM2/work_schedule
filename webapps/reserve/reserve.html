@@ -1,0 +1,848 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css"
+      integrity="sha384-v8BU367qNbs/aIZIxuivaU55N5GPF89WBerHoGA4QTcbUjYiLQtKdrfXnqAcXyTv" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/common.css">
+  <link rel="stylesheet" href="/css/reset.css">
+  <script type="text/javascript" src="/js/jquery-1.11.3.min.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/data.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <title>예약하기</title>
+  
+</head>
+<body>
+<header class="top_header" role="header" data-include="/common/header.html"></header>
+<nav id="navbar" class="navbar">
+  <ul class="nav-menu">
+    <li>
+      <a data-scroll="tab01" href="#tab01" class="dot active">
+        <span>예약하기</span>
+      </a>
+    </li>
+    <li>
+      <a data-scroll="tab02" href="#tab02" class="dot">
+        <span>이용안내</span>
+      </a>
+    </li>
+    <li>
+      <a data-scroll="tab03" href="#tab03" class="dot">
+        <span>환불 및 취소</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+<section id="tab01" class="tab_box section-01 scroll" >
+    <div class="content-right">
+        <header class="reserve_header">
+          <div class="calendar_title">
+            <button class="prev">&#60;</button>
+            <span class="current-year-month"></span>
+
+            <button class="next">&#62;</button>
+          </div>
+        </header>
+        <div class="day-of-week">
+          <div class="dayHeader sun">일</div>
+          <div class="dayHeader">월</div>
+          <div class="dayHeader">화</div>
+          <div class="dayHeader">수</div>
+          <div class="dayHeader">목</div>
+          <div class="dayHeader">금</div>
+          <div class="dayHeader sat">토</div>
+        </div>
+        <div class="calendar-body"></div>
+    </div>
+    <div class="calendar_day_body">
+        [ <span class="current-year-month2"></span>
+        <span class="main-date"></span>일
+        <span class="main-day"></span>요일
+        ]
+    </div>
+    <ul class="reserve_info_list">
+    <!----실외코트-------->
+        <li>
+            <ul class="reserve_info_list_body">
+                <li><img src="/img/sub/img/external-.jpg" class="reserve_info_img"><div class="reserve_info_name">실외코트</div></li>
+                <li>
+                    <ul class="reserve_info_list_action btn_on">    
+                        <li>
+                            <label class="container_input">06:00~07:00
+                              <input type="checkbox">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약가능</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_ok">    
+                        <li>
+                            <label class="container_input">07:00~08:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약완료</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_off">
+                        <li>
+                            <label class="container_input">08:00~09:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약불가</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_ok"> 
+                        <li>
+                            <label class="container_input">09:00~10:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약완료</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_ok">
+                        <li>
+                            <label class="container_input">10:00~11:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약완료</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_ok">
+                        <li>
+                            <label class="container_input">11:00~12:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약완료</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_ok">
+                        <li>
+                            <label class="container_input">12:00~13:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약완료</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_ok">
+                         <li>
+                            <label class="container_input">13:00~14:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약완료</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_ok">
+                        <li>
+                            <label class="container_input">14:00~15:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약완료</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_ok">
+                        <li>
+                            <label class="container_input">15:00~16:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약완료</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_ok"> 
+                        <li>
+                            <label class="container_input">16:00~17:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약완료</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_ok">
+                        <li>
+                            <label class="container_input">17:00~18:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약완료</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_ok">
+                        <li>
+                            <label class="container_input">18:00~19:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약완료</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_ok"> 
+                        <li>
+                            <label class="container_input">19:00~20:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약완료</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_ok">
+                        <li>
+                            <label class="container_input">20:00~21:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약완료</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_ok"> 
+                        <li>
+                            <label class="container_input">21:00~22:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약완료</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <!------//-------->
+        
+        <!----실내코트A-------->
+        <li>
+            <ul class="reserve_info_list_body">
+                <li><img src="/img/sub/img/a.jpg" class="reserve_info_img"><div class="reserve_info_name">실내코트 <font class="yellow_color">A</font></div></li>
+                <li>
+                    <ul class="reserve_info_list_action btn_on">    
+                        <li>
+                            <label class="container_input">06:00~07:00
+                              <input type="checkbox">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약가능</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_ok">    
+                        <li>
+                            <label class="container_input">07:00~08:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약완료</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_off">
+                        <li>
+                            <label class="container_input">08:00~09:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약불가</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_ok"> 
+                        <li>
+                            <label class="container_input">09:00~10:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약완료</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_ok">
+                        <li>
+                            <label class="container_input">10:00~11:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약완료</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_ok">
+                        <li>
+                            <label class="container_input">11:00~12:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약완료</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_ok">
+                        <li>
+                            <label class="container_input">12:00~13:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약완료</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_ok">
+                         <li>
+                            <label class="container_input">13:00~14:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약완료</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_ok">
+                        <li>
+                            <label class="container_input">14:00~15:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약완료</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_ok">
+                        <li>
+                            <label class="container_input">15:00~16:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약완료</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_ok"> 
+                        <li>
+                            <label class="container_input">16:00~17:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약완료</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_ok">
+                        <li>
+                            <label class="container_input">17:00~18:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약완료</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_ok">
+                        <li>
+                            <label class="container_input">18:00~19:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약완료</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_ok"> 
+                        <li>
+                            <label class="container_input">19:00~20:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약완료</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_ok">
+                        <li>
+                            <label class="container_input">20:00~21:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약완료</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_ok"> 
+                        <li>
+                            <label class="container_input">21:00~22:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약완료</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <!----//-------->
+        
+        <!----실내코트B-------->
+        <li>
+            <ul class="reserve_info_list_body">
+                <li><img src="/img/sub/img/b.jpg" class="reserve_info_img"><div class="reserve_info_name">실내코트 <font class="yellow_color">B</font></div></li>
+                <li>
+                    <ul class="reserve_info_list_action btn_on">    
+                        <li>
+                            <label class="container_input">06:00~07:00
+                              <input type="checkbox">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약가능</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_ok">    
+                        <li>
+                            <label class="container_input">07:00~08:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약완료</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_off">
+                        <li>
+                            <label class="container_input">08:00~09:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약불가</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_ok"> 
+                        <li>
+                            <label class="container_input">09:00~10:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약완료</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_ok">
+                        <li>
+                            <label class="container_input">10:00~11:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약완료</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_ok">
+                        <li>
+                            <label class="container_input">11:00~12:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약완료</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_ok">
+                        <li>
+                            <label class="container_input">12:00~13:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약완료</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_ok">
+                         <li>
+                            <label class="container_input">13:00~14:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약완료</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_ok">
+                        <li>
+                            <label class="container_input">14:00~15:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약완료</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_ok">
+                        <li>
+                            <label class="container_input">15:00~16:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약완료</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_ok"> 
+                        <li>
+                            <label class="container_input">16:00~17:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약완료</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_ok">
+                        <li>
+                            <label class="container_input">17:00~18:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약완료</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_ok">
+                        <li>
+                            <label class="container_input">18:00~19:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약완료</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_ok"> 
+                        <li>
+                            <label class="container_input">19:00~20:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약완료</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_ok">
+                        <li>
+                            <label class="container_input">20:00~21:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약완료</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_ok"> 
+                        <li>
+                            <label class="container_input">21:00~22:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약완료</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <!---//-------->
+        
+        <!----실내코트C-------->
+        <li>
+            <ul class="reserve_info_list_body">
+                <li><img src="/img/sub/img/c.jpg" class="reserve_info_img"><div class="reserve_info_name">실내코트 <font class="yellow_color">C</font></div></li>
+                <li>
+                    <ul class="reserve_info_list_action btn_on">    
+                        <li>
+                            <label class="container_input">06:00~07:00
+                              <input type="checkbox">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약가능</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_ok">    
+                        <li>
+                            <label class="container_input">07:00~08:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약완료</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_off">
+                        <li>
+                            <label class="container_input">08:00~09:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약불가</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_ok"> 
+                        <li>
+                            <label class="container_input">09:00~10:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약완료</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_ok">
+                        <li>
+                            <label class="container_input">10:00~11:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약완료</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_ok">
+                        <li>
+                            <label class="container_input">11:00~12:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약완료</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_ok">
+                        <li>
+                            <label class="container_input">12:00~13:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약완료</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_ok">
+                         <li>
+                            <label class="container_input">13:00~14:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약완료</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_ok">
+                        <li>
+                            <label class="container_input">14:00~15:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약완료</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_ok">
+                        <li>
+                            <label class="container_input">15:00~16:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약완료</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_ok"> 
+                        <li>
+                            <label class="container_input">16:00~17:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약완료</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_ok">
+                        <li>
+                            <label class="container_input">17:00~18:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약완료</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_ok">
+                        <li>
+                            <label class="container_input">18:00~19:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약완료</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_ok"> 
+                        <li>
+                            <label class="container_input">19:00~20:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약완료</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_ok">
+                        <li>
+                            <label class="container_input">20:00~21:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약완료</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="reserve_info_list_action btn_ok"> 
+                        <li>
+                            <label class="container_input">21:00~22:00
+                              <input type="checkbox" checked disabled="disabled">
+                              <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="btn_body">예약완료</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <!----//-------->
+    </ul>
+    <div class="btn_ok" onClick="">예약하기</div>
+</section>
+<section id="tab02" class="tab_box section-02 scroll">
+    <h3>이용안내</h3>
+    <ul class="info_ul">
+        <li>- 이용수칙: <font class="red_color">코트 내 음식물 및 커피 반입금지</font></li>
+        <li>- 시설예약 가능 기간은 오늘 기준으로 익일부터 14일 입니다.</li>
+        <li>- 이용시간은 <font class="red_color">6시~22시</font></li>
+        <li>- 시설이용료 ( 최소 현장 회원가입 선 포인트 구매 후 금액 차감 방식 )</li>
+    </ul>
+    <ul class="info_ul">
+        <li><b>평일:</b> <font class="red_color">실내 시간당 <b>40,000원</b>, 실외 시간당 <b>20,000원</b></font></li>
+        <li><b>주말:</b> <font class="red_color">실내 시간당 <b>50,000원</b>, 실외 시간당 <b>30,000원</b></font></li>
+    </ul>
+</section>
+<section id="tab03" class="tab_box section-03 scroll">
+    <h3>환불 및 취소규정</h3>
+    <table class="table_info">
+        <tr>
+            <th>기간 (사용예정일 기준)</th>
+            <th>비율 (이용료 기준)</th>
+        </tr>
+        <tr>
+            <td>6일전</td>
+            <td>이용료와 <font class="red_color">100% 환불</font></td>
+        </tr>
+        <tr>
+            <td>3일전~당일</td>
+            <td><font class="red_color">환불 금액 없음</font></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <ul class="info_ul">
+                    <li>※ <font class="red_color">천재지변 및 재난 등 행사로</font> 체육시설 이이이이불가 할 경우 <font class="red_color">100% 환불</font></li>
+                    <li>※ <b>환불절차</b>
+                        <div>-  멤버쉽 : 홈페이지 예약 취소</div> 
+                        <div>-  멤버쉽 : 네이버 예약페이지 취소</div>   
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+</section>
+<footer role="footer" data-include="/common/footer.html"></footer>
+</body>
+</html>

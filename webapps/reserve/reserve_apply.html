@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css"
+      integrity="sha384-v8BU367qNbs/aIZIxuivaU55N5GPF89WBerHoGA4QTcbUjYiLQtKdrfXnqAcXyTv" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/reset.css">
+ <link rel="stylesheet" href="/css/common.css">
+ <link rel="stylesheet" href="/css/sub.css">
+ <link rel="stylesheet" href="/css/reserve_apply.css">
+  <script type="text/javascript" src="/js/jquery-1.11.3.min.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/data.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <title>예약하기</title>
+  <style>
+
+        .tab_box ul{height:auto;overflow:hidden;}
+
+        .tab_box ul li{font-size:13px;}
+
+        .tab_box .table_info th, .tab_box .table_info td{font-size:13px;}
+
+        input[name="companion"]{height:35px;}
+
+    </style>
+</head>
+<body>
+<header class="top_header" role="header" data-include="/common/header.html"></header>
+<section class="tab_box">
+
+    <ul class="info_ul">
+
+        <h3>이용수칙</h3>
+
+        <!---20210706 li 전체 i/span 추가--->
+
+        <li><i class="left_centents">•</i> <span class="right_centents"> 규정된 시설물 외 임의로 다른 시설물 설치 및 다른 활동 금지</span></li>
+
+        <li><i class="left_centents">•</i> <span class="right_centents"> 실내전용 테니스화 착용(입장 전 신발 정리 필수)</span></li>
+
+        <li><i class="left_centents">•</i> <span class="right_centents"> 규정된 복장 착용</span></li>
+
+        <li><i class="left_centents">•</i> <span class="right_centents"> 자전거, 인라인스케이트 등 바퀴달린 용품 및 동력 차량 출입금지</span></li>
+
+        <li><i class="left_centents">•</i> <span class="right_centents"> 애완동물 동반 출입 금지</span></li>
+
+        <li><i class="left_centents">•</i> <span class="right_centents"> 취사행위 금지</span></li>
+
+        <li><i class="left_centents">•</i> <span class="right_centents"> 침, 껌 등을 뱉는 등 코트 바닥을 훼손 또는 오염시키는 행위 금지</span></li>
+
+        <li><i class="left_centents">•</i> <span class="right_centents"> 예약된 코트 사용과 이용 시간 및 정리정돈 엄수 등</span></li>
+
+        <li><i class="left_centents">•</i> <span class="right_centents"> 코트장 내 커피 및 음식 반입금지</span></li>
+
+    </ul>
+
+
+
+    <table class="table_info table_info_apply"><!---20210706 class추가--->
+
+    <!---20210706 colgroup 추가--->
+
+        <colgroup>
+
+            <col width="7%">
+
+            <col>
+
+        </colgroup>
+
+        <tbody><tr>
+
+            <th>이용시간</th>
+
+            <td>
+
+                
+
+                    2021-07-12 / 14:00~15:00 <span class="span_block"> (<font class="red_color">실내코트 B</font>)<br></span><!---20210706 span 추가--->
+
+                
+
+            </td>
+
+        </tr>
+
+        
+
+        <tr>
+
+            <th>예약자명</th>
+
+            <td>
+
+                
+
+                관리자
+
+            </td>
+
+        </tr>
+
+        <tr>
+
+            <th>연락처</th>
+
+            <td>010-1234-5678
+
+                <br><font class="red_color">※ 회원가입 시 등록된 휴대폰 번호로 예약정보가 발송 됩니다.</font>
+
+            </td>
+
+        </tr>
+
+        <tr>
+
+            <th>사용인원</th>
+
+            <td>
+
+                <input type="number" name="companion" value="0" max="10">
+
+                
+
+            </td>
+
+        </tr>
+
+        <tr>
+
+            <th>이용료</th>
+
+            <td>
+
+                
+
+                    
+
+                
+
+
+
+                <font class="red_color">33,000원</font> <!---20210706 이부분 차감 문구 뺌---->
+
+            </td>
+
+        </tr>
+
+    </tbody></table>
+
+    <div class="table_rowspan_span_block reserveApply_text"><span class="red_color">※ 현장 방문시 키오스크에서 최종 결제 됩니다.</span></div><!---20210706 이부분추가---->
+
+    <div class="check_box"><input type="checkbox" id="rsvAgree"> <label for="rsvAgree">위 내용을 확인하였습니다.</label></div>
+
+    <div class="btn_body">
+
+        <ul>
+
+            <li onclick="location.href = '/rsv/reserve';">취소</li>
+
+            <li onclick="apply.reservation(); return false;">예약하기</li>
+
+        </ul>
+
+    </div>
+
+</section>
+<footer role="footer" data-include="/common/footer.html"></footer>
+</body>
+</html>

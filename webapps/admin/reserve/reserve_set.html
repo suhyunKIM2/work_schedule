@@ -1,0 +1,1190 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" integrity="sha384-v8BU367qNbs/aIZIxuivaU55N5GPF89WBerHoGA4QTcbUjYiLQtKdrfXnqAcXyTv" crossorigin="anonymous">
+<link rel="stylesheet" href="/admin/css/reset.css">
+<link rel="stylesheet" href="/admin/css/common.css">
+<script type="text/javascript" src="/js/jquery-1.11.3.min.js"></script>
+<script src="/admin/js/calendar.js"></script>
+<script src="/admin/js/layer_popup.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<title>테니스아레나 예약관리</title>
+
+<!----코트별 일주일 체크 전체 해제 및 선택 추가 20210630 예시) 6~7시 부분 적용 ----->
+<script type="text/javascript"> 
+$(function(){ //전체선택 체크박스 클릭
+
+    $("#allCheck_01").click(function(){
+        if($("#allCheck_01").prop("checked")) { 
+     $(this).closest('.schedule_set tr').find("input[name=Check_01]").prop("checked",true);
+        } else { 
+    $(this).closest('.schedule_set tr').find("input[name=Check_01]").prop("checked",false); 
+        } 
+    }) 
+    
+    $("#allCheck_02").click(function(){
+        if($("#allCheck_02").prop("checked")) { 
+     $(this).closest('.schedule_set tr').find("input[name=Check_02]").prop("checked",true);
+        } else { 
+    $(this).closest('.schedule_set tr').find("input[name=Check_02]").prop("checked",false); 
+        } 
+    }) 
+    
+    $("#allCheck_03").click(function(){ 
+        if($("#allCheck_03").prop("checked")) { 
+     $(this).closest('.schedule_set tr').find("input[name=Check_03]").prop("checked",true); 
+        } else { 
+    $(this).closest('.schedule_set tr').find("input[name=Check_03]").prop("checked",false); 
+        } 
+    }) 
+    
+    $("#allCheck_04").click(function(){
+        if($("#allCheck_04").prop("checked")) { 
+     $(this).closest('.schedule_set tr').find("input[name=Check_04]").prop("checked",true); 
+        } else { 
+    $(this).closest('.schedule_set tr').find("input[name=Check_04]").prop("checked",false); 
+        } 
+    }) 
+});
+</script>
+
+</head>
+<body>
+<header class="top_header"><div role="header" data-include-path="/admin/common/header.html"></div></header>
+<div role="nav_left" data-include-path="/admin/common/nav_left.html"></div>
+<section class="tab_box">
+    <div class="nav_right">예약관리 > <span class="color_point_01">예약정보설정</span></div>
+    <div class="date_box_set">
+            <ul>  
+                <li>
+                    <h4>코<span class="line_a">트 :</span> </h4>
+                    <input type="checkbox" id="ch_01" class="checkbox-style" checked /><label for="ch_01">실외코트
+                    <input type="checkbox" id="ch_02" class="checkbox-style" checked/><label for="ch_02">실내A
+                    <input type="checkbox" id="ch_03" class="checkbox-style" checked/><label for="ch_03">실내B
+                    <input type="checkbox" id="ch_04" class="checkbox-style" checked/><label for="ch_04">실내C
+                </li>
+                <li>
+                    <h4>예약기간 : </h4>
+                    <input type="text" id="datepicker" placeholder="0000-00-00"> ~ <input type="text" id="datepicker2" placeholder="0000-00-00">
+                    <button type="button" onClick="" class="btn_set"> 예약일 설정</button>
+                </li>
+             </ul>
+        </div>
+    <div class="right_set">
+
+       <table class="schedule_set">
+           <caption><button type="button" onClick="" class="btn-prev">&lsaquo;</button>2021년 4월<button type="button" onClick="" class="btn_next">&rsaquo;</button></caption>
+            <!----20210628 수정---->
+            <colgroup>
+                <col style="width:15%">
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+            </colgroup>
+            <!----20210628 수정 끝---->
+            <thead>
+            <tr class="schedule_lst">
+                <th scope="col">시간</th>
+                <th scope="col">4월 5일(월)</th>
+                <th scope="col">4월 6일(화)</th>
+                <th scope="col">4월 7일(수)</th>
+                <th scope="col">4월 8일(목)</th>
+                <th scope="col">4월 9일(금)</th>
+                <th scope="col">4월 10일(토)</th>
+                <th scope="col">4월 11일(일)</th>
+            </tr>
+            </thead>
+            <style>
+                .tab_box .schedule_set ul.all_ch_box {text-align: center;}
+                .tab_box .schedule_set ul.all_ch_box li{display:inline-block;}
+            </style>
+            <tr>
+                <td>
+                    <p>06:00~07:00</p>
+                    <ul class="all_ch_box">
+                        <li><input type="checkbox" class="ch_set" id="allCheck_01" checked><b>실외 </b></li>
+                        <li><input type="checkbox" class="ch_set" id="allCheck_02" checked><b>A </b></li>
+                        <li><input type="checkbox" class="ch_set" id="allCheck_03" checked><b>B </b></li>
+                        <li><input type="checkbox" class="ch_set" id="allCheck_04" checked><b>c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>07:00~08:00</p>
+                    <ul class="all_ch_box">
+                        <li><input type="checkbox" class="ch_set" id="allCheck_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" id="allCheck_02" checked><b>A </b></li>
+                        <li><input type="checkbox" class="ch_set" id="allCheck_03" checked><b>B </b></li>
+                        <li><input type="checkbox" class="ch_set" id="allCheck_04" checked><b>c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>08:00~09:00</p>
+                    <ul class="all_ch_box">
+                        <li><input type="checkbox" class="ch_set" id="allCheck_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" id="allCheck_02" checked><b>A </b></li>
+                        <li><input type="checkbox" class="ch_set" id="allCheck_03" checked><b>B </b></li>
+                        <li><input type="checkbox" class="ch_set" id="allCheck_04" checked><b>c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>09:00~10:00</p>
+                    <ul class="all_ch_box">
+                        <li><input type="checkbox" class="ch_set" id="allCheck_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" id="allCheck_02" checked><b>A </b></li>
+                        <li><input type="checkbox" class="ch_set" id="allCheck_03" checked><b>B </b></li>
+                        <li><input type="checkbox" class="ch_set" id="allCheck_04" checked><b>c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>10:00~11:00</p>
+                    <ul class="all_ch_box">
+                        <li><input type="checkbox" class="ch_set" id="allCheck_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" id="allCheck_02" checked><b>A </b></li>
+                        <li><input type="checkbox" class="ch_set" id="allCheck_03" checked><b>B </b></li>
+                        <li><input type="checkbox" class="ch_set" id="allCheck_04" checked><b>c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>11:00~12:00</p>
+                    <ul class="all_ch_box">
+                        <li><input type="checkbox" class="ch_set" id="allCheck_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" id="allCheck_02" checked><b>A </b></li>
+                        <li><input type="checkbox" class="ch_set" id="allCheck_03" checked><b>B </b></li>
+                        <li><input type="checkbox" class="ch_set" id="allCheck_04" checked><b>c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>12:00~13:00</p>
+                    <ul class="all_ch_box">
+                        <li><input type="checkbox" class="ch_set" id="allCheck_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" id="allCheck_02" checked><b>A </b></li>
+                        <li><input type="checkbox" class="ch_set" id="allCheck_03" checked><b>B </b></li>
+                        <li><input type="checkbox" class="ch_set" id="allCheck_04" checked><b>c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>13:00~14:00</p>
+                    <ul class="all_ch_box">
+                        <li><input type="checkbox" class="ch_set" id="allCheck_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" id="allCheck_02" checked><b>A </b></li>
+                        <li><input type="checkbox" class="ch_set" id="allCheck_03" checked><b>B </b></li>
+                        <li><input type="checkbox" class="ch_set" id="allCheck_04" checked><b>c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>14:00~15:00</p>
+                    <ul class="all_ch_box">
+                        <li><input type="checkbox" class="ch_set" id="allCheck_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" id="allCheck_02" checked><b>A </b></li>
+                        <li><input type="checkbox" class="ch_set" id="allCheck_03" checked><b>B </b></li>
+                        <li><input type="checkbox" class="ch_set" id="allCheck_04" checked><b>c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>15:00~16:00</p>
+                    <ul class="all_ch_box">
+                        <li><input type="checkbox" class="ch_set" id="allCheck_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" id="allCheck_02" checked><b>A </b></li>
+                        <li><input type="checkbox" class="ch_set" id="allCheck_03" checked><b>B </b></li>
+                        <li><input type="checkbox" class="ch_set" id="allCheck_04" checked><b>c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>16:00~17:00</p>
+                    <ul class="all_ch_box">
+                        <li><input type="checkbox" class="ch_set" id="allCheck_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" id="allCheck_02" checked><b>A </b></li>
+                        <li><input type="checkbox" class="ch_set" id="allCheck_03" checked><b>B </b></li>
+                        <li><input type="checkbox" class="ch_set" id="allCheck_04" checked><b>c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>17:00~18:00</p>
+                    <ul class="all_ch_box">
+                        <li><input type="checkbox" class="ch_set" id="allCheck_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" id="allCheck_02" checked><b>A </b></li>
+                        <li><input type="checkbox" class="ch_set" id="allCheck_03" checked><b>B </b></li>
+                        <li><input type="checkbox" class="ch_set" id="allCheck_04" checked><b>c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>18:00~19:00</p>
+                    <ul class="all_ch_box">
+                        <li><input type="checkbox" class="ch_set" id="allCheck_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" id="allCheck_02" checked><b>A </b></li>
+                        <li><input type="checkbox" class="ch_set" id="allCheck_03" checked><b>B </b></li>
+                        <li><input type="checkbox" class="ch_set" id="allCheck_04" checked><b>c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>19:00~20:00</p>
+                    <ul class="all_ch_box">
+                        <li><input type="checkbox" class="ch_set" id="allCheck_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" id="allCheck_02" checked><b>A </b></li>
+                        <li><input type="checkbox" class="ch_set" id="allCheck_03" checked><b>B </b></li>
+                        <li><input type="checkbox" class="ch_set" id="allCheck_04" checked><b>c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>20:00~21:00</p>
+                    <ul class="all_ch_box">
+                        <li><input type="checkbox" class="ch_set" id="allCheck_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" id="allCheck_02" checked><b>A </b></li>
+                        <li><input type="checkbox" class="ch_set" id="allCheck_03" checked><b>B </b></li>
+                        <li><input type="checkbox" class="ch_set" id="allCheck_04" checked><b>c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>21:00~22:00</p>
+                    <ul class="all_ch_box">
+                        <li><input type="checkbox" class="ch_set" id="allCheck_01" checked><b>실외</b></li>
+                        <li><input type="checkbox" class="ch_set" id="allCheck_02" checked><b>A </b></li>
+                        <li><input type="checkbox" class="ch_set" id="allCheck_03" checked><b>B </b></li>
+                        <li><input type="checkbox" class="ch_set" id="allCheck_04" checked><b>c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><input type="checkbox" class="ch_set" name="Check_01" checked><b>실외  </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_02" checked><b>실내A </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_03" checked><b>실내B </b></li>
+                        <li><input type="checkbox" class="ch_set" name="Check_04" checked><b>실내c </b></li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div style="text-align:center;"><button type="button" onclick="" class="btn_set"> 저장하기</button></div>
+</section>
+<footer><div role="footer" data-include-path="/admin/common/footer.html"></div></footer>
+<script src="/admin/js/html_load.js"></script>
+</body>
+</html>
