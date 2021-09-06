@@ -16,15 +16,18 @@
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <link rel="stylesheet" href="/hr/attendance/css/attendance.css" type="text/css"/>
+
 <script>
-function action_add(){
-     var parent = $('.add_action').parent('.schedule_select');
-     var ul_list = parent.find("#ul_list")
-    var text_add = '지정근무지'
+
+
+$(document).on('click', '.schedule_table tr td ul li #add_action', function(){
+    var ul_list = $('.list_ul_work #ul_list');
+     var text_add = '지정근무지'
     var btn_delete = 'X'
-	//var ul_list = $("#ul_list"); //ul_list선언
-	ul_list.append("<li class='place_work appointed_work' onClick=''>"+text_add+"<span class='btn-delete'>"+btn_delete+"</span></li>"); //ul_list안쪽에 li추가
-}
+     $(this).parent().find(ul_list).append("<li class='place_work appointed_work' onClick=''>"+text_add+"<span class='btn-delete'>"+btn_delete+"</span></li>");
+});
+
+
 
 //Javascript
 $(document).on('click', '#ul_list li .btn-delete', function(){
@@ -35,32 +38,251 @@ $(document).on('click', '#ul_list li .btn-delete', function(){
 
 
 $(function(){
+$("#selectBox_sun").on("change",function() {
 
+     
+    if($("#selectBox_sun").val() == "option1") {
+         $(this).parent().parent().append("<li class='place_work' onclick='wrapWindowByMask();'>기본근무지</li>");
 
-//$(".schedule_table .schedule_select li select").show();
+    }  else {
+         $(this).parent().parent().find('.place_work').remove();
+    }
+    
+    if($("#selectBox_sun").val() == "option2") {
+         $(this).parent().parent().append("<li class='list_ul_work'><ul id='ul_list'><li class='place_work appointed_work' onclick='wrapWindowByMask();'>지정근무지<span class='btn-delete'>X</span></li></ul><div class='add_action' id='add_action'>+ 추가하기</div></li>");
 
+    }  else {
+         $(this).parent().parent().find('.list_ul_work').remove();
+    }
+    
+    if($("#selectBox_sun").val() == "option3") {
+         $(this).parent().prevAll().children().css('display','none');
+          $(this).parent().nextAll().css('display','none');
 
+    }  else {
+         $(this).parent().prevAll().children().css('display','block');
+          $(this).parent().nextAll().css('display','block');
 
-$("#selectBox").change(function() {
-
-
-		if($("#selectBox").val() == "option3") {
-             $("#selectBox").parents().css('display','none');
-			//$(".schedule_table tr td").children('.schedule_select li select').show();
-
-		}  else {
-             $("#selectBox").parents().css('display','block');    
-			//$(".schedule_table tr td").children('.schedule_select li select').hide();
-
-		}
-
-		
-
-	}) 
-
-	
-
+    }
+}) 
 });
+
+$(function(){
+$("#selectBox_mon").on("change",function() {
+
+     
+    if($("#selectBox_mon").val() == "option1") {
+         $(this).parent().parent().append("<li class='place_work' onclick='wrapWindowByMask();'>기본근무지</li>");
+
+    }  else {
+         $(this).parent().parent().find('.place_work').remove();
+    }
+    
+    if($("#selectBox_mon").val() == "option2") {
+         $(this).parent().parent().append("<li class='list_ul_work'><ul id='ul_list'><li class='place_work appointed_work' onclick='wrapWindowByMask();'>지정근무지<span class='btn-delete'>X</span></li></ul><div class='add_action' id='add_action'>+ 추가하기</div></li>");
+
+    }  else {
+         $(this).parent().parent().find('.list_ul_work').remove();
+    }
+    
+    if($("#selectBox_mon").val() == "option3") {
+         $(this).parent().prevAll().children().css('display','none');
+          $(this).parent().nextAll().css('display','none');
+
+    }  else {
+         $(this).parent().prevAll().children().css('display','block');
+          $(this).parent().nextAll().css('display','block');
+
+    }
+}) 
+});
+
+$(function(){
+$("#selectBox_tue").on("change",function() {
+
+     
+    if($("#selectBox_tue").val() == "option1") {
+         $(this).parent().parent().append("<li class='place_work' onclick='wrapWindowByMask();'>기본근무지</li>");
+
+    }  else {
+         $(this).parent().parent().find('.place_work').remove();
+    }
+    
+    if($("#selectBox_tue").val() == "option2") {
+         $(this).parent().parent().append("<li class='list_ul_work'><ul id='ul_list'><li class='place_work appointed_work' onclick='wrapWindowByMask();'>지정근무지<span class='btn-delete'>X</span></li></ul><div class='add_action' id='add_action'>+ 추가하기</div></li>");
+
+    }  else {
+         $(this).parent().parent().find('.list_ul_work').remove();
+    }
+    
+    if($("#selectBox_tue").val() == "option3") {
+         $(this).parent().prevAll().children().css('display','none');
+          $(this).parent().nextAll().css('display','none');
+
+    }  else {
+         $(this).parent().prevAll().children().css('display','block');
+          $(this).parent().nextAll().css('display','block');
+
+    }
+}) 
+});
+
+$(function(){
+$("#selectBox_wed").on("change",function() {
+
+     
+    if($("#selectBox_wed").val() == "option1") {
+         $(this).parent().parent().append("<li class='place_work' onclick='wrapWindowByMask();'>기본근무지</li>");
+
+    }  else {
+         $(this).parent().parent().find('.place_work').remove();
+    }
+    
+    if($("#selectBox_wed").val() == "option2") {
+         $(this).parent().parent().append("<li class='list_ul_work'><ul id='ul_list'><li class='place_work appointed_work' onclick='wrapWindowByMask();'>지정근무지<span class='btn-delete'>X</span></li></ul><div class='add_action' id='add_action'>+ 추가하기</div></li>");
+
+    }  else {
+         $(this).parent().parent().find('.list_ul_work').remove();
+    }
+    
+    if($("#selectBox_wed").val() == "option3") {
+         $(this).parent().prevAll().children().css('display','none');
+          $(this).parent().nextAll().css('display','none');
+
+    }  else {
+         $(this).parent().prevAll().children().css('display','block');
+          $(this).parent().nextAll().css('display','block');
+
+    }
+}) 
+});
+
+$(function(){
+$("#selectBox_thu").on("change",function() {
+
+     
+    if($("#selectBox_thu").val() == "option1") {
+         $(this).parent().parent().append("<li class='place_work' onclick='wrapWindowByMask();'>기본근무지</li>");
+
+    }  else {
+         $(this).parent().parent().find('.place_work').remove();
+    }
+    
+    if($("#selectBox_thu").val() == "option2") {
+         $(this).parent().parent().append("<li class='list_ul_work'><ul id='ul_list'><li class='place_work appointed_work' onclick='wrapWindowByMask();'>지정근무지<span class='btn-delete'>X</span></li></ul><div class='add_action' id='add_action'>+ 추가하기</div></li>");
+
+    }  else {
+         $(this).parent().parent().find('.list_ul_work').remove();
+    }
+    
+    if($("#selectBox_thu").val() == "option3") {
+         $(this).parent().prevAll().children().css('display','none');
+          $(this).parent().nextAll().css('display','none');
+
+    }  else {
+         $(this).parent().prevAll().children().css('display','block');
+          $(this).parent().nextAll().css('display','block');
+
+    }
+}) 
+});
+
+$(function(){
+$("#selectBox_fri").on("change",function() {
+
+     
+    if($("#selectBox_fri").val() == "option1") {
+         $(this).parent().parent().append("<li class='place_work' onclick='wrapWindowByMask();'>기본근무지</li>");
+
+    }  else {
+         $(this).parent().parent().find('.place_work').remove();
+    }
+    
+    if($("#selectBox_fri").val() == "option2") {
+         $(this).parent().parent().append("<li class='list_ul_work'><ul id='ul_list'><li class='place_work appointed_work' onclick='wrapWindowByMask();'>지정근무지<span class='btn-delete'>X</span></li></ul><div class='add_action' id='add_action'>+ 추가하기</div></li>");
+
+    }  else {
+         $(this).parent().parent().find('.list_ul_work').remove();
+    }
+    
+    if($("#selectBox_fri").val() == "option3") {
+         $(this).parent().prevAll().children().css('display','none');
+          $(this).parent().nextAll().css('display','none');
+
+    }  else {
+         $(this).parent().prevAll().children().css('display','block');
+          $(this).parent().nextAll().css('display','block');
+
+    }
+}) 
+});
+
+$(function(){
+$("#selectBox_sat").on("change",function() {
+
+     
+    if($("#selectBox_sat").val() == "option1") {
+         $(this).parent().parent().append("<li class='place_work' onclick='wrapWindowByMask();'>기본근무지</li>");
+
+    }  else {
+         $(this).parent().parent().find('.place_work').remove();
+    }
+    
+    if($("#selectBox_sat").val() == "option2") {
+         $(this).parent().parent().append("<li class='list_ul_work'><ul id='ul_list'><li class='place_work appointed_work' onclick='wrapWindowByMask();'>지정근무지<span class='btn-delete'>X</span></li></ul><div class='add_action' id='add_action'>+ 추가하기</div></li>");
+
+    }  else {
+         $(this).parent().parent().find('.list_ul_work').remove();
+    }
+    
+    if($("#selectBox_sat").val() == "option3") {
+         $(this).parent().prevAll().children().css('display','none');
+          $(this).parent().nextAll().css('display','none');
+
+    }  else {
+         $(this).parent().prevAll().children().css('display','block');
+          $(this).parent().nextAll().css('display','block');
+
+    }
+}) 
+});
+
+function wrapWindowByMask(){
+        //화면의 높이와 너비를 구한다.
+        var maskHeight = $(document).height();
+        var maskWidth = $('#wrap').width();  
+ 
+        //마스크의 높이와 너비를 화면 것으로 만들어 전체 화면을 채운다.
+        $('#mask').css({'width':maskWidth,'height':maskHeight});  
+ 
+        //애니메이션 효과 - 일단 1초동안 까맣게 됐다가 80% 불투명도로 간다.
+        $('#mask').fadeIn(100);
+        $('#mask').fadeTo("slow",0.8);    
+ 
+        //윈도우 같은 거 띄운다.
+        $('.window').show();
+    }
+ 
+    $(document).ready(function(){
+        //검은 막 띄우기
+        $('.openMask').click(function(e){
+            e.preventDefault();
+            wrapWindowByMask();
+        });
+ 
+        //닫기 버튼을 눌렀을 때
+        $('.window .close').click(function (e) {
+            //링크 기본동작은 작동하지 않도록 한다.
+            e.preventDefault();
+            $('#mask, .window').hide();
+        });       
+ 
+        //검은 막을 눌렀을 때
+        $('#mask').click(function () {
+            $(this).hide();
+            $('.window').hide();
+        });
+    });
 </script>
 
 <!-------------//---------------------->
@@ -131,9 +353,20 @@ $("#selectBox").change(function() {
              <input type="text" id="datepicker" placeholder="0000-00-00"> ~ <input type="text" id="datepicker2" placeholder="0000-00-00">
              <button type="button" onClick="" class="btn_set"> 조회</button>
          </li>
-         <li onClick="">근무지 지정</li>
+         <li class="popup_btn" id="popup_open"><a href="#" class="openMask">근무지 등록</a></li>
      </ul>
+     
       <table class="schedule_table">
+          <colgroup>
+              <col width="110px">
+              <col width="*">
+              <col width="*">
+              <col width="*">
+              <col width="*">
+              <col width="*">
+              <col width="*">
+              <col width="*">
+          </colgroup>
           <tr>
               <th>항목</th>
               <th class="day_off">08/29(일)</th>
@@ -171,14 +404,13 @@ $("#selectBox").change(function() {
                           </select>
                       </li>
                       <li>
-                          <select id="selectBox">
+                          <select id="selectBox_sun">
                               <option value="">선택</option>
                               <option value="option1">내근</option>
                               <option value="option2">외근</option>
                               <option value="option3">휴무</option>
                           </select>
                       </li>
-                      <li class="place_work" onClick="">기본근무지</li>
                   </ul>
               </td>
               <td>
@@ -200,18 +432,13 @@ $("#selectBox").change(function() {
                           </select>
                       </li>
                       <li>
-                          <select>
-                              <option>선택</option>
-                              <option>내근</option>
-                              <option selected>외근</option>
+                          <select id="selectBox_mon">
+                              <option value="">선택</option>
+                              <option value="option1">내근</option>
+                              <option value="option2">외근</option>
+                              <option value="option3">휴무</option>
                           </select>
                       </li>
-                      <li>
-                          <ul id="ul_list">
-                              <li class="place_work appointed_work" onClick="">지정근무지<span class="btn-delete">X</span></li>
-                          </ul>
-                      </li>
-                      <li class="add_action" onclick="action_add()">+ 추가하기</li>
                   </ul>
               </td>
               <td>
@@ -233,18 +460,13 @@ $("#selectBox").change(function() {
                           </select>
                       </li>
                       <li>
-                          <select>
-                              <option>선택</option>
-                              <option>내근</option>
-                              <option selected>외근</option>
+                          <select id="selectBox_tue">
+                              <option value="">선택</option>
+                              <option value="option1">내근</option>
+                              <option value="option2">외근</option>
+                              <option value="option3">휴무</option>
                           </select>
                       </li>
-                      <li>
-                          <ul id="ul_list">
-                              <li class="place_work appointed_work" onClick="">지정근무지<span class="btn-delete">X</span></li>
-                          </ul>
-                      </li>
-                      <li class="add_action" onclick="action_add()">+ 추가하기</li>
                   </ul>
               </td>
               <td>
@@ -266,13 +488,13 @@ $("#selectBox").change(function() {
                           </select>
                       </li>
                       <li>
-                          <select>
-                              <option>선택</option>
-                              <option selected>내근</option>
-                              <option>외근</option>
+                          <select id="selectBox_wed">
+                              <option value="">선택</option>
+                              <option value="option1">내근</option>
+                              <option value="option2">외근</option>
+                              <option value="option3">휴무</option>
                           </select>
                       </li>
-                      <li class="place_work" onClick="">기본근무지</li>
                   </ul>
               </td>
               <td>
@@ -294,13 +516,13 @@ $("#selectBox").change(function() {
                           </select>
                       </li>
                       <li>
-                          <select>
-                              <option>선택</option>
-                              <option selected>내근</option>
-                              <option>외근</option>
+                          <select id="selectBox_thu">
+                              <option value="">선택</option>
+                              <option value="option1">내근</option>
+                              <option value="option2">외근</option>
+                              <option value="option3">휴무</option>
                           </select>
                       </li>
-                      <li class="place_work" onClick="">기본근무지</li>
                   </ul>
               </td>
               <td>
@@ -322,13 +544,13 @@ $("#selectBox").change(function() {
                           </select>
                       </li>
                       <li>
-                          <select>
-                              <option>선택</option>
-                              <option selected>내근</option>
-                              <option>외근</option>
+                          <select id="selectBox_fri">
+                              <option value="">선택</option>
+                              <option value="option1">내근</option>
+                              <option value="option2">외근</option>
+                              <option value="option3">휴무</option>
                           </select>
                       </li>
-                      <li class="place_work" onClick="">기본근무지</li>
                   </ul>
               </td>
               <td>
@@ -350,22 +572,69 @@ $("#selectBox").change(function() {
                           </select>
                       </li>
                       <li>
-                          <select>
-                              <option>선택</option>
-                              <option selected>내근</option>
-                              <option>외근</option>
+                          <select id="selectBox_sat">
+                              <option value="">선택</option>
+                              <option value="option1">내근</option>
+                              <option value="option2">외근</option>
+                              <option value="option3">휴무</option>
                           </select>
                       </li>
-                      <li class="place_work" onClick="">기본근무지</li>
                   </ul>
               </td>
+              
           </tr>
       </table>
     </div>
+    
+
     <!-- E:page home --> 
   </div>
   <!-- E: page container --> 
   
+   <!-- S: 레이어팝업 --> 
+  <div id="mask"></div>
+    <div class="window">
+        <input type="button" href="#" class="close" value="나는야 닫기 버튼(.window .close)"/>
+        <table class="working_info">
+            <tr>
+                <th>근무지명</th>
+                <td>
+                    <select>
+                        <option>기본근무지</option>
+                        <option>지정근무지</option>
+                    </select>
+                </td>
+                
+            </tr>
+            <tr>
+                <th>근무지 주소</th>
+                <td>
+                    <input type="text">
+                    <button>조회</button>
+                    <button>근무지등록</button>
+                </td>
+            </tr>
+            <tr>
+                <th>근무지 목록</th>
+                <td>
+                    <select>
+                        <option>등록된 근무지가 없습니다.</option>
+                        <option>1. 서울 양천구 공항대로 644</option>
+                        <option>2. 서울 양천구 공항대로 644-00</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>지도 위치 확인</th>
+                <td>
+                   <div class="kakao_Maps_API"></div>
+                </td>
+            </tr>
+            
+        </table>
+        <div>근무지 저장</div>
+    </div>
+   <!-- E: 레이어팝업 --> 
 </div>
 <!-- E: wrapper -->
 <!-- T: top -->
