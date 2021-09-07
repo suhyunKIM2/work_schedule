@@ -1,14 +1,16 @@
 ﻿@charset "utf-8";
 /* CSS Document */
 .page_content h3{font-size:20px;font-weight: 600;margin: 2% 0;letter-spacing: -1px;}
-.schedule_ul li:nth-child(1){width:84%;display: inline-block;}
-.schedule_ul li:nth-child(2){width:15%;display: inline-block;background: #4684c0;color: #fff;text-align: center;cursor: pointer;height: 37px;line-height: 37px;}
+.schedule_ul{height:auto;overflow:hidden;margin-top: 22px;}
+.schedule_ul li:nth-child(1){width:84%;display: inline-block;float:left;}
+.schedule_ul li:nth-child(2){width:15%;display: inline-block;background: #4684c0;color: #fff;text-align: center;cursor: pointer;height: 37px;line-height: 37px;float:right;}
 .schedule_ul li:nth-child(2) a{color:#fff;}
-.schedule_ul li input[type="text"]{width:120px;text-align: center;height: 29px;font-size: 13px;}
+.schedule_ul li input[type="text"]{width:120px;text-align: center;height: 29px;font-size: 13px;float: left;border:1px solid #999;margin:0 2px;color:#000;font-weight: 600;font-family: sans-serif;}
 .schedule_ul li .btn_set{    margin-top: 0 !important;height: 37px;padding: 0 4%;background: #929292;color: #fff;}
+.schedule_ul li p{width:30px;height:35px;line-height:35px;text-align: center;float:left; border:1px solid #999;cursor: pointer;}
 .ui-datepicker .ui-datepicker-title{font-size:0;}
 .ui-datepicker select.ui-datepicker-month, .ui-datepicker select.ui-datepicker-year{color:#000;width:auto;margin:0 2px;font-size:13px;}
-.schedule_table{width:100%;margin: 4% auto;border: 1px solid #000;}
+.schedule_table{width:100%;margin:2% auto;border: 1px solid #000;}
 .schedule_table tr th{font-weight: 600;padding:2% 0;border-right:1px solid #000;}
 .schedule_table tr th:last-child{border-right:0;}
 .schedule_table tr th.day_off{color:#E80B0F;}
@@ -18,6 +20,7 @@
 .schedule_table tr td ul li{text-align:left;}
 .schedule_table .schedule_select li select{width:100%;font-size: 13px;margin-bottom:5%;color: #000;}
 .schedule_table .schedule_select li.place_work{text-align: center;background: #4684c0;color:#fff;} 
+.schedule_table .schedule_select li.place_work a{color:#fff;}
 .schedule_table tr td ul.schedule_th li{height:27px;}
 .schedule_table .schedule_select li.appointed_work{background:#99ca3c;cursor: pointer;margin-bottom:3px;}
 .schedule_table tr td ul#ul_list{width:100%;}
@@ -36,10 +39,10 @@
     }
     .window{
       display: none;
-      width:50%;
-      min-width: 600px;
-      height:60%;
-      max-height: 600px;
+      width:55%;
+      min-width: 660px;
+      height:auto;
+      max-height: 611px;
       overflow: auto;
       background:#fff;
       position:absolute;
@@ -59,6 +62,19 @@
 .working_info th{background:#f7f7f7;border-right:1px solid #eaeaea;color:#000;font-weight:600;vertical-align:middle;}
 .working_info th,.working_info td{padding:2%;font-size: 13px;}
 .working_info select,.working_info input{font-size:13px;border: 1px solid #cacaca;height: 40px;color:#000;}
+.working_info select.list_Entry{width:100%;}
 .working_info input{height:30px;width:54%;}
-.working_info button{width:20%;height: 38px;margin-top: 0 !important;line-height: 38px;font-weight:600;font-size:13px;}
+.working_info button{width:100%;height: 38px;margin-top: 0 !important;line-height: 38px;font-weight:600;font-size:13px;}
 .kakao_Maps_API{width:100%;margin:auto;height:250px;background:#eee;}
+.blue_pencil_btn,.appointed{display:none;}
+.Entry_btn,.blue_pencil_btn{width:41%;float:right;}
+.Entry_btn button,.blue_pencil_btn button{width:47%;}
+.btn_01_color{background:#4684c0;color:#fff;border:0;}
+.btn_02_color{background:#99ca3c;color:#fff;border:0;}
+.close_btn {width:30%; margin:5% auto;}
+.close_btn input{width:100%;background:#999;color:#fff;border:1px solid #999;height:50px;cursor: pointer;}
+
+.appointed_Entry_btn{display:none;}
+.close_btn.appointed_Entry_btn {width:45%;}
+.close_btn.appointed_Entry_btn .btn_02_color{background:#4684c0;height:50px;width:48%;margin-top:0 !important;margin: 0 1%;}
+.close_btn.appointed_Entry_btn .close{width:48%;margin: 0 1%;}

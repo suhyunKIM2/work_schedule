@@ -20,19 +20,21 @@
 <script>
 
 
+
 $(document).on('click', '.schedule_table tr td ul li #add_action', function(){
     var ul_list = $('.list_ul_work #ul_list');
      var text_add = '지정근무지'
     var btn_delete = 'X'
-     $(this).parent().find(ul_list).append("<li class='place_work appointed_work' onClick=''>"+text_add+"<span class='btn-delete'>"+btn_delete+"</span></li>");
+     $(this).parent().find(ul_list).append("<li class='place_work appointed_work'><a href='javascript:wrapWindowByMask_designation();'>"+text_add+"</a><span class='btn-delete'>"+btn_delete+"</span></li>");
 });
 
 
 
 //Javascript
-$(document).on('click', '#ul_list li .btn-delete', function(){
+$(document).on('click', '#ul_list li .btn-delete', function(e){
     var idx = $('#ul_list li').index(this);
     $(this).parent().eq(idx).remove();
+    event.stopPropagation();
 });
 
 
@@ -49,7 +51,7 @@ $("#selectBox_sun").on("change",function() {
     }
     
     if($("#selectBox_sun").val() == "option2") {
-         $(this).parent().parent().append("<li class='list_ul_work'><ul id='ul_list'><li class='place_work appointed_work' onclick='wrapWindowByMask();'>지정근무지<span class='btn-delete'>X</span></li></ul><div class='add_action' id='add_action'>+ 추가하기</div></li>");
+         $(this).parent().parent().append("<li class='list_ul_work'><ul id='ul_list'><li class='place_work appointed_work'><a href='javascript:wrapWindowByMask_designation();'>지정근무지</a><span class='btn-delete'>X</span></li></ul><div class='add_action' id='add_action'>+ 추가하기</div></li>");
 
     }  else {
          $(this).parent().parent().find('.list_ul_work').remove();
@@ -79,7 +81,7 @@ $("#selectBox_mon").on("change",function() {
     }
     
     if($("#selectBox_mon").val() == "option2") {
-         $(this).parent().parent().append("<li class='list_ul_work'><ul id='ul_list'><li class='place_work appointed_work' onclick='wrapWindowByMask();'>지정근무지<span class='btn-delete'>X</span></li></ul><div class='add_action' id='add_action'>+ 추가하기</div></li>");
+         $(this).parent().parent().append("<li class='list_ul_work'><ul id='ul_list'><li class='place_work appointed_work'><a href='javascript:wrapWindowByMask_designation();'>지정근무지</a><span class='btn-delete'>X</span></li></ul><div class='add_action' id='add_action'>+ 추가하기</div></li>");
 
     }  else {
          $(this).parent().parent().find('.list_ul_work').remove();
@@ -109,7 +111,7 @@ $("#selectBox_tue").on("change",function() {
     }
     
     if($("#selectBox_tue").val() == "option2") {
-         $(this).parent().parent().append("<li class='list_ul_work'><ul id='ul_list'><li class='place_work appointed_work' onclick='wrapWindowByMask();'>지정근무지<span class='btn-delete'>X</span></li></ul><div class='add_action' id='add_action'>+ 추가하기</div></li>");
+         $(this).parent().parent().append("<li class='list_ul_work'><ul id='ul_list'><li class='place_work appointed_work'><a href='javascript:wrapWindowByMask_designation();'>지정근무지</a><span class='btn-delete'>X</span></li></ul><div class='add_action' id='add_action'>+ 추가하기</div></li>");
 
     }  else {
          $(this).parent().parent().find('.list_ul_work').remove();
@@ -139,7 +141,7 @@ $("#selectBox_wed").on("change",function() {
     }
     
     if($("#selectBox_wed").val() == "option2") {
-         $(this).parent().parent().append("<li class='list_ul_work'><ul id='ul_list'><li class='place_work appointed_work' onclick='wrapWindowByMask();'>지정근무지<span class='btn-delete'>X</span></li></ul><div class='add_action' id='add_action'>+ 추가하기</div></li>");
+         $(this).parent().parent().append("<li class='list_ul_work'><ul id='ul_list'><li class='place_work appointed_work'><a href='javascript:wrapWindowByMask_designation();'>지정근무지</a><span class='btn-delete'>X</span></li></ul><div class='add_action' id='add_action'>+ 추가하기</div></li>");
 
     }  else {
          $(this).parent().parent().find('.list_ul_work').remove();
@@ -169,7 +171,7 @@ $("#selectBox_thu").on("change",function() {
     }
     
     if($("#selectBox_thu").val() == "option2") {
-         $(this).parent().parent().append("<li class='list_ul_work'><ul id='ul_list'><li class='place_work appointed_work' onclick='wrapWindowByMask();'>지정근무지<span class='btn-delete'>X</span></li></ul><div class='add_action' id='add_action'>+ 추가하기</div></li>");
+         $(this).parent().parent().append("<li class='list_ul_work'><ul id='ul_list'><li class='place_work appointed_work'><a href='javascript:wrapWindowByMask_designation();'>지정근무지</a><span class='btn-delete'>X</span></li></ul><div class='add_action' id='add_action'>+ 추가하기</div></li>");
 
     }  else {
          $(this).parent().parent().find('.list_ul_work').remove();
@@ -199,7 +201,7 @@ $("#selectBox_fri").on("change",function() {
     }
     
     if($("#selectBox_fri").val() == "option2") {
-         $(this).parent().parent().append("<li class='list_ul_work'><ul id='ul_list'><li class='place_work appointed_work' onclick='wrapWindowByMask();'>지정근무지<span class='btn-delete'>X</span></li></ul><div class='add_action' id='add_action'>+ 추가하기</div></li>");
+         $(this).parent().parent().append("<li class='list_ul_work'><ul id='ul_list'><li class='place_work appointed_work'><a href='javascript:wrapWindowByMask_designation();'>지정근무지</a><span class='btn-delete'>X</span></li></ul><div class='add_action' id='add_action'>+ 추가하기</div></li>");
 
     }  else {
          $(this).parent().parent().find('.list_ul_work').remove();
@@ -229,7 +231,7 @@ $("#selectBox_sat").on("change",function() {
     }
     
     if($("#selectBox_sat").val() == "option2") {
-         $(this).parent().parent().append("<li class='list_ul_work'><ul id='ul_list'><li class='place_work appointed_work' onclick='wrapWindowByMask();'>지정근무지<span class='btn-delete'>X</span></li></ul><div class='add_action' id='add_action'>+ 추가하기</div></li>");
+         $(this).parent().parent().append("<li class='list_ul_work'><ul id='ul_list'><li class='place_work appointed_work'><a href='javascript:wrapWindowByMask_designation();'>지정근무지</a><span class='btn-delete'>X</span></li></ul><div class='add_action' id='add_action'>+ 추가하기</div></li>");
 
     }  else {
          $(this).parent().parent().find('.list_ul_work').remove();
@@ -247,6 +249,52 @@ $("#selectBox_sat").on("change",function() {
 }) 
 });
 
+
+    
+$(function(){
+$("#selectBox_Entry").on("change",function() {
+
+     
+    if($("#selectBox_Entry").val() == "basic_Entry") {
+         $('.appointed').css('display','none');
+
+    }  else {
+         $('.appointed').css('display','table-row');
+    }
+    
+    if($("#selectBox_Entry").val() == "appointed_Entry") {
+         $('.appointed').css('display','table-row');
+
+    }  else {
+         $('.appointed').css('display','none');
+    }
+    
+}) 
+});  
+
+$(function(){
+$("#list_Entry").on("change",function() {
+
+     
+    if($("#list_Entry").val() == "list") {
+         $('.Entry_btn').css('display','none');
+         $('.blue_pencil_btn').css('display','block');
+
+    }  else {
+         $('.Entry_btn').css('display','block');
+         $('.blue_pencil_btn').css('display','none');
+    }
+    
+}) 
+});
+
+function setValues() {
+        var sh = document.getElementById("list_Entry");
+        var tt = document.getElementById("address_input");
+        tt.value = sh.options[sh.selectedIndex].text;
+    }
+
+/*근무지 등록 팝업*/
 function wrapWindowByMask(){
         //화면의 높이와 너비를 구한다.
         var maskHeight = $(document).height();
@@ -264,12 +312,16 @@ function wrapWindowByMask(){
     }
  
     $(document).ready(function(){
+       
+       
         //검은 막 띄우기
         $('.openMask').click(function(e){
             e.preventDefault();
             wrapWindowByMask();
         });
- 
+        
+        
+        
         //닫기 버튼을 눌렀을 때
         $('.window .close').click(function (e) {
             //링크 기본동작은 작동하지 않도록 한다.
@@ -282,7 +334,58 @@ function wrapWindowByMask(){
             $(this).hide();
             $('.window').hide();
         });
+        
     });
+    
+/*지정근무지 등록 팝업*/
+function wrapWindowByMask_designation(){
+        //화면의 높이와 너비를 구한다.
+        var maskHeight = $(document).height();
+        var maskWidth = $('#wrap').width();  
+ 
+        //마스크의 높이와 너비를 화면 것으로 만들어 전체 화면을 채운다.
+        $('#mask').css({'width':maskWidth,'height':maskHeight});  
+ 
+        //애니메이션 효과 - 일단 1초동안 까맣게 됐다가 80% 불투명도로 간다.
+        $('#mask').fadeIn(100);
+        $('#mask').fadeTo("slow",0.8);    
+        
+        $('.close_btn').css('display','none');
+        $('.close_btn.appointed_Entry_btn').css('display','block');
+        $('.appointed_Entry_btn').css('display','block');
+        $('.designation_hidden').css('display','none');
+        $('.appointed').css('display','table-row');
+        $('.appointed_option01').css('display','none');
+        $('.appointed_option02').attr('selected','selected');
+        //윈도우 같은 거 띄운다.
+        $('.window').show();
+    }
+ 
+    $(document).ready(function(){
+       
+       
+        //검은 막 띄우기
+        $('.schedule_table .schedule_select li.place_work a').click(function(e){
+            e.preventDefault();
+            wrapWindowByMask_designation();
+        });
+        
+        
+        
+        //닫기 버튼을 눌렀을 때
+        $('.window .close').click(function (e) {
+            //링크 기본동작은 작동하지 않도록 한다.
+            e.preventDefault();
+            $('#mask, .window').hide();
+        });       
+ 
+        //검은 막을 눌렀을 때
+        $('#mask').click(function () {
+            $(this).hide();
+            $('.window').hide();
+        });
+        
+    });    
 </script>
 
 <!-------------//---------------------->
@@ -349,9 +452,9 @@ function wrapWindowByMask(){
 </div>
      <ul class="schedule_ul">
          <li>
-             <span>근무기간</span>
-             <input type="text" id="datepicker" placeholder="0000-00-00"> ~ <input type="text" id="datepicker2" placeholder="0000-00-00">
-             <button type="button" onClick="" class="btn_set"> 조회</button>
+             <!--<input type="text" id="datepicker" placeholder="0000-00-00"> ~ <input type="text" id="datepicker2" placeholder="0000-00-00">
+             <button type="button" onClick="" class="btn_set"> 조회</button>-->
+             <p class="prev"><</p><input type="text" placeholder="2021.08 4주차"><p class="next">></p>
          </li>
          <li class="popup_btn" id="popup_open"><a href="#" class="openMask">근무지 등록</a></li>
      </ul>
@@ -594,33 +697,56 @@ function wrapWindowByMask(){
    <!-- S: 레이어팝업 --> 
   <div id="mask"></div>
     <div class="window">
-        <input type="button" href="#" class="close" value="나는야 닫기 버튼(.window .close)"/>
         <table class="working_info">
             <tr>
                 <th>근무지명</th>
                 <td>
-                    <select>
-                        <option>기본근무지</option>
-                        <option>지정근무지</option>
+                    <select id="selectBox_Entry">
+                        <option value="basic_Entry" class="appointed_option01">기본근무지</option>
+                        <option value="appointed_Entry" class="appointed_option02">지정근무지</option>
                     </select>
                 </td>
                 
             </tr>
-            <tr>
+            <tr class="designation_hidden">
                 <th>근무지 주소</th>
                 <td>
-                    <input type="text">
-                    <button>조회</button>
-                    <button>근무지등록</button>
+                    <input type="text" id="address_input">
+                    <div class="Entry_btn">
+                        <button onClick="" class="btn_01_color">위치보기</button>
+                        <button onClick="" class="btn_02_color">등록</button>
+                    </div>
+                    <div class="blue_pencil_btn">
+                        <button onClick="" class="btn_01_color">수정</button>
+                        <button onClick="" class="btn_02_color">삭제</button>
+                    </div>
                 </td>
             </tr>
-            <tr>
+            <tr class="appointed">
                 <th>근무지 목록</th>
                 <td>
-                    <select>
-                        <option>등록된 근무지가 없습니다.</option>
-                        <option>1. 서울 양천구 공항대로 644</option>
-                        <option>2. 서울 양천구 공항대로 644-00</option>
+                    <select class="list_Entry" id="list_Entry" onchange="setValues();">
+                        <option value="">등록된 근무지 조회</option>
+                        <option value="list">1. 서울 양천구 공항대로 644</option>
+                        <option value="list">2. 서울 양천구 공항대로 644-00</option>
+                        <option value="list">3. 서울 양천구 공항대로 644</option>
+                        <option value="list">4. 서울 양천구 공항대로 644-00</option>
+                        <option value="list">5. 서울 양천구 공항대로 644</option>
+                        <option value="list">6. 서울 양천구 공항대로 644</option>
+                        <option value="list">7. 서울 양천구 공항대로 644-00</option>
+                        <option value="list">8. 서울 양천구 공항대로 644</option>
+                        <option value="list">9. 서울 양천구 공항대로 644-00</option>
+                        <option value="list">10. 서울 양천구 공항대로 644</option>
+                        <option value="list">11. 서울 양천구 공항대로 644</option>
+                        <option value="list">12. 서울 양천구 공항대로 644-00</option>
+                        <option value="list">13. 서울 양천구 공항대로 644</option>
+                        <option value="list">14. 서울 양천구 공항대로 644-00</option>
+                        <option value="list">15. 서울 양천구 공항대로 644</option>
+                        <option value="list">16. 서울 양천구 공항대로 644</option>
+                        <option value="list">17. 서울 양천구 공항대로 644-00</option>
+                        <option value="list">18. 서울 양천구 공항대로 644</option>
+                        <option value="list">19. 서울 양천구 공항대로 644-00</option>
+                        <option value="list">20. 서울 양천구 공항대로 644</option>
                     </select>
                 </td>
             </tr>
@@ -632,7 +758,8 @@ function wrapWindowByMask(){
             </tr>
             
         </table>
-        <div>근무지 저장</div>
+        <div class="close_btn"><input type="button" href="#" class="close" value="닫기"/></div>
+        <div class="close_btn appointed_Entry_btn"><input type="button" href="#" class="close" value="닫기"/><button onClick="" class="btn_02_color">등록</button></div>
     </div>
    <!-- E: 레이어팝업 --> 
 </div>
