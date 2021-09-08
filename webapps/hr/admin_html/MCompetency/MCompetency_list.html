@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="Description" content="GN Food 인사관리 시스템입니다."/>
+<meta name="Author" content="GN Food co,. LTd." />
+<link rel="shortcut icon" href="../images/favicon.ico"/>
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script>
+<script src="../js/menu.js" type="text/javascript"></script>
+<script src="../js/jquery.smooth-scroll.min.js" type="text/javascript"></script>
+<title>:::GN Food 인사관리자 사이트입니다.:::</title>
+
+<link rel="stylesheet" href="../css/content.css" type="text/css"/>
+</head>
+<body>
+<!-- S: wrapper -->
+<div id="wrap"> 
+  <!--  S: the  sidebar -->
+  <div id="sidebar"> 
+    <!-- logo --> 
+    <a href="../index.html" id="logo"><img src="../images/comm/left_logo.gif" alt="GNFood" /></a>
+	<p class="logotitle">인사관리자 사이트입니다.</p>	
+    <p class="user_name">관리자님<br>
+      환영합니다.</p>
+    <!-- navigation menu -->
+    <ul id="menu">
+	  <li><a href="#"><span>부서관리</span></a>
+        <ul class="current_bg">
+          <li class="pt10 pb10"><a href="#">부서리스트</a></li>         
+        </ul>
+      </li>
+	  <li><a href="#"><span>직원관리</span></a>
+        <ul class="current_bg">
+          <li class="pt10"><a href="#">직원 리스트</a></li>
+          <li class="pt10 pb10"><a href="#">퇴사직원 관리</a></li>
+        </ul>
+	  </li>
+      <li><a href="#" class="active"><span>월별 역량평가관리</span></a>
+      <ul class="current_bg">
+          <li class="pt10 current"><a href="/hr/admin_html//MCompetency/MCompetency_list.html">평가자 리스트</a></li>
+          <li><a href="/hr/admin_html//MCompetency/MCompetency_edit.html">개인 역량평가 수정</a></li>
+          <li class="pb10"><a href="/hr/admin_html//MCompetency/MCompetency_set.html">평가기간 설정</a></li>
+        </ul>
+      </li>
+      <li><a href="#"><span>연별 역량평가관리</span></a>
+        <ul class="current_bg">
+          <li class="pt10"><a href="../YCompetency/YCompetency_list.html">평가자 리스트</a></li>
+          <li><a href="#">개인 역량평가 수정</a></li>
+          <li class="pb10"><a href="#">평가기간 설정</a></li>
+        </ul>
+      </li>
+	  <li><a href="#"><span>결과/보고서</span></a>
+        <ul class="current_bg">
+          <li class="pt10"><a href="#">등급확정하기</a></li>
+          <li class="pt10 pb10"><a href="#">보고서 출력</a></li>
+        </ul>
+	  </li>
+      <li><a href="#"><span>기본설정</span></a>
+        <ul class="current_bg">
+          <li class="pt10"><a href="#">비밀번호수정</a></li>
+		  <li class="pt10 pb10"><a href="#">평가항목 분류관리</a></li>
+        </ul>
+      </li>
+      <li><a href="/hr/admin_html/attendance/work_schedule.html"><span>근무스케줄관리</span></a></li>
+      <li><a href="/hr/admin_html/attendance/work_schedule.html"><span>근무현황 조회</span></a></li>
+    </ul>
+  </div>
+  <!--  E: the  sidebar --> 
+  <!-- S: page container -->
+  <div id="container">
+    <div class="location"><img src="../images/comm/home.png"  alt="home" class="home"><span class="paren nowpage">&gt;</span>월별 역량평가관리<span class="paren nowpage">&gt;</span><span class="nowpage">평가자 리스트</span></div>
+    
+    <!-- S:page home -->
+    <div class="page_content">
+      <p class="visua_banner"><span class="page_tit">평가자 리스트</span></p>
+      <!--<div class="page_txt">
+        <dl>
+          <dt><span class="fb">- 평가하기 :</span> 리스트에서 대상자의 [평가하기] 버튼을 클릭하시면 해당대상자에 대해서 평가하실 수 있습니다.</dt>
+          <dd> 평가완료 된 직원은 리스트에서&nbsp;&nbsp;<img src="../images/comm/img_box.gif" alt="" class="vm"/>&nbsp;색으로 표시되며 [평가완료]로 변경됩니다.</dd>
+        </dl>
+        <dl class="mt5">
+          <dt><span class="fb">- 평가보기 :</span> 평가작성이 완료된 대상자의 [평가완료] 버튼을 클릭하시면 항목별 평가 내용을 보실 수 있습니다.</dt>
+          <dd></dd>
+        </dl>
+        <dl class="mt5">
+          <dt><span class="fb">- 평가 수정하기 :</span> 평가기간 동안은 평가완료 후에도 수정이 가능합니다. </dt>
+          <dd>재평가/수정을 하실 경우 [평가완료] 버튼을 클릭 후 상단에서 [수정하기] 
+            버튼을  클릭하면 수정 하실 수 있습니다</dd>
+        </dl>
+      </div>-->
+      <!-- s:탭메뉴 -->
+      <ul class="tabs">
+        <li class="active"><a href="#" title="이번 달 평가하기">이번 달 평가하기</a></li>
+        <li class="last"><a href="#" title="지난 평가 보기">지난 평가 보기</a></li>
+      </ul>
+      <!-- E:탭메뉴 --> 
+      <br>
+      <h4 class="cl"><img src="../images/comm/img_icon.gif" alt=""/>&nbsp;평가자 리스트입니다.&nbsp;<span class="fs12">(2014.03.01 ~ 2014.03.31)</span><span class="fs12 fr">(<!--<span class="red">완료 인원 1명</span> / -->총 인원 12명)</span></h4>	  
+      <table class="tstyle1 mt10 mb30 cl" cellpadding="0" cellspacing="0">
+        <col style="width:145px" />
+        <col style="width:120px" />
+        <col style="width:185px" />
+        <col style="width:180px" />
+        <col style="*" />
+        <tbody>
+          <tr>
+            <th class="tl pl10">이름</th>
+            <th>직급</th>
+            <th>부서</th>
+            <th>직무</th>
+            <th>평가상태</th>
+          </tr>
+          <tr class="core_end">
+            <td class="tl pl10">김현정님</td>
+            <td>대리</td>
+            <td>굽네치킨사업부</td>
+            <td>영업관리팀</td>
+            <td><a href="#" onclick="window.open('../CDPopup/pop_resultPriview.html','pop1','width=725,height=600,scrollbars=yes')" class="btntype1 fs12"><img src="../images/comm/print_icon.png" alt="" class="vm" />&nbsp;인쇄하기</a><a href="MCompetency_write.html" class="btntype1 ml15 fs12"><img src="../images/comm/view_icon.png" alt="" class="vm" />&nbsp;자세히보기</a></td>
+          </tr>
+          <tr>
+            <td class="tl">고윤하</td>
+            <td>대리</td>
+            <td>관리본부</td>
+            <td>전산팀</td>
+			<td><span class="btntype2 fs12"><img src="../images/comm/print_icon_no.png" alt="" class="vm" />&nbsp;인쇄하기</span><span class="btntype2 ml15 fs12"><img src="../images/comm/view_icon_no.png" alt="" class="vm" />&nbsp;자세히보기</span></td>
+          </tr>
+          <tr>
+            <td class="tl">손이나</td>
+            <td>주임</td>
+            <td>관리본부</td>
+            <td>전산팀</td>
+            <td><a href="#" onclick="window.open('../CDPopup/pop_resultPriview.html','pop1','width=725,height=600,scrollbars=yes')" class="btntype1 fs12"><img src="../images/comm/print_icon.png" alt="" class="vm" />&nbsp;인쇄하기</a><a href="MCompetency_write.html" class="btntype1 ml15 fs12"><img src="../images/comm/view_icon.png" alt="" class="vm" />&nbsp;자세히보기</a></td>
+          </tr>
+          <tr>
+            <td class="tl">도민준</td>
+            <td>사원</td>
+            <td>관리본부</td>
+            <td>전산팀</td>
+            <td><a href="#" onclick="window.open('../CDPopup/pop_resultPriview.html','pop1','width=725,height=600,scrollbars=yes')" class="btntype1 fs12"><img src="../images/comm/print_icon.png" alt="" class="vm" />&nbsp;인쇄하기</a><a href="MCompetency_write.html" class="btntype1 ml15 fs12"><img src="../images/comm/view_icon.png" alt="" class="vm" />&nbsp;자세히보기</a></td>
+          </tr>
+          <tr>
+            <td class="tl">김수현</td>
+            <td>사원</td>
+            <td>관리본부</td>
+            <td>전산팀</td>
+            <td><a href="#" onclick="window.open('../CDPopup/pop_resultPriview.html','pop1','width=725,height=600,scrollbars=yes')" class="btntype1 fs12"><img src="../images/comm/print_icon.png" alt="" class="vm" />&nbsp;인쇄하기</a><a href="MCompetency_write.html" class="btntype1 ml15 fs12"><img src="../images/comm/view_icon.png" alt="" class="vm" />&nbsp;자세히보기</a></td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- S:page number -->
+      <div class="pagenum tc"><a href="#" class="Previous">&lt;</a><a href="#" class="current">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a><a href="#">6</a><a href="#">7</a><a href="#">8</a><a href="#">9</a><a href="#">10</a><a href="#" class="Next">&gt;</a></div>
+      <!-- E:page number --> 
+      
+    </div>
+    <!-- E:page home --> 
+  </div>
+  <!-- E: page container --> 
+  <!-- S: footer -->
+  <div class="footer">
+    <div class="footer_box">
+      <p><img src="../images/comm/footer_logo.gif" alt="GN Food"/></p>
+      <p class="mt10">Copyright (C)2014 GN Food.</p>
+      <p>All rights reserved.</p>     
+    </div>
+  </div>
+  <!-- E: footer --> 
+</div>
+<!-- E: wrapper -->
+<!-- T: top -->
+<div>
+ <a class="gotop" href="#top">Top&nbsp;▲</a>
+<!-- E: top -->
+</div>
+</body>
+</html>
