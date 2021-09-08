@@ -44,7 +44,7 @@ $("#selectBox_sun").on("change",function() {
 
      
     if($("#selectBox_sun").val() == "option1") {
-         $(this).parent().parent().append("<li class='place_work' onclick='wrapWindowByMask();'>기본근무지</li>");
+         $(this).parent().parent().append("<li class='place_work' onclick='wrapWindowByMask_basic();'>기본근무지</li>");
 
     }  else {
          $(this).parent().parent().find('.place_work').remove();
@@ -74,7 +74,7 @@ $("#selectBox_mon").on("change",function() {
 
      
     if($("#selectBox_mon").val() == "option1") {
-         $(this).parent().parent().append("<li class='place_work' onclick='wrapWindowByMask();'>기본근무지</li>");
+         $(this).parent().parent().append("<li class='place_work' onclick='wrapWindowByMask_basic();'>기본근무지</li>");
 
     }  else {
          $(this).parent().parent().find('.place_work').remove();
@@ -104,7 +104,7 @@ $("#selectBox_tue").on("change",function() {
 
      
     if($("#selectBox_tue").val() == "option1") {
-         $(this).parent().parent().append("<li class='place_work' onclick='wrapWindowByMask();'>기본근무지</li>");
+         $(this).parent().parent().append("<li class='place_work' onclick='wrapWindowByMask_basic();'>기본근무지</li>");
 
     }  else {
          $(this).parent().parent().find('.place_work').remove();
@@ -134,7 +134,7 @@ $("#selectBox_wed").on("change",function() {
 
      
     if($("#selectBox_wed").val() == "option1") {
-         $(this).parent().parent().append("<li class='place_work' onclick='wrapWindowByMask();'>기본근무지</li>");
+         $(this).parent().parent().append("<li class='place_work' onclick='wrapWindowByMask_basic();'>기본근무지</li>");
 
     }  else {
          $(this).parent().parent().find('.place_work').remove();
@@ -164,7 +164,7 @@ $("#selectBox_thu").on("change",function() {
 
      
     if($("#selectBox_thu").val() == "option1") {
-         $(this).parent().parent().append("<li class='place_work' onclick='wrapWindowByMask();'>기본근무지</li>");
+         $(this).parent().parent().append("<li class='place_work' onclick='wrapWindowByMask_basic();'>기본근무지</li>");
 
     }  else {
          $(this).parent().parent().find('.place_work').remove();
@@ -194,7 +194,7 @@ $("#selectBox_fri").on("change",function() {
 
      
     if($("#selectBox_fri").val() == "option1") {
-         $(this).parent().parent().append("<li class='place_work' onclick='wrapWindowByMask();'>기본근무지</li>");
+         $(this).parent().parent().append("<li class='place_work' onclick='wrapWindowByMask_basic();'>기본근무지</li>");
 
     }  else {
          $(this).parent().parent().find('.place_work').remove();
@@ -224,7 +224,7 @@ $("#selectBox_sat").on("change",function() {
 
      
     if($("#selectBox_sat").val() == "option1") {
-         $(this).parent().parent().append("<li class='place_work' onclick='wrapWindowByMask();'>기본근무지</li>");
+         $(this).parent().parent().append("<li class='place_work' onclick='wrapWindowByMask_basic();'>기본근무지</li>");
 
     }  else {
          $(this).parent().parent().find('.place_work').remove();
@@ -257,16 +257,24 @@ $("#selectBox_Entry").on("change",function() {
      
     if($("#selectBox_Entry").val() == "basic_Entry") {
          $('.appointed').css('display','none');
+         $('#address_basic_input').css('display','inline-block');
+         $('.Entry_btn').css('display','block');
 
     }  else {
          $('.appointed').css('display','table-row');
+         $('#address_basic_input').css('display','none');
+         $('.Entry_btn').css('display','none');
     }
     
     if($("#selectBox_Entry").val() == "appointed_Entry") {
          $('.appointed').css('display','table-row');
+         $('#address_input').css('display','inline-block');
+         $('.blue_pencil_btn').css('display','block');
 
     }  else {
          $('.appointed').css('display','none');
+         $('#address_input').css('display','none');
+         $('.blue_pencil_btn').css('display','none');
     }
     
 }) 
@@ -306,7 +314,18 @@ function wrapWindowByMask(){
         //애니메이션 효과 - 일단 1초동안 까맣게 됐다가 80% 불투명도로 간다.
         $('#mask').fadeIn(100);
         $('#mask').fadeTo("slow",0.8);    
- 
+        
+        $('#address_input').css('display','inline-block');
+        $('.close_btn').css('display','block');
+        $('.close_btn.appointed_Entry_btn').css('display','none');
+        $('.appointed_Entry_btn').css('display','none');
+        $('.designation_hidden').css('display','table-row');
+        $('.appointed').css('display','none');
+        $('.appointed_option01').css('display','block');
+        $('.appointed_option02').attr('selected', false);
+        $('#selectBox_Entry option').attr('selected', false);
+        $('#selectBox_Entry option').css('display','block');
+        $('#basic_text').css('display','none');
         //윈도우 같은 거 띄운다.
         $('.window').show();
     }
@@ -335,6 +354,12 @@ function wrapWindowByMask(){
             $('.window').hide();
         });
         
+        $( '.close_btn, #mask').click(function () {
+            $( "#working_info_data" ).each( function () {
+                this.reset();
+            });
+        });
+        
     });
     
 /*지정근무지 등록 팝업*/
@@ -356,7 +381,9 @@ function wrapWindowByMask_designation(){
         $('.designation_hidden').css('display','none');
         $('.appointed').css('display','table-row');
         $('.appointed_option01').css('display','none');
+        $('.appointed_option02').css('display','block');
         $('.appointed_option02').attr('selected','selected');
+        $('#basic_text').css('display','none');
         //윈도우 같은 거 띄운다.
         $('.window').show();
     }
@@ -383,6 +410,76 @@ function wrapWindowByMask_designation(){
         $('#mask').click(function () {
             $(this).hide();
             $('.window').hide();
+        });
+        
+        $( '.close_btn, #mask').click(function () {
+            $( "#working_info_data" ).each( function () {
+                this.reset();
+            });
+            $('.blue_pencil_btn').css('display','none');
+            $('.Entry_btn').css('display','block');
+        });
+        
+    });
+    
+/*기본근무지 등록 팝업*/
+function wrapWindowByMask_basic(){
+        //화면의 높이와 너비를 구한다.
+        var maskHeight = $(document).height();
+        var maskWidth = $('#wrap').width();  
+ 
+        //마스크의 높이와 너비를 화면 것으로 만들어 전체 화면을 채운다.
+        $('#mask').css({'width':maskWidth,'height':maskHeight});  
+ 
+        //애니메이션 효과 - 일단 1초동안 까맣게 됐다가 80% 불투명도로 간다.
+        $('#mask').fadeIn(100);
+        $('#mask').fadeTo("slow",0.8);    
+        
+        $('.close_btn').css('display','none');
+        $('.close_btn.appointed_Entry_btn').css('display','block');
+        $('#basic_text').css('display','block');
+        $('#address_basic_input').css('display','none');
+        $('.appointed_Entry_btn').css('display','block');
+        $('.designation_hidden').css('display','table-row');
+        $('#address_input').css('display','none');
+        $('.Entry_btn').css('display','none');
+        $('.appointed').css('display','none');
+        $('.appointed_option01').css('display','block');
+        $('.appointed_option02').css('display','none');
+        $('.appointed_option01').attr('selected','selected');
+        $('.appointed_option02').attr('selected',false);
+        //윈도우 같은 거 띄운다.
+        $('.window').show();
+    }
+ 
+    $(document).ready(function(){
+       
+       
+        //검은 막 띄우기
+        $('.schedule_table .schedule_select li.place_work a').click(function(e){
+            e.preventDefault();
+            wrapWindowByMask_basic();
+        });
+        
+        
+        
+        //닫기 버튼을 눌렀을 때
+        $('.window .close').click(function (e) {
+            //링크 기본동작은 작동하지 않도록 한다.
+            e.preventDefault();
+            $('#mask, .window').hide();
+        });       
+ 
+        //검은 막을 눌렀을 때
+        $('#mask').click(function () {
+            $(this).hide();
+            $('.window').hide();
+        });
+        
+        $( '.close_btn, #mask').click(function () {
+            $( "#working_info_data" ).each( function () {
+                this.reset();
+            });
         });
         
     });    
@@ -697,6 +794,7 @@ function wrapWindowByMask_designation(){
    <!-- S: 레이어팝업 --> 
   <div id="mask"></div>
     <div class="window">
+    <form id="working_info_data">
         <table class="working_info">
             <tr>
                 <th>근무지명</th>
@@ -711,12 +809,14 @@ function wrapWindowByMask_designation(){
             <tr class="designation_hidden">
                 <th>근무지 주소</th>
                 <td>
-                    <input type="text" id="address_input">
-                    <div class="Entry_btn">
+                    <span id="basic_text">서울 양천구 공항대로 644</span><!---리스트 중 기본근무지 개별 팝업 때 노출--->
+                    <input type="text" id="address_basic_input"><!---근무지 등록 팝업시 기본근무지 기입 수정 input--->
+                    <input type="text" id="address_input"><!---근무지 등록 팝업시 지정근무지 기입 수정 input--->
+                    <div class="Entry_btn"><!---근무지 등록 팝업시 기본근무지 & 지정근무지 최초 위치보기 및 등록 버튼--->
                         <button onClick="" class="btn_01_color">위치보기</button>
                         <button onClick="" class="btn_02_color">등록</button>
                     </div>
-                    <div class="blue_pencil_btn">
+                    <div class="blue_pencil_btn"><!---근무지 등록 팝업시 지정근무지 리스트 수정 및 삭제 버튼--->
                         <button onClick="" class="btn_01_color">수정</button>
                         <button onClick="" class="btn_02_color">삭제</button>
                     </div>
@@ -758,6 +858,7 @@ function wrapWindowByMask_designation(){
             </tr>
             
         </table>
+        </form>
         <div class="close_btn"><input type="button" href="#" class="close" value="닫기"/></div>
         <div class="close_btn appointed_Entry_btn"><input type="button" href="#" class="close" value="닫기"/><button onClick="" class="btn_02_color">등록</button></div>
     </div>

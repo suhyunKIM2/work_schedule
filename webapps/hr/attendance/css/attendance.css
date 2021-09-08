@@ -43,7 +43,6 @@
       min-width: 660px;
       height:auto;
       max-height: 611px;
-      overflow: auto;
       background:#fff;
       position:absolute;
       left:50%;
@@ -59,7 +58,7 @@
 .working_info{width:90%;margin:5% auto;border:1px solid #eaeaea;}  
 .working_info tr{border-bottom:1px solid #eaeaea;}
 .working_info tr:last-child{border-bottom:0;}
-.working_info th{background:#f7f7f7;border-right:1px solid #eaeaea;color:#000;font-weight:600;vertical-align:middle;}
+.working_info th{background:#f7f7f7;border-right:1px solid #eaeaea;color:#000;font-weight:600;vertical-align:middle;width: 140px;}
 .working_info th,.working_info td{padding:2%;font-size: 13px;}
 .working_info select,.working_info input{font-size:13px;border: 1px solid #cacaca;height: 40px;color:#000;}
 .working_info select.list_Entry{width:100%;}
@@ -78,3 +77,4 @@
 .close_btn.appointed_Entry_btn {width:45%;}
 .close_btn.appointed_Entry_btn .btn_02_color{background:#4684c0;height:50px;width:48%;margin-top:0 !important;margin: 0 1%;}
 .close_btn.appointed_Entry_btn .close{width:48%;margin: 0 1%;}
+#address_basic_input,#address_input{display:none;}
