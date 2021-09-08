@@ -44,7 +44,7 @@ $("#selectBox_sun").on("change",function() {
 
      
     if($("#selectBox_sun").val() == "option1") {
-         $(this).parent().parent().append("<li class='place_work' onclick='wrapWindowByMask_basic();'>기본근무지</li>");
+         $(this).parent().parent().append("<li class='place_work'>기본근무지</li>");
 
     }  else {
          $(this).parent().parent().find('.place_work').remove();
@@ -74,7 +74,7 @@ $("#selectBox_mon").on("change",function() {
 
      
     if($("#selectBox_mon").val() == "option1") {
-         $(this).parent().parent().append("<li class='place_work' onclick='wrapWindowByMask_basic();'>기본근무지</li>");
+         $(this).parent().parent().append("<li class='place_work'>기본근무지</li>");
 
     }  else {
          $(this).parent().parent().find('.place_work').remove();
@@ -104,7 +104,7 @@ $("#selectBox_tue").on("change",function() {
 
      
     if($("#selectBox_tue").val() == "option1") {
-         $(this).parent().parent().append("<li class='place_work' onclick='wrapWindowByMask_basic();'>기본근무지</li>");
+         $(this).parent().parent().append("<li class='place_work'>기본근무지</li>");
 
     }  else {
          $(this).parent().parent().find('.place_work').remove();
@@ -134,7 +134,7 @@ $("#selectBox_wed").on("change",function() {
 
      
     if($("#selectBox_wed").val() == "option1") {
-         $(this).parent().parent().append("<li class='place_work' onclick='wrapWindowByMask_basic();'>기본근무지</li>");
+         $(this).parent().parent().append("<li class='place_work'>기본근무지</li>");
 
     }  else {
          $(this).parent().parent().find('.place_work').remove();
@@ -164,7 +164,7 @@ $("#selectBox_thu").on("change",function() {
 
      
     if($("#selectBox_thu").val() == "option1") {
-         $(this).parent().parent().append("<li class='place_work' onclick='wrapWindowByMask_basic();'>기본근무지</li>");
+         $(this).parent().parent().append("<li class='place_work'>기본근무지</li>");
 
     }  else {
          $(this).parent().parent().find('.place_work').remove();
@@ -194,7 +194,7 @@ $("#selectBox_fri").on("change",function() {
 
      
     if($("#selectBox_fri").val() == "option1") {
-         $(this).parent().parent().append("<li class='place_work' onclick='wrapWindowByMask_basic();'>기본근무지</li>");
+         $(this).parent().parent().append("<li class='place_work'>기본근무지</li>");
 
     }  else {
          $(this).parent().parent().find('.place_work').remove();
@@ -224,7 +224,7 @@ $("#selectBox_sat").on("change",function() {
 
      
     if($("#selectBox_sat").val() == "option1") {
-         $(this).parent().parent().append("<li class='place_work' onclick='wrapWindowByMask_basic();'>기본근무지</li>");
+         $(this).parent().parent().append("<li class='place_work'>기본근무지</li>");
 
     }  else {
          $(this).parent().parent().find('.place_work').remove();
@@ -422,67 +422,7 @@ function wrapWindowByMask_designation(){
         
     });
     
-/*기본근무지 등록 팝업*/
-function wrapWindowByMask_basic(){
-        //화면의 높이와 너비를 구한다.
-        var maskHeight = $(document).height();
-        var maskWidth = $('#wrap').width();  
- 
-        //마스크의 높이와 너비를 화면 것으로 만들어 전체 화면을 채운다.
-        $('#mask').css({'width':maskWidth,'height':maskHeight});  
- 
-        //애니메이션 효과 - 일단 1초동안 까맣게 됐다가 80% 불투명도로 간다.
-        $('#mask').fadeIn(100);
-        $('#mask').fadeTo("slow",0.8);    
-        
-        $('.close_btn').css('display','none');
-        $('.close_btn.appointed_Entry_btn').css('display','block');
-        $('#basic_text').css('display','block');
-        $('#address_basic_input').css('display','none');
-        $('.appointed_Entry_btn').css('display','block');
-        $('.designation_hidden').css('display','table-row');
-        $('#address_input').css('display','none');
-        $('.Entry_btn').css('display','none');
-        $('.appointed').css('display','none');
-        $('.appointed_option01').css('display','block');
-        $('.appointed_option02').css('display','none');
-        $('.appointed_option01').attr('selected','selected');
-        $('.appointed_option02').attr('selected',false);
-        //윈도우 같은 거 띄운다.
-        $('.window').show();
-    }
- 
-    $(document).ready(function(){
-       
-       
-        //검은 막 띄우기
-        $('.schedule_table .schedule_select li.place_work a').click(function(e){
-            e.preventDefault();
-            wrapWindowByMask_basic();
-        });
-        
-        
-        
-        //닫기 버튼을 눌렀을 때
-        $('.window .close').click(function (e) {
-            //링크 기본동작은 작동하지 않도록 한다.
-            e.preventDefault();
-            $('#mask, .window').hide();
-        });       
- 
-        //검은 막을 눌렀을 때
-        $('#mask').click(function () {
-            $(this).hide();
-            $('.window').hide();
-        });
-        
-        $( '.close_btn, #mask').click(function () {
-            $( "#working_info_data" ).each( function () {
-                this.reset();
-            });
-        });
-        
-    });    
+
 </script>
 
 <!-------------//---------------------->
@@ -553,7 +493,7 @@ function wrapWindowByMask_basic(){
              <button type="button" onClick="" class="btn_set"> 조회</button>-->
              <p class="prev"><</p><input type="text" placeholder="2021.08 4주차"><p class="next">></p>
          </li>
-         <li class="popup_btn" id="popup_open"><a href="#" class="openMask">근무지 등록</a></li>
+         <li class="popup_btn openMask" id="popup_open">근무지 등록</li>
      </ul>
      
       <table class="schedule_table">

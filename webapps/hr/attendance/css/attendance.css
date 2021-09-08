@@ -26,8 +26,7 @@
 .schedule_table tr td ul#ul_list{width:100%;}
 .schedule_table tr td ul#ul_list .btn-delete{float:right;padding:0 5%;background: #fdfdfd;color: #000;border: 1px solid #000;height: 20px;line-height: 20px;cursor: pointer;}
 .schedule_table tr td ul li.add_action{text-align:center;}
-.place_work,.add_action{cursor: pointer;}
-.add_action{margin-left:7px;}
+.add_action{margin-left:7px;cursor: pointer;}
 
  #mask {
       position:absolute;
