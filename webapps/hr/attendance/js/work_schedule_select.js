@@ -247,12 +247,14 @@ $("#selectBox_Entry").on("change",function() {
     if($("#selectBox_Entry").val() == "appointed_Entry") {
          $('.appointed').css('display','table-row');
          $('#address_input').css('display','inline-block');
-         $('.blue_pencil_btn').css('display','block');
+         $('.blue_pencil_btn').css('display','none');
+         $('.Entry_btn').css('display','block');
 
     }  else {
          $('.appointed').css('display','none');
          $('#address_input').css('display','none');
          $('.blue_pencil_btn').css('display','none');
+         
     }
     
 }) 
