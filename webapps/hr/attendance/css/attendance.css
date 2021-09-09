@@ -77,3 +77,4 @@
 .close_btn.appointed_Entry_btn .btn_02_color{background:#4684c0;height:50px;width:48%;margin-top:0 !important;margin: 0 1%;}
 .close_btn.appointed_Entry_btn .close{width:48%;margin: 0 1%;}
 #address_basic_input,#address_input{display:none;}
+.save_data_btn{background:#8f8f8f;color:#fff;width: 150px;text-align: center;height: 40px;line-height: 40px;cursor: pointer;margin:3% auto;font-weight: 600;}
