@@ -18,24 +18,24 @@ $(document).on('click', '#ul_list li .btn-delete', function(e){
 
 
 $(function(){
-$("#selectBox_sun").on("change",function() {
+$(".list_name #selectBox_sun").on("change",function() {
 
      
-    if($("#selectBox_sun").val() == "option1") {
+    if($(this).val() == "option1") {
          $(this).parent().parent().append("<li class='place_work'>기본근무지</li>");
 
     }  else {
          $(this).parent().parent().find('.place_work').remove();
     }
     
-    if($("#selectBox_sun").val() == "option2") {
+    if($(this).val() == "option2") {
          $(this).parent().parent().append("<li class='list_ul_work'><ul id='ul_list'><li class='place_work appointed_work'><a href='javascript:wrapWindowByMask_designation();'>지정근무지</a><span class='btn-delete'>X</span></li></ul><div class='add_action' id='add_action'>+ 추가하기</div></li>");
 
     }  else {
          $(this).parent().parent().find('.list_ul_work').remove();
     }
     
-    if($("#selectBox_sun").val() == "option3") {
+    if($(this).val() == "option3") {
          $(this).parent().prevAll().children().css('display','none');
           $(this).parent().nextAll().css('display','none');
 
@@ -48,24 +48,24 @@ $("#selectBox_sun").on("change",function() {
 });
 
 $(function(){
-$("#selectBox_mon").on("change",function() {
+$(".list_name #selectBox_mon").on("change",function() {
 
      
-    if($("#selectBox_mon").val() == "option1") {
+    if($(this).val() == "option1") {
          $(this).parent().parent().append("<li class='place_work'>기본근무지</li>");
 
     }  else {
          $(this).parent().parent().find('.place_work').remove();
     }
     
-    if($("#selectBox_mon").val() == "option2") {
+    if($(this).val() == "option2") {
          $(this).parent().parent().append("<li class='list_ul_work'><ul id='ul_list'><li class='place_work appointed_work'><a href='javascript:wrapWindowByMask_designation();'>지정근무지</a><span class='btn-delete'>X</span></li></ul><div class='add_action' id='add_action'>+ 추가하기</div></li>");
 
     }  else {
          $(this).parent().parent().find('.list_ul_work').remove();
     }
     
-    if($("#selectBox_mon").val() == "option3") {
+    if($(this).val() == "option3") {
          $(this).parent().prevAll().children().css('display','none');
           $(this).parent().nextAll().css('display','none');
 
@@ -78,24 +78,24 @@ $("#selectBox_mon").on("change",function() {
 });
 
 $(function(){
-$("#selectBox_tue").on("change",function() {
+$(".list_name #selectBox_tue").on("change",function() {
 
      
-    if($("#selectBox_tue").val() == "option1") {
+    if($(this).val() == "option1") {
          $(this).parent().parent().append("<li class='place_work'>기본근무지</li>");
 
     }  else {
          $(this).parent().parent().find('.place_work').remove();
     }
     
-    if($("#selectBox_tue").val() == "option2") {
+    if($(this).val() == "option2") {
          $(this).parent().parent().append("<li class='list_ul_work'><ul id='ul_list'><li class='place_work appointed_work'><a href='javascript:wrapWindowByMask_designation();'>지정근무지</a><span class='btn-delete'>X</span></li></ul><div class='add_action' id='add_action'>+ 추가하기</div></li>");
 
     }  else {
          $(this).parent().parent().find('.list_ul_work').remove();
     }
     
-    if($("#selectBox_tue").val() == "option3") {
+    if($(this).val() == "option3") {
          $(this).parent().prevAll().children().css('display','none');
           $(this).parent().nextAll().css('display','none');
 
@@ -108,24 +108,24 @@ $("#selectBox_tue").on("change",function() {
 });
 
 $(function(){
-$("#selectBox_wed").on("change",function() {
+$(".list_name #selectBox_wed").on("change",function() {
 
      
-    if($("#selectBox_wed").val() == "option1") {
+    if($(this).val() == "option1") {
          $(this).parent().parent().append("<li class='place_work'>기본근무지</li>");
 
     }  else {
          $(this).parent().parent().find('.place_work').remove();
     }
     
-    if($("#selectBox_wed").val() == "option2") {
+    if($(this).val() == "option2") {
          $(this).parent().parent().append("<li class='list_ul_work'><ul id='ul_list'><li class='place_work appointed_work'><a href='javascript:wrapWindowByMask_designation();'>지정근무지</a><span class='btn-delete'>X</span></li></ul><div class='add_action' id='add_action'>+ 추가하기</div></li>");
 
     }  else {
          $(this).parent().parent().find('.list_ul_work').remove();
     }
     
-    if($("#selectBox_wed").val() == "option3") {
+    if($(this).val() == "option3") {
          $(this).parent().prevAll().children().css('display','none');
           $(this).parent().nextAll().css('display','none');
 
@@ -138,24 +138,24 @@ $("#selectBox_wed").on("change",function() {
 });
 
 $(function(){
-$("#selectBox_thu").on("change",function() {
+$(".list_name #selectBox_thu").on("change",function() {
 
      
-    if($("#selectBox_thu").val() == "option1") {
+    if($(this).val() == "option1") {
          $(this).parent().parent().append("<li class='place_work'>기본근무지</li>");
 
     }  else {
          $(this).parent().parent().find('.place_work').remove();
     }
     
-    if($("#selectBox_thu").val() == "option2") {
+    if($(this).val() == "option2") {
          $(this).parent().parent().append("<li class='list_ul_work'><ul id='ul_list'><li class='place_work appointed_work'><a href='javascript:wrapWindowByMask_designation();'>지정근무지</a><span class='btn-delete'>X</span></li></ul><div class='add_action' id='add_action'>+ 추가하기</div></li>");
 
     }  else {
          $(this).parent().parent().find('.list_ul_work').remove();
     }
     
-    if($("#selectBox_thu").val() == "option3") {
+    if($(this).val() == "option3") {
          $(this).parent().prevAll().children().css('display','none');
           $(this).parent().nextAll().css('display','none');
 
@@ -168,24 +168,24 @@ $("#selectBox_thu").on("change",function() {
 });
 
 $(function(){
-$("#selectBox_fri").on("change",function() {
+$(".list_name #selectBox_fri").on("change",function() {
 
      
-    if($("#selectBox_fri").val() == "option1") {
+    if($(this).val() == "option1") {
          $(this).parent().parent().append("<li class='place_work'>기본근무지</li>");
 
     }  else {
          $(this).parent().parent().find('.place_work').remove();
     }
     
-    if($("#selectBox_fri").val() == "option2") {
+    if($(this).val() == "option2") {
          $(this).parent().parent().append("<li class='list_ul_work'><ul id='ul_list'><li class='place_work appointed_work'><a href='javascript:wrapWindowByMask_designation();'>지정근무지</a><span class='btn-delete'>X</span></li></ul><div class='add_action' id='add_action'>+ 추가하기</div></li>");
 
     }  else {
          $(this).parent().parent().find('.list_ul_work').remove();
     }
     
-    if($("#selectBox_fri").val() == "option3") {
+    if($(this).val() == "option3") {
          $(this).parent().prevAll().children().css('display','none');
           $(this).parent().nextAll().css('display','none');
 
@@ -198,24 +198,24 @@ $("#selectBox_fri").on("change",function() {
 });
 
 $(function(){
-$("#selectBox_sat").on("change",function() {
+$(".list_name #selectBox_sat").on("change",function() {
 
      
-    if($("#selectBox_sat").val() == "option1") {
+    if($(this).val() == "option1") {
          $(this).parent().parent().append("<li class='place_work'>기본근무지</li>");
 
     }  else {
          $(this).parent().parent().find('.place_work').remove();
     }
     
-    if($("#selectBox_sat").val() == "option2") {
+    if($(this).val() == "option2") {
          $(this).parent().parent().append("<li class='list_ul_work'><ul id='ul_list'><li class='place_work appointed_work'><a href='javascript:wrapWindowByMask_designation();'>지정근무지</a><span class='btn-delete'>X</span></li></ul><div class='add_action' id='add_action'>+ 추가하기</div></li>");
 
     }  else {
          $(this).parent().parent().find('.list_ul_work').remove();
     }
     
-    if($("#selectBox_sat").val() == "option3") {
+    if($(this).val() == "option3") {
          $(this).parent().prevAll().children().css('display','none');
           $(this).parent().nextAll().css('display','none');
 
@@ -230,7 +230,7 @@ $("#selectBox_sat").on("change",function() {
 
     
 $(function(){
-$("#selectBox_Entry").on("change",function() {
+$(".#selectBox_Entry").on("change",function() {
 
      
     if($("#selectBox_Entry").val() == "basic_Entry") {

@@ -83,13 +83,45 @@
     <!-- S:page home -->
     <div class="page_content">
      <h3>근무 스케쥴 관리</h3>
-     <div class="div1"> 
-</div>
+     <div class="div1">
+         <ul class="search_div">
+             <li>
+                 <select>
+                     <option>부서선택</option>
+                     <option>(주)지앤씨앤에스</option>
+                     <option>인사관리팀</option>
+                     <option>운영교육팀</option>
+                 </select>
+             </li>
+             <li>
+                 <select>
+                     <option>직무선택</option>
+                     <option>웹개발(쇼핑몰, 정보사이트 등)</option>
+                     <option>마케팅</option>
+                     <option>A.M</option>
+                 </select>
+            </li>
+             <li>
+                 <select>
+                     <option>직급선택</option>
+                     <option>차장</option>
+                     <option>팀장</option>
+                     <option>과장</option>
+                     <option>대리</option>
+                     <option>주임</option>
+                     <option>사원</option>
+                 </select>
+            </li>
+             <li><input type="text" placeholder="이름검색"></li>
+             <li class="search_btn">조회</li>
+             
+         </ul>
+     </div>
      <ul class="schedule_ul">
          <li>
              <p class="prev"><</p><input type="text" placeholder="2021.08 4주차"><p class="next">></p>
          </li>
-         <li class="popup_btn openMask" id="popup_open">근무지 등록</li>
+         <li class="popup_btn" id="popup_open">승인</li>
      </ul>
      
       <table class="schedule_table">
@@ -115,10 +147,10 @@
               <th>09/03(금)</th>
               <th class="day_off">09/04(토)</th>
           </tr>
-          <tr>
+          <tr class="list_name">
               <td>
                   홍길동 
-                  <span class="">팀장</span>
+                  <span class="position">팀장</span>
               </td>
               <td>
                   <ul class="schedule_th">
@@ -146,13 +178,178 @@
                           </select>
                       </li>
                       <li>
-                          <select id="selectBox_sat">
+                          <select id="selectBox_sun">
+                              <option value="0">선택</option>
+                              <option value="option1" selected>내근</option>
+                              <option value="option2">외근</option>
+                              <option value="option3">휴무</option>
+                          </select>
+                      </li>
+                      <li class="place_work" style="display: block;">기본근무지</li>
+                  </ul>
+              </td>
+              <td>
+                  <ul class="schedule_select">
+                      <li>
+                          <select>
+                              <option>선택</option>
+                              <option selected>08:00</option>
+                              <option>09:00</option>
+                              <option>10:00</option>
+                          </select>
+                      </li>
+                      <li>
+                          <select>
+                              <option>선택</option>
+                              <option selected>17:00</option>
+                              <option>18:00</option>
+                              <option>19:00</option>
+                          </select>
+                      </li>
+                      <li>
+                          <select id="selectBox_mon">
                               <option value="">선택</option>
                               <option value="option1">내근</option>
                               <option value="option2" selected>외근</option>
                               <option value="option3">휴무</option>
                           </select>
                       </li>
+                      <li class="list_ul_work" style="display: block;">
+                          <ul id="ul_list">
+                              <li class="place_work appointed_work">
+                                  <a href="javascript:wrapWindowByMask_designation();">지정근무지</a><span class="btn-delete">X</span>
+                              </li>
+                              <li class="place_work appointed_work">
+                                  <a href="javascript:wrapWindowByMask_designation();">지정근무지</a><span class="btn-delete">X</span>
+                              </li>
+                              <li class="place_work appointed_work">
+                                  <a href="javascript:wrapWindowByMask_designation();">지정근무지</a><span class="btn-delete">X</span>
+                              </li>
+                          </ul>
+                          <div class="add_action" id="add_action">+ 추가하기</div>
+                        </li>
+                  </ul>
+              </td>
+              <td>
+                  <ul class="schedule_select">
+                      <li>
+                          <select style="display: none;">
+                              <option>선택</option>
+                              <option selected>08:00</option>
+                              <option>09:00</option>
+                              <option>10:00</option>
+                          </select>
+                      </li>
+                      <li>
+                          <select style="display: none;">
+                              <option>선택</option>
+                              <option selected>17:00</option>
+                              <option>18:00</option>
+                              <option>19:00</option>
+                          </select>
+                      </li>
+                      <li>
+                          <select id="selectBox_tue">
+                              <option value="">선택</option>
+                              <option value="option1">내근</option>
+                              <option value="option2">외근</option>
+                              <option value="option3" selected>휴무</option>
+                          </select>
+                      </li>
+                  </ul>
+              </td>
+              <td>
+                  <ul class="schedule_select">
+                      <li>
+                          <select style="display: none;">
+                              <option>선택</option>
+                              <option selected>08:00</option>
+                              <option>09:00</option>
+                              <option>10:00</option>
+                          </select>
+                      </li>
+                      <li>
+                          <select style="display: none;">
+                              <option>선택</option>
+                              <option selected>17:00</option>
+                              <option>18:00</option>
+                              <option>19:00</option>
+                          </select>
+                      </li>
+                      <li>
+                          <select id="selectBox_wed">
+                              <option value="">선택</option>
+                              <option value="option1">내근</option>
+                              <option value="option2">외근</option>
+                              <option value="option3" selected>휴무</option>
+                          </select>
+                      </li>
+                      
+                  </ul>
+              </td>
+              <td>
+                  <ul class="schedule_select">
+                      <li>
+                          <select>
+                              <option>선택</option>
+                              <option selected>08:00</option>
+                              <option>09:00</option>
+                              <option>10:00</option>
+                          </select>
+                      </li>
+                      <li>
+                          <select>
+                              <option>선택</option>
+                              <option selected>17:00</option>
+                              <option>18:00</option>
+                              <option>19:00</option>
+                          </select>
+                      </li>
+                      <li>
+                          <select id="selectBox_thu">
+                              <option value="">선택</option>
+                              <option value="option1">내근</option>
+                              <option value="option2" selected>외근</option>
+                              <option value="option3">휴무</option>
+                          </select>
+                      </li>
+                      <li class="list_ul_work" style="display: block;">
+                          <ul id="ul_list">
+                              <li class="place_work appointed_work">
+                                  <a href="javascript:wrapWindowByMask_designation();">지정근무지</a><span class="btn-delete">X</span>
+                              </li>
+                          </ul>
+                          <div class="add_action" id="add_action">+ 추가하기</div>
+                        </li>
+                  </ul>
+              </td>
+              <td>
+                  <ul class="schedule_select">
+                      <li>
+                          <select>
+                              <option>선택</option>
+                              <option selected>08:00</option>
+                              <option>09:00</option>
+                              <option>10:00</option>
+                          </select>
+                      </li>
+                      <li>
+                          <select>
+                              <option>선택</option>
+                              <option selected>17:00</option>
+                              <option>18:00</option>
+                              <option>19:00</option>
+                          </select>
+                      </li>
+                      <li>
+                          <select id="selectBox_fri">
+                              <option value="">선택</option>
+                              <option value="option1" selected>내근</option>
+                              <option value="option2">외근</option>
+                              <option value="option3">휴무</option>
+                          </select>
+                      </li>
+                      <li class="place_work" style="display: block;">기본근무지</li>
                   </ul>
               </td>
               <td>
@@ -181,6 +378,21 @@
                               <option value="option3">휴무</option>
                           </select>
                       </li>
+                      <li class="place_work" style="display: block;">기본근무지</li>
+                  </ul>
+              </td>
+              
+          </tr>
+          <tr class="list_name">
+              <td>
+                  홍길동 
+                  <span class="position">과장</span>
+              </td>
+              <td>
+                  <ul class="schedule_th">
+                      <li>출근 예정 시간</li>
+                      <li>퇴근 예정 시간</li>
+                      <li>근무구분</li>
                   </ul>
               </td>
               <td>
@@ -202,7 +414,121 @@
                           </select>
                       </li>
                       <li>
-                          <select id="selectBox_sat">
+                          <select id="selectBox_sun">
+                              <option value="0">선택</option>
+                              <option value="option1" selected>내근</option>
+                              <option value="option2">외근</option>
+                              <option value="option3">휴무</option>
+                          </select>
+                      </li>
+                      <li class="place_work" style="display: block;">기본근무지</li>
+                  </ul>
+              </td>
+              <td>
+                  <ul class="schedule_select">
+                      <li>
+                          <select style="display: none;">
+                              <option>선택</option>
+                              <option selected>08:00</option>
+                              <option>09:00</option>
+                              <option>10:00</option>
+                          </select>
+                      </li>
+                      <li>
+                          <select style="display: none;">
+                              <option>선택</option>
+                              <option selected>17:00</option>
+                              <option>18:00</option>
+                              <option>19:00</option>
+                          </select>
+                      </li>
+                      <li>
+                          <select id="selectBox_mon">
+                              <option value="">선택</option>
+                              <option value="option1">내근</option>
+                              <option value="option2">외근</option>
+                              <option value="option3" selected>휴무</option>
+                          </select>
+                      </li>
+                  </ul>
+              </td>
+              <td>
+                  <ul class="schedule_select">
+                      <li>
+                          <select style="display: none;">
+                              <option>선택</option>
+                              <option selected>08:00</option>
+                              <option>09:00</option>
+                              <option>10:00</option>
+                          </select>
+                      </li>
+                      <li>
+                          <select style="display: none;">
+                              <option>선택</option>
+                              <option selected>17:00</option>
+                              <option>18:00</option>
+                              <option>19:00</option>
+                          </select>
+                      </li>
+                      <li>
+                          <select id="selectBox_tue">
+                              <option value="">선택</option>
+                              <option value="option1">내근</option>
+                              <option value="option2">외근</option>
+                              <option value="option3" selected>휴무</option>
+                          </select>
+                      </li>
+                  </ul>
+              </td>
+              <td>
+                  <ul class="schedule_select">
+                      <li>
+                          <select style="display: none;">
+                              <option>선택</option>
+                              <option selected>08:00</option>
+                              <option>09:00</option>
+                              <option>10:00</option>
+                          </select>
+                      </li>
+                      <li>
+                          <select style="display: none;">
+                              <option>선택</option>
+                              <option selected>17:00</option>
+                              <option>18:00</option>
+                              <option>19:00</option>
+                          </select>
+                      </li>
+                      <li>
+                          <select id="selectBox_wed">
+                              <option value="">선택</option>
+                              <option value="option1">내근</option>
+                              <option value="option2">외근</option>
+                              <option value="option3" selected>휴무</option>
+                          </select>
+                      </li>
+                      
+                  </ul>
+              </td>
+              <td>
+                  <ul class="schedule_select">
+                      <li>
+                          <select style="display: none;">
+                              <option>선택</option>
+                              <option selected>08:00</option>
+                              <option>09:00</option>
+                              <option>10:00</option>
+                          </select>
+                      </li>
+                      <li>
+                          <select style="display: none;">
+                              <option>선택</option>
+                              <option selected>17:00</option>
+                              <option>18:00</option>
+                              <option>19:00</option>
+                          </select>
+                      </li>
+                      <li>
+                          <select id="selectBox_thu">
                               <option value="">선택</option>
                               <option value="option1">내근</option>
                               <option value="option2">외근</option>
@@ -230,13 +556,14 @@
                           </select>
                       </li>
                       <li>
-                          <select id="selectBox_sat">
+                          <select id="selectBox_fri">
                               <option value="">선택</option>
                               <option value="option1" selected>내근</option>
                               <option value="option2">외근</option>
                               <option value="option3">휴무</option>
                           </select>
                       </li>
+                      <li class="place_work" style="display: block;">기본근무지</li>
                   </ul>
               </td>
               <td>
@@ -265,62 +592,7 @@
                               <option value="option3">휴무</option>
                           </select>
                       </li>
-                  </ul>
-              </td>
-              <td>
-                  <ul class="schedule_select">
-                      <li>
-                          <select>
-                              <option>선택</option>
-                              <option selected>08:00</option>
-                              <option>09:00</option>
-                              <option>10:00</option>
-                          </select>
-                      </li>
-                      <li>
-                          <select>
-                              <option>선택</option>
-                              <option selected>17:00</option>
-                              <option>18:00</option>
-                              <option>19:00</option>
-                          </select>
-                      </li>
-                      <li>
-                          <select id="selectBox_sat">
-                              <option value="">선택</option>
-                              <option value="option1" selected>내근</option>
-                              <option value="option2">외근</option>
-                              <option value="option3">휴무</option>
-                          </select>
-                      </li>
-                  </ul>
-              </td>
-              <td>
-                  <ul class="schedule_select">
-                      <li>
-                          <select>
-                              <option>선택</option>
-                              <option selected>08:00</option>
-                              <option>09:00</option>
-                              <option>10:00</option>
-                          </select>
-                      </li>
-                      <li>
-                          <select>
-                              <option>선택</option>
-                              <option selected>17:00</option>
-                              <option>18:00</option>
-                              <option>19:00</option>
-                          </select>
-                      </li>
-                      <li>
-                          <select id="selectBox_sat">
-                              <option value="">선택</option>
-                              <option value="option1" selected>내근</option>
-                              <option value="option2">외근</option>
-                              <option value="option3">휴무</option>
-                          </select>
-                      </li>
+                      <li class="place_work" style="display: block;">기본근무지</li>
                   </ul>
               </td>
               

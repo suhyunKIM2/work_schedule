@@ -1,6 +1,6 @@
 ﻿@charset "utf-8";
 /* CSS Document */
-div#wrap{width:100%;}
+div#wrap{width:67%;    min-width: 1275px;}
 div#container {
     width: calc(100% - 230px);
     float: right;
@@ -13,12 +13,12 @@ div#container {
 .schedule_ul li:nth-child(1){width:84%;display: inline-block;float:left;}
 .schedule_ul li:nth-child(2){width:15%;display: inline-block;background: #4684c0;color: #fff;text-align: center;cursor: pointer;height: 37px;line-height: 37px;float:right;}
 .schedule_ul li:nth-child(2) a{color:#fff;}
-.schedule_ul li input[type="text"]{width:120px;text-align: center;height: 29px;font-size: 13px;float: left;border:1px solid #999;margin:0 2px;color:#000;font-weight: 600;font-family: sans-serif;}
+.schedule_ul li input[type="text"]{width:120px;text-align: center;height: 29px;font-size: 13px;float: left;border:1px solid #151515;margin:0 2px;color:#000;font-weight: 600;font-family: sans-serif;}
 .schedule_ul li .btn_set{    margin-top: 0 !important;height: 37px;padding: 0 4%;background: #929292;color: #fff;}
-.schedule_ul li p{width:30px;height:35px;line-height:35px;text-align: center;float:left; border:1px solid #999;cursor: pointer;}
+.schedule_ul li p{width:30px;height:35px;line-height:35px;text-align: center;float:left; border:1px solid #151515;cursor: pointer;}
 .ui-datepicker .ui-datepicker-title{font-size:0;}
 .ui-datepicker select.ui-datepicker-month, .ui-datepicker select.ui-datepicker-year{color:#000;width:auto;margin:0 2px;font-size:13px;}
-.schedule_table{width:100%;margin:2% auto;border: 1px solid #000;}
+.schedule_table{width:100%;margin:1% auto;border: 1px solid #000;}
 .schedule_table tr th{font-weight: 600;padding:1% 0;border-right:1px solid #000;}
 .schedule_table tr th:last-child{border-right:0;}
 .schedule_table tr th.day_off{color:#E80B0F;}
@@ -29,7 +29,7 @@ div#container {
 .schedule_table .schedule_select li select{width:100%;font-size: 13px;margin-bottom:5%;color: #000;}
 .schedule_table .schedule_select li.place_work{text-align: center;background: #4684c0;color:#fff;} 
 .schedule_table .schedule_select li.place_work a{color:#fff;}
-.schedule_table tr td ul.schedule_th li{height:27px;}
+.schedule_table tr td ul.schedule_th li{height:27px;font-weight: 500;color:#000;}
 .schedule_table .schedule_select li.appointed_work{background:#99ca3c;cursor: pointer;margin-bottom:3px;}
 .schedule_table tr td ul#ul_list{width:100%;}
 .schedule_table tr td ul#ul_list .btn-delete{float:right;padding:0 5%;background: #fdfdfd;color: #000;border: 1px solid #000;height: 20px;line-height: 20px;cursor: pointer;}
@@ -85,3 +85,34 @@ div#container {
 .close_btn.appointed_Entry_btn .btn_02_color{background:#4684c0;height:50px;width:48%;margin-top:0 !important;margin: 0 1%;}
 .close_btn.appointed_Entry_btn .close{width:48%;margin: 0 1%;}
 #address_basic_input,#address_input{display:none;}
+
+.div1{width:96%;background:#f6f6f6;padding:2%;}
+.div1 .search_div{width:100%;text-align: center;}
+.div1 .search_div li{display:inline-block;vertical-align: middle;}
+.div1 .search_div li select{height:30px;line-height: 30px;font-size:13px;border:1px solid #767676;}
+.div1 .search_div li input{border:1px solid #767676;font-size: 13px;height: 22px;line-height: 22px;}
+.search_btn{background:#8e8e8e;color:#fff;height:30px;line-height:30px;width:100px;text-align:center;cursor: pointer;}
+.popup_btn{    width: 15%;max-width: 120px;
+    display: inline-block;
+    background: #4684c0;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+    height: 37px;
+    line-height: 37px;
+    float: right;}
+.position{font-weight:500;display:block;font-size:13px;color:#797979;}    
+.list_name td:nth-child(1){text-align:left;padding-left:1%;line-height: normal;font-size:15px;color:#000;}   
+    
+    
+@media screen and (max-width:1275px) {
+div#container{width: calc(100% - 200px);left: 200px;}
+div#sidebar,ul#menu{width:200px;}
+ul#menu li a:link, ul#menu li a:visited{    background: url(/hr/admin_html//images/comm/menu_mn_arrow.png) no-repeat 175px 5px;}
+ul#menu li a:hover, ul#menu li a.active{background: url(/hr/admin_html//images/comm/menu_ov_arrow.png) no-repeat 175px 5px;}
+div#wrap{width:100%;min-width:100%;}
+.home{margin-left:10px;}
+.page_content{width:98%;}
+a#logo img{width:85%;}
+.div1{    min-width: 917px;}
+}
