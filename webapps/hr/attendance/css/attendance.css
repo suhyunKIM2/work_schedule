@@ -14,14 +14,14 @@
 .schedule_table tr th{font-weight: 600;padding:2% 0;border-right:1px solid #000;}
 .schedule_table tr th:last-child{border-right:0;}
 .schedule_table tr th.day_off{color:#E80B0F;}
-.schedule_table tr td{font-weight: 600;padding:2% 0;border-right:1px solid #000;border-top:1px solid #000;text-align: center;font-size:13px;    min-width: 106px;}
+.schedule_table tr td{font-weight: 600;padding:2% 0;border-right:1px solid #000;border-top:1px solid #000;text-align: center;font-size:13px;    min-width: 106px;vertical-align:top;}
 .schedule_table tr td:last-child{border-right:0;}
 .schedule_table tr td ul{width:85%;margin:auto;}
 .schedule_table tr td ul li{text-align:left;}
 .schedule_table .schedule_select li select{width:100%;font-size: 13px;margin-bottom:5%;color: #000;}
 .schedule_table .schedule_select li.place_work{text-align: center;background: #4684c0;color:#fff;} 
 .schedule_table .schedule_select li.place_work a{color:#fff;}
-.schedule_table tr td ul.schedule_th li{height:27px;}
+.schedule_table tr td ul.schedule_th li{height:28px;line-height: 28px;}
 .schedule_table .schedule_select li.appointed_work{background:#99ca3c;cursor: pointer;margin-bottom:3px;}
 .schedule_table tr td ul#ul_list{width:100%;}
 .schedule_table tr td ul#ul_list .btn-delete{float:right;padding:0 5%;background: #fdfdfd;color: #000;border: 1px solid #000;height: 20px;line-height: 20px;cursor: pointer;}

@@ -17,7 +17,7 @@ function wrapWindowByMask(){
         $('.appointed_Entry_btn').css('display','none');
         $('.designation_hidden').css('display','table-row');
         $('.appointed').css('display','none');
-        $('.appointed_option01').css('display','block');
+        $('.appointed_option01').prop('disabled',false).css('font-size','13px');
         $('.appointed_option02').attr('selected', false);
         $('#selectBox_Entry option').attr('selected', false);
         $('#selectBox_Entry option').css('display','block');
@@ -76,7 +76,7 @@ function wrapWindowByMask_designation(){
         $('.appointed_Entry_btn').css('display','block');
         $('.designation_hidden').css('display','none');
         $('.appointed').css('display','table-row');
-        $('.appointed_option01').css('display','none');
+        $('.appointed_option01').prop('disabled',true).css('font-size','0');
         $('.appointed_option02').css('display','block');
         $('.appointed_option02').attr('selected','selected');
         $('#basic_text').css('display','none');
