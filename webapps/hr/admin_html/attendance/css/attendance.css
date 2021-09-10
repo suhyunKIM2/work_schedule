@@ -7,7 +7,7 @@ div#container {
     position: absolute;
     left: 230px;
 }
-.page_content{width:90%;}
+.page_content{width:92%;}
 .page_content h3{font-size:20px;font-weight: 600;margin: 2% 0;letter-spacing: -1px;}
 .schedule_ul{height:auto;overflow:hidden;margin-top: 22px;    min-width: 939px;}
 .schedule_ul li:nth-child(1){width:84%;display: inline-block;float:left;}
@@ -18,23 +18,50 @@ div#container {
 .schedule_ul li p{width:30px;height:35px;line-height:35px;text-align: center;float:left; border:1px solid #151515;cursor: pointer;}
 .ui-datepicker .ui-datepicker-title{font-size:0;}
 .ui-datepicker select.ui-datepicker-month, .ui-datepicker select.ui-datepicker-year{color:#000;width:auto;margin:0 2px;font-size:13px;}
-.schedule_table{width:100%;margin:1% auto;border: 1px solid #000;}
-.schedule_table tr th{font-weight: 600;padding:1% 0;border-right:1px solid #000;}
+.schedule_table{width:100%;margin:1% auto;border: 1px solid #636363;}
+.schedule_table tr th{font-weight: 600;padding:1% 0;border-right:1px solid #ccc;width:104px;}
 .schedule_table tr th:last-child{border-right:0;}
 .schedule_table tr th.day_off{color:#E80B0F;}
-.schedule_table tr td{font-weight: 600;padding:1% 0;border-right:1px solid #000;border-top:1px solid #000;text-align: center;font-size:13px; min-width: 103px;}
+.schedule_table tr td{font-weight: 600;padding:1% 0;border-right:1px solid #ccc;border-bottom:2px solid #000;text-align: center;font-size:13px; min-width: 104px;vertical-align:top;}
 .schedule_table tr td:last-child{border-right:0;}
 .schedule_table tr td ul{width:85%;margin:auto;}
 .schedule_table tr td ul li{text-align:left;}
 .schedule_table .schedule_select li select{width:100%;font-size: 13px;margin-bottom:5%;color: #000;}
 .schedule_table .schedule_select li.place_work{text-align: center;background: #4684c0;color:#fff;} 
 .schedule_table .schedule_select li.place_work a{color:#fff;}
-.schedule_table tr td ul.schedule_th li{height:27px;font-weight: 500;color:#000;}
+.schedule_table tr td ul.schedule_th li{height:30px;font-weight: 500;color:#000;line-height:30px;}
 .schedule_table .schedule_select li.appointed_work{background:#99ca3c;cursor: pointer;margin-bottom:3px;}
 .schedule_table tr td ul#ul_list{width:100%;}
 .schedule_table tr td ul#ul_list .btn-delete{float:right;padding:0 5%;background: #fdfdfd;color: #000;border: 1px solid #000;height: 20px;line-height: 20px;cursor: pointer;}
 .schedule_table tr td ul li.add_action{text-align:center;}
 .add_action{margin-left:7px;cursor: pointer;}
+
+/*.scroll_div{height:300px;overflow:auto; }*/
+     table.scroll {
+    width: 100%; /* Optional */
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+table.scroll tbody,
+table.scroll thead { display: block;}
+
+table.scroll tbody {
+    max-height: 68vh;
+    overflow-y:scroll;
+    overflow-x:auto;
+        width: 100%;
+}
+
+.scroll tbody { border-top: 2px solid black;}
+
+tbody td, thead th {
+    border-right: 1px solid black;
+}
+tbody td:last-child, thead th:last-child {
+    border-right: none;
+}
+.scroll tbody tr:last-child td{border-bottom:0;}
 
  #mask {
       position:absolute;
