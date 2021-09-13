@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ko"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<script src="/js/jquery-1.11.3.min.js"></script> 
+<script src="/js/main_v2.js"></script><!--추가(기존파일에서 필요부분 나눈 파일 _v2)--->
+<script src="/js/slick.js"></script><!--추가--->
+
+  
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css"
+integrity="sha384-v8BU367qNbs/aIZIxuivaU55N5GPF89WBerHoGA4QTcbUjYiLQtKdrfXnqAcXyTv" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/reset.css">
+<link rel="stylesheet" href="/css/common.css"><!--파일수정--->
+<link rel="stylesheet" href="/css/slick.css"><!--파일추가--->
+<link rel="stylesheet" href="/css/main.css"><!--파일추가---><!--★20210608파일 수정 및 추가★--->
+<link rel="stylesheet" href="/css/layer_popup.css"><!--20210629 파일추가--->
+<title>테니스 아레나</title>
+<script> 
+$(document).ready(function () {	
+    var $slickElement = $('.bxslider');
+    var $slickElement_popup = $('.popup_slider');
+    $slickElement.slick({
+        autoplay: true,
+        autoplaySpeed:4000,
+        speed: 1000,  
+        dots: false,
+        fade:true,
+        touchMove : false,
+        swipe : true,
+        pauseOnHover:true,
+        prevArrow: '<div class="main_s_arrow slick-prev"><i class="icon-left-open-big"><img src="/img/btn_detail_left.png"></i></div>',
+        nextArrow: '<div class="main_s_arrow slick-next"><i class="icon-right-open-big"><img src="/img/btn_detail_right.png"></i></div>'
+    });
+    
+    $slickElement_popup.slick({
+        autoplay: true,
+        autoplaySpeed:3000,
+        speed: 500,  
+        dots: true,
+        fade:false,
+        touchMove : false,
+        swipe : true,
+        pauseOnHover:true,
+        arrows : false,
+        infinite : true, 
+    });
+     });
+
+/*20210629 팝업추가*/
+$( document ).ready(function() {
+	cookiedata = document.cookie; 
+
+	if ( cookiedata.indexOf("ncookie=done") < 0 ){ 
+		document.getElementById('popup1').style.display = "block"; 
+	} else {
+		document.getElementById('popup1').style.display = "none";
+	}
+});
+
+function setCookie( name, value, expiredays ) { 
+	var todayDate = new Date(); 
+	todayDate.setDate( todayDate.getDate() + expiredays );
+	document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() + ";"
+}
+
+function closeWin() { 
+	document.getElementById('popup1').style.display = "none";
+}
+
+function todaycloseWin() { 
+	setCookie( "ncookie", "done" , 1 ); 
+	document.getElementById('popup1').style.display = "none"; 
+}
+</script>
+
+<style>
+ .popup_slider .draggable{margin-bottom:50px;}
+ .popup_slider .slick-dots{position:absolute;bottom:-32px;left:50%;transform: translateX(-50%);-webkit-transform: translateX(-50%);-moz-transform: translateX(-50%);-ms-transform: translateX(-50%);-z-transform: translateX(-50%);-o-transform: translateX(-50%);}
+  .popup_slider .slick-dots li{width:auto;display: inline-block;margin: 0 3px;}
+</style>
+</head>
+<body>
+<header class="top_header" role="header" data-include="/common/header.html"></header>
+<!---20210913 팝업 슬라이드 추가----->
+<div class="popup" id="popup1" style="z-index:1;">
+	<ul class="popup_slider">
+          <li><img src="/img/210628_popup_PC_2.jpg" ></li>
+          <li><img src="/img/main_banner_re2_3.jpg" ></li>
+          <li><img src="/img/main_banner_re3.jpg" ></li>
+    </ul>
+    <div class="popup_btn">
+		<a href="javascript:todaycloseWin()" class="white">오늘하루 그만보기</a>
+		<a href="javascript:closeWin();">닫기</a>
+	</div>
+</div>
+
+
+<!-------------//-------------->
+
+<!-----20210629 팝업추가------
+<div class="popup" id="popup1" style="z-index:1;">
+	<img src="/img/210628_popup_PC_2.jpg"  class="popup_img_pc">
+	<img src="/img/210628_popup_MO_2.jpg" alt="" class="popup_img_m">
+	<div class="popup_btn">
+		<a href="javascript:todaycloseWin()" class="white">오늘하루 그만보기</a>
+		<a href="javascript:closeWin();">닫기</a>
+	</div>
+</div>
+<!-------------//-------------->
+<div class="main_banner_body">
+      <ul class="bxslider banner_pc">
+          <li><img src="/img/main_banner_re4.jpg" ></li>
+          <li><img src="/img/main_banner_re2_3.jpg" ></li>
+          <li><img src="/img/main_banner_re3.jpg" ></li>
+      </ul>
+      <ul class="bxslider banner_m">
+          <li><img src="/img/m_main_banner_re4.jpg" ></li>
+          <li><img src="/img/m_main_banner_re2_3.jpg" ></li>
+          <li><img src="/img/m_main_banner_re3_2.jpg" ></li>
+      </ul>
+     <div class="main_reserve_btn" onClick="location.href='/reserve/reserve.html'">
+         <ul>
+             <li><span class="font-s">RESERVATION</span>
+                 온라인예약
+             </li>
+             <li><img src="/img/main_icon_01.png"></li>
+         </ul>
+     </div>
+  </div>
+<section class="tab_box">
+  <ul class="nav_icon">
+      <!--<li onclick="location.href='/sub/membership.html'">
+          <a><img src="/img/main_icon_02.png" alt="멤버쉽안내"></a>
+          MEMBERSHIP
+          멤버쉽안내
+      </li>-->
+      <li onclick="location.href='/sub/facilities_guide.html'">
+          <a><img src="/img/main_icon_03.png" alt="테니스장소개"></a>
+          tennis court
+          테니스장 소개
+      </li>
+      <li onclick="location.href='/sub/rent.html'">
+          <a><img src="/img/main_icon_04.png" alt="대관안내"></a>
+          venue
+          대관안내
+      </li>
+      <li onclick="location.href='/sub/lesson.html'">
+          <a><img src="/img/main_icon_05.png" alt="레슨안내"></a>
+          lesson
+          레슨 안내
+      </li>
+  </ul>
+  <div class="admin_notice_box">
+      <div class="admin_notice_left_ul">
+      <!----------★210527 공지사항 리스트 및 상세 링크 추가★----------------------->
+         <h3>공지사항</h3><button type="button" onclick="location.href='/cust/notice_list.html'">+ 더보기</button>
+         <table>
+             <tr onclick="location.href='/cust/notice_view.html'">
+                 <td>어버이날어버이날어버이날어버이날어버이날어버이날어버이날</td>
+                 <td>2021.05.01</td>
+             </tr>
+             <tr onclick="location.href='/cust/notice_view.html'">
+                 <td>어버이날</td>
+                 <td>2021.05.01</td>
+             </tr>
+             <tr onclick="location.href='/cust/notice_view.html'">
+                 <td>어버이날</td>
+                 <td>2021.05.01</td>
+             </tr>
+         </table>
+      </div>
+      <div class="admin_notice_right_ul">
+         <h3>FAQ</h3><button type="button" onclick="location.href='/cust/faq_list.html'">+ 더보기</button>
+         <table>
+             <tr onclick="location.href='/cust/faq_view_01.html'">
+                 <td>홈페이지 예약 오픈은 언제인가요?</td>
+                 <td>2021.06.25</td>
+             </tr>			 
+             <tr onclick="location.href='/cust/faq_view_02.html'">
+                 <td>최대 예약 시간은 얼마나 가능할까요?</td>
+                 <td>2021.06.25</td>
+             </tr>			 
+             <tr onclick="location.href='/cust/faq_view_03.html'">
+                 <td>레슨 전/후 코트 사용 및 따로 운동 할 수 있나요?</td>
+                 <td>2021.06.25</td>
+             </tr>			 
+             <tr onclick="location.href='/cust/faq_view_04.html'">
+                 <td>정기적으로 월 대관이 가능한가요?</td>
+                 <td>2021.06.25</td>
+             </tr>
+             <tr onclick="location.href='/cust/faq_view_05.html'">
+                 <td>촬영 장소 협찬이 가능 할까요?</td>
+                 <td>2021.06.25</td>
+             </tr>
+             <!--<tr onclick="location.href='/cust/faq_view_03.html'">
+                 <td>아레나 멤버스에 가입하면 멤버십들만 사용이 가능한가요?</td>
+                 <td>2021.06.08</td>
+             </tr>-->
+         </table>
+      </div>
+  </div>
+</section>
+<section class="section_tab02">
+    <div class="tab_box">
+        <div class="address_box">
+            <h3>오시는길</h3>
+            <div class="daum_address"><!---다음 지도 삽입---></div>
+        </div>
+    </div>
+</section>
+<footer role="footer" data-include="/common/footer.html"></footer>
+</body>
+</html>
