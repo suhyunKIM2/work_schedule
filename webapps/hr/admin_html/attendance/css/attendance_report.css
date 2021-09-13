@@ -2,9 +2,10 @@
 /* CSS Document */
 html, body {
     overflow-x: auto;
-    min-width: 1878px;
+    min-width: 1878px;    height: 100vh;
 }
-div#wrap{width:100%;    min-width: 1275px;}
+body{overflow: hidden;min-height: 890px;font-family: sans-serif;}
+div#wrap{width:100%;    min-width: 1275px;overflow: hidden;    min-height: 890px;    height: 100vh;}
 div#container {
     width: calc(100% - 230px);
     float: right;
@@ -15,21 +16,21 @@ div#sidebar{background:#fff;z-index: 9;}
 .page_content{width:97%;}
 .page_content h3{font-size:20px;font-weight: 600;margin: 2% 0;letter-spacing: -1px;}
 .schedule_ul{height:auto;overflow:hidden;margin-top: 22px;    min-width: 939px;}
-.schedule_ul li:nth-child(1){width:84%;display: inline-block;float:left;}
-.schedule_ul li:nth-child(2){width:15%;display: inline-block;background: #4684c0;color: #fff;text-align: center;cursor: pointer;height: 37px;line-height: 37px;float:right;}
-.schedule_ul li:nth-child(2) a{color:#fff;}
+.schedule_ul li:nth-child(1){display: inline-block;float:left;}
+.schedule_ul li.popup_btn{    width: 15%;display: inline-block;color: #fff;text-align: center;cursor: pointer;height: 37px;line-height: 37px;float:right;}
+.schedule_ul li.popup_btn a{color:#fff;}
 .schedule_ul li input[type="text"]{width:120px;text-align: center;height: 29px;font-size: 13px;float: left;border:1px solid #151515;margin:0 2px;color:#000;font-weight: 600;font-family: sans-serif;}
 .schedule_ul li .btn_set{    margin-top: 0 !important;height: 37px;padding: 0 4%;background: #929292;color: #fff;}
 .schedule_ul li p{width:30px;height:35px;line-height:35px;text-align: center;float:left; border:1px solid #151515;cursor: pointer;}
 .ui-datepicker .ui-datepicker-title{font-size:0;}
 .ui-datepicker select.ui-datepicker-month, .ui-datepicker select.ui-datepicker-year{color:#000;width:auto;margin:0 2px;font-size:13px;}
-.schedule_table{width:100%;margin:1% auto;border: 1px solid #636363;}
+.schedule_table{width:100%;margin:0.5% auto;border: 1px solid #636363;}
 .schedule_table tr th{font-weight: 600;padding:1% 0;border-right:1px solid #ccc;width:66px;font-size: 12px;}
 .schedule_table tr th:last-child{border-right:0;}
 .schedule_table tr th.day_off{color:#E80B0F;}
 .schedule_table tr td{font-weight: 600;border-right:1px solid #ccc;border-bottom:2px solid #000;text-align: center;font-size:13px; min-width: 66px;vertical-align:top;}
 /*.schedule_table tr th:nth-last-child(-n+3),.schedule_table tr td:nth-last-child(-n+3){width:80px;min-width:80px;}*/
-.schedule_table tr th:nth-last-child(-n+3),.schedule_table tr td:nth-last-child(-n+3){font-size: 11px;}
+.schedule_table tr th:nth-last-child(-n+2),.schedule_table tr td:nth-last-child(-n+3){font-size: 11px;    vertical-align: middle;color: #0060bd;}
 .schedule_table tr td:last-child{border-right:0;}
 .schedule_table tr td ul{width:100%;margin:auto;}
 .schedule_table tr td ul li{text-align:left;}
@@ -55,7 +56,7 @@ table.scroll tbody,
 table.scroll thead { display: block;}
 
 table.scroll tbody {
-    max-height: 68vh;
+    max-height: 53vh;
     overflow-y:scroll;
     overflow-x:auto;
         width: 100%;
@@ -81,10 +82,10 @@ tbody td:last-child, thead th:last-child {
     }
     .window{
       display: none;
-      width:55%;
+      width:30%;
       min-width: 660px;
       height:auto;
-      max-height: 611px;
+      max-height:80%;
       background:#fff;
       position:absolute;
       left:50%;
@@ -96,6 +97,7 @@ tbody td:last-child, thead th:last-child {
       -o-transform: translate(-50%, -50%);
       -z-transform: translate(-50%, -50%);
       z-index:10000;
+      overflow: auto;
     }
 .working_info{width:90%;margin:5% auto;border:1px solid #eaeaea;}  
 .working_info tr{border-bottom:1px solid #eaeaea;}
@@ -106,6 +108,9 @@ tbody td:last-child, thead th:last-child {
 .working_info select.list_Entry{width:100%;}
 .working_info input{height:30px;width:54%;}
 .working_info button{width:100%;height: 38px;margin-top: 0 !important;line-height: 38px;font-weight:600;font-size:13px;}
+.working_info th{color:#252525;}
+.working_info td{color:#000;}
+.working_info td b{font-weight:600;color:#4684c0;    margin: 5px;}
 .kakao_Maps_API{width:100%;margin:auto;height:250px;background:#eee;}
 .blue_pencil_btn,.appointed{display:none;}
 .Entry_btn,.blue_pencil_btn{width:41%;float:right;}
@@ -127,7 +132,7 @@ tbody td:last-child, thead th:last-child {
 .div1 .search_div li select{height:30px;line-height: 30px;font-size:13px;border:1px solid #767676;}
 .div1 .search_div li input{border:1px solid #767676;font-size: 13px;height: 22px;line-height: 22px;}
 .search_btn{background:#8e8e8e;color:#fff;height:30px;line-height:30px;width:100px;text-align:center;cursor: pointer;}
-.popup_btn{    width: 15%;max-width: 120px;
+.popup_btn{max-width: 120px;
     display: inline-block;
     background: #4684c0;
     color: #fff;
@@ -137,8 +142,35 @@ tbody td:last-child, thead th:last-child {
     line-height: 37px;
     float: right;}
 .position{font-weight:500;display:block;font-size:13px;color:#797979;}    
-.list_name td:nth-child(1){text-align:left;padding-left:0.5%;line-height: normal;font-size:15px;color:#000;padding-top: 1%;}   
-    
+.list_name td:nth-child(1){text-align:left;padding-left:0.5%;line-height: normal;font-size:15px;color:#000;padding-top: 1%;min-width: 80px;}   
+.schedule_table tr th:nth-child(1){width:80px;}
+.relative_td{position:relative;}
+.pop_btn_absolute{
+    cursor: pointer;
+    position: absolute;
+    bottom: 3px;
+    font-size: 12px;
+    background: #8ac540;
+    color: #fff;
+    padding: 7%;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -z-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    width: 75%;
+    text-align: center;}    
+.work_S{background:#74b0eb;color:#fff !important;padding: 0 1%;font-weight: 600;}
+.work_R{background:#eb7974;color:#060606  !important;padding: 0 1%;font-weight: 600  !important;}
+.work_Y{background:#fae373;color:#5a5123 !important;padding: 0 1%;font-weight: 600 !important;}
+.work_C{background:#d6ecf8;color:#004384 !important;padding: 0 1%;font-weight: 600 !important;}
+.color_info{height:auto;overflow:hidden;margin: 20px auto 10px;float: right;}
+.color_info li{float:left;    height:20px;line-height: 20px;width:113px;text-align: center;}
+.schedule_ul_02{min-width: auto;width:auto;margin:0;float:left;}
+.red_color{font-weight: 600 !important;font-size:13px;color:#EB0A0E !important;}
+.popup_btn_work{cursor: pointer;}
   
 @media screen and (max-width:1275px) {
 div#container{width: calc(100% - 200px);left: 200px;}

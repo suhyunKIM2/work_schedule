@@ -15,7 +15,7 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <link rel="stylesheet" href="/hr/admin_html/attendance/css/attendance_report.css" type="text/css"/>
 <script src="/hr/admin_html/attendance/js/work_schedule_select.js"></script><!----select,추가하기 js--->
-<script src="/hr/admin_html/attendance/js/work_schedule_popup.js"></script><!----근무지 등록&list 팝업 js--->
+<script src="/hr/admin_html/attendance/js/work_schedule_popup_report.js"></script><!----근무지 등록&list 팝업 js--->
 <script>
 /*테이블 스크롤 thead 고정을 위한 th width  리사이징 */
 var $table = $('table.scroll'),
@@ -149,11 +149,22 @@ $(window).resize(function() {
          </ul>
      </div>
      <ul class="schedule_ul">
+         <li class="popup_btn" id="popup_open">엑셀 다운로드</li>
+    </ul>
+     <div>
+         <ul class="schedule_ul schedule_ul_02">
          <li>
              <p class="prev"><</p><input type="text" placeholder="2021.08 4주차"><p class="next">></p>
          </li>
-         <li class="popup_btn" id="popup_open">엑셀 다운로드</li>
+         
      </ul>
+         <ul class="color_info">
+             <li><div class="work_S">업무시작&종료</div></li>
+             <li><div class="work_C">출퇴근시간수정</div></li>
+             <li><div class="work_R">미등록 근무지</div></li>
+             <li><div class="work_Y">외근 근무지</div></li>
+         </ul>
+     </div>
       <div class="scroll_div">
       <table class="schedule_table scroll">
           <colgroup>
@@ -197,9 +208,10 @@ $(window).resize(function() {
           </thead>
           <tbody>
           <tr class="list_name">
-              <td>
+              <td class="relative_td">
                   홍길동 
                   <span class="position">팀장</span>
+                  <div class="pop_btn_absolute">상세보기</div>
               </td>
               <td>
                   <ul class="schedule_th">
@@ -214,7 +226,7 @@ $(window).resize(function() {
               <!-----s:시간별체크---->
               <td>
                   <ul class="schedule_th">
-                      <li>06:50</li><!---08월30일에 6시--->
+                      <li class="work_S popup_btn_work">06:50</li><!---08월30일에 6시--->
                       <li></li><!---08월31일에 6시--->
                       <li></li>
                       <li></li>
@@ -234,7 +246,97 @@ $(window).resize(function() {
               </td>
               <td>
                  <ul class="schedule_th">
+                      <li>08:30</li>
+                      <li class="work_C popup_btn_work">08:10</li>
                       <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li>10:00</li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li class="work_Y popup_btn_work">12:30</li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li class="work_Y popup_btn_work">13:30</li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li class="work_R popup_btn_work">14:30</li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li class="work_R popup_btn_work">15:30</li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li>16:00</li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li class="work_S popup_btn_work">17:00</li>
                       <li></li>
                       <li></li>
                       <li></li>
@@ -312,120 +414,23 @@ $(window).resize(function() {
                       <li></li>
                   </ul> 
               </td>
-              <td>
-                 <ul class="schedule_th">
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                  </ul> 
-              </td>
-              <td>
-                 <ul class="schedule_th">
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                  </ul> 
-              </td>
-              <td>
-                 <ul class="schedule_th">
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                  </ul> 
-              </td>
-              <td>
-                 <ul class="schedule_th">
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                  </ul> 
-              </td>
-              <td>
-                 <ul class="schedule_th">
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                  </ul> 
-              </td>
-              <td>
-                 <ul class="schedule_th">
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                  </ul> 
-              </td>
-              <td>
-                 <ul class="schedule_th">
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                  </ul> 
-              </td>
-              <td>
-                 <ul class="schedule_th">
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                  </ul> 
-              </td>
-              <td>
-                 <ul class="schedule_th">
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                  </ul> 
-              </td>
+              <!-----E:시간별체크---->
+              
               <td>
                  <ul class="schedule_th">
                       <li>8시간20분</li><!---08월 30일 근로시간---->
-                      <li></li><!---08월 31일 근로시간---->
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
+                      <li>8시간20분</li><!---08월 31일 근로시간---->
+                      <li>8시간20분</li>
+                      <li>8시간20분</li>
+                      <li>8시간20분</li>
+                      <li>8시간20분</li>
                   </ul> 
               </td>
-              <td>
-                 <ul class="schedule_th">
-                      <li>40시간20분</li><!---08월 30일 주근로시간---->
-                      <li></li><!---08월 31일 주근로시간---->
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                  </ul> 
-              </td>
+              <td class="week_hour_td">40시간20분</td>
               <td>
                  <ul class="schedule_th">
                       <li></li><!---08월 30일 비고---->
-                      <li></li><!---08월 31일 비고---->
+                      <li class="red_color">지각</li><!---08월 31일 비고---->
                       <li></li>
                       <li></li>
                       <li></li>
@@ -434,6 +439,937 @@ $(window).resize(function() {
               </td>
               
           </tr>
+          
+          
+          <tr class="list_name">
+              <td class="relative_td">
+                  홍길동 
+                  <span class="position">팀장</span>
+                  <div class="pop_btn_absolute">상세보기</div>
+              </td>
+              <td>
+                  <ul class="schedule_th">
+                      <li>08월30일</li>
+                      <li>08월31일</li>
+                      <li>09월01일</li>
+                      <li>09월02일</li>
+                      <li>09월03일</li>
+                      <li>09월04일</li>
+                  </ul>
+              </td>
+              <!-----s:시간별체크---->
+              <td>
+                  <ul class="schedule_th">
+                      <li class="work_S popup_btn_work">06:50</li><!---08월30일에 6시--->
+                      <li></li><!---08월31일에 6시--->
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul>
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li></li><!---08월30일에 7시--->
+                      <li></li><!---08월31일에 7시--->
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li>08:30</li>
+                      <li class="work_C popup_btn_work">08:10</li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li>10:00</li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li class="work_Y popup_btn_work">12:30</li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li class="work_Y popup_btn_work">13:30</li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li class="work_R popup_btn_work">14:30</li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li class="work_R popup_btn_work">15:30</li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li>16:00</li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li class="work_S popup_btn_work">17:00</li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <!-----E:시간별체크---->
+              
+              <td>
+                 <ul class="schedule_th">
+                      <li>8시간20분</li><!---08월 30일 근로시간---->
+                      <li>8시간20분</li><!---08월 31일 근로시간---->
+                      <li>8시간20분</li>
+                      <li>8시간20분</li>
+                      <li>8시간20분</li>
+                      <li>8시간20분</li>
+                  </ul> 
+              </td>
+              <td class="week_hour_td">40시간20분</td>
+              <td>
+                 <ul class="schedule_th">
+                      <li></li><!---08월 30일 비고---->
+                      <li class="red_color">지각</li><!---08월 31일 비고---->
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              
+          </tr>
+          <tr class="list_name">
+              <td class="relative_td">
+                  홍길동 
+                  <span class="position">팀장</span>
+                  <div class="pop_btn_absolute">상세보기</div>
+              </td>
+              <td>
+                  <ul class="schedule_th">
+                      <li>08월30일</li>
+                      <li>08월31일</li>
+                      <li>09월01일</li>
+                      <li>09월02일</li>
+                      <li>09월03일</li>
+                      <li>09월04일</li>
+                  </ul>
+              </td>
+              <!-----s:시간별체크---->
+              <td>
+                  <ul class="schedule_th">
+                      <li class="work_S popup_btn_work">06:50</li><!---08월30일에 6시--->
+                      <li></li><!---08월31일에 6시--->
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul>
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li></li><!---08월30일에 7시--->
+                      <li></li><!---08월31일에 7시--->
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li>08:30</li>
+                      <li class="work_C popup_btn_work">08:10</li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li>10:00</li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li class="work_Y popup_btn_work">12:30</li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li class="work_Y popup_btn_work">13:30</li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li class="work_R popup_btn_work">14:30</li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li class="work_R popup_btn_work">15:30</li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li>16:00</li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li class="work_S popup_btn_work">17:00</li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <!-----E:시간별체크---->
+              
+              <td>
+                 <ul class="schedule_th">
+                      <li>8시간20분</li><!---08월 30일 근로시간---->
+                      <li>8시간20분</li><!---08월 31일 근로시간---->
+                      <li>8시간20분</li>
+                      <li>8시간20분</li>
+                      <li>8시간20분</li>
+                      <li>8시간20분</li>
+                  </ul> 
+              </td>
+              <td class="week_hour_td">40시간20분</td>
+              <td>
+                 <ul class="schedule_th">
+                      <li></li><!---08월 30일 비고---->
+                      <li class="red_color">지각</li><!---08월 31일 비고---->
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              
+          </tr>
+          <tr class="list_name">
+              <td class="relative_td">
+                  홍길동 
+                  <span class="position">팀장</span>
+                  <div class="pop_btn_absolute">상세보기</div>
+              </td>
+              <td>
+                  <ul class="schedule_th">
+                      <li>08월30일</li>
+                      <li>08월31일</li>
+                      <li>09월01일</li>
+                      <li>09월02일</li>
+                      <li>09월03일</li>
+                      <li>09월04일</li>
+                  </ul>
+              </td>
+              <!-----s:시간별체크---->
+              <td>
+                  <ul class="schedule_th">
+                      <li class="work_S popup_btn_work">06:50</li><!---08월30일에 6시--->
+                      <li></li><!---08월31일에 6시--->
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul>
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li></li><!---08월30일에 7시--->
+                      <li></li><!---08월31일에 7시--->
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li>08:30</li>
+                      <li class="work_C popup_btn_work">08:10</li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li>10:00</li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li class="work_Y popup_btn_work">12:30</li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li class="work_Y popup_btn_work">13:30</li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li class="work_R popup_btn_work">14:30</li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li class="work_R popup_btn_work">15:30</li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li>16:00</li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li class="work_S popup_btn_work">17:00</li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <!-----E:시간별체크---->
+              
+              <td>
+                 <ul class="schedule_th">
+                      <li>8시간20분</li><!---08월 30일 근로시간---->
+                      <li>8시간20분</li><!---08월 31일 근로시간---->
+                      <li>8시간20분</li>
+                      <li>8시간20분</li>
+                      <li>8시간20분</li>
+                      <li>8시간20분</li>
+                  </ul> 
+              </td>
+              <td class="week_hour_td">40시간20분</td>
+              <td>
+                 <ul class="schedule_th">
+                      <li></li><!---08월 30일 비고---->
+                      <li class="red_color">지각</li><!---08월 31일 비고---->
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              
+          </tr>
+          <tr class="list_name">
+              <td class="relative_td">
+                  홍길동 
+                  <span class="position">팀장</span>
+                  <div class="pop_btn_absolute">상세보기</div>
+              </td>
+              <td>
+                  <ul class="schedule_th">
+                      <li>08월30일</li>
+                      <li>08월31일</li>
+                      <li>09월01일</li>
+                      <li>09월02일</li>
+                      <li>09월03일</li>
+                      <li>09월04일</li>
+                  </ul>
+              </td>
+              <!-----s:시간별체크---->
+              <td>
+                  <ul class="schedule_th">
+                      <li class="work_S popup_btn_work">06:50</li><!---08월30일에 6시--->
+                      <li></li><!---08월31일에 6시--->
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul>
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li></li><!---08월30일에 7시--->
+                      <li></li><!---08월31일에 7시--->
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li>08:30</li>
+                      <li class="work_C popup_btn_work">08:10</li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li>10:00</li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li class="work_Y popup_btn_work">12:30</li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li class="work_Y popup_btn_work">13:30</li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li class="work_R popup_btn_work">14:30</li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li class="work_R popup_btn_work">15:30</li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li>16:00</li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li class="work_S popup_btn_work">17:00</li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <td>
+                 <ul class="schedule_th">
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              <!-----E:시간별체크---->
+              
+              <td>
+                 <ul class="schedule_th">
+                      <li>8시간20분</li><!---08월 30일 근로시간---->
+                      <li>8시간20분</li><!---08월 31일 근로시간---->
+                      <li>8시간20분</li>
+                      <li>8시간20분</li>
+                      <li>8시간20분</li>
+                      <li>8시간20분</li>
+                  </ul> 
+              </td>
+              <td class="week_hour_td">40시간20분</td>
+              <td>
+                 <ul class="schedule_th">
+                      <li></li><!---08월 30일 비고---->
+                      <li class="red_color">지각</li><!---08월 31일 비고---->
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul> 
+              </td>
+              
+          </tr>
+      
           </tbody>
       </table>
       </div>
@@ -450,16 +1386,28 @@ $(window).resize(function() {
     <form id="working_info_data">
         <table class="working_info">
             <tr>
-                <th>근무지명</th>
+                <th>이름</th>
                 <td>
-                    지정근무지
+                    홍길동 팀장
+                </td>
+            </tr>
+            <tr>
+                <th>날짜/구분</th>
+                <td>
+                    08월 30일 / 업무시작<b>(06:50)</b>
+                </td>
+            </tr>
+            <tr>
+                <th>접속정보</th>
+                <td>
+                    IP : 123.123.123.131 / PC / ASD:DENC:SNXZ
                 </td>
                 
             </tr>
             <tr class="designation_hidden">
                 <th>근무지 주소</th>
                 <td>
-                    <span id="basic_text">서울 양천구 공항대로 644</span>
+                    <b>(기본근무지)</b><span id="basic_text">서울 양천구 공항대로 644</span>
                 </td>
             </tr>
             
