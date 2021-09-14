@@ -35,7 +35,7 @@ $(document).ready(function () {
     
     $slickElement_popup.slick({
         autoplay: true,
-        autoplaySpeed:3000,
+        autoplaySpeed:4000,
         speed: 500,  
         dots: true,
         fade:false,
@@ -75,9 +75,11 @@ function todaycloseWin() {
 </script>
 
 <style>
- .popup_slider .draggable{margin-bottom:50px;}
- .popup_slider .slick-dots{position:absolute;bottom:-32px;left:50%;transform: translateX(-50%);-webkit-transform: translateX(-50%);-moz-transform: translateX(-50%);-ms-transform: translateX(-50%);-z-transform: translateX(-50%);-o-transform: translateX(-50%);}
+ .popup_slider .draggable{margin-bottom:33px;}
+ .popup_slider .slick-dots{width:100%;height:50px;line-height: 50px;text-align: center;background:#dfdfdf; position:absolute;bottom:-32px;left:50%;transform: translateX(-50%);-webkit-transform: translateX(-50%);-moz-transform: translateX(-50%);-ms-transform: translateX(-50%);-z-transform: translateX(-50%);-o-transform: translateX(-50%);}
   .popup_slider .slick-dots li{width:auto;display: inline-block;margin: 0 3px;}
+  .popup_slider .slick-dots li button{border:1px solid #999;background:#fff;}
+  .popup_slider .slick-dots li.slick-active button{background:#999;color:#fff;}
 </style>
 </head>
 <body>
@@ -85,9 +87,9 @@ function todaycloseWin() {
 <!---20210913 팝업 슬라이드 추가----->
 <div class="popup" id="popup1" style="z-index:1;">
 	<ul class="popup_slider">
-          <li><img src="/img/210628_popup_PC_2.jpg" ></li>
-          <li><img src="/img/main_banner_re2_3.jpg" ></li>
-          <li><img src="/img/main_banner_re3.jpg" ></li>
+          <li><img src="/img/210914_popup.jpg" ></li>
+          <li><img src="/img/210914_popup_choosuk.jpg" ></li>
+          <li><img src="/img/210914_popup_price.jpg" ></li>
     </ul>
     <div class="popup_btn">
 		<a href="javascript:todaycloseWin()" class="white">오늘하루 그만보기</a>
