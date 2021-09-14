@@ -38,7 +38,7 @@ function wrapWindowByMask(){
         
         
         //닫기 버튼을 눌렀을 때
-        $('.window .close').click(function (e) {
+        $('.close').click(function (e) {
             //링크 기본동작은 작동하지 않도록 한다.
             e.preventDefault();
             $('#mask, .window').hide();
@@ -96,7 +96,7 @@ function wrapWindowByMask_designation(){
         
         
         //닫기 버튼을 눌렀을 때
-        $('.window .close').click(function (e) {
+        $('.close').click(function (e) {
             //링크 기본동작은 작동하지 않도록 한다.
             e.preventDefault();
             $('#mask, .window').hide();
