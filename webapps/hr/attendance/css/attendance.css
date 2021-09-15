@@ -78,3 +78,14 @@
 .close_btn.appointed_Entry_btn .close{width:48%;margin: 0 1%;}
 #address_basic_input,#address_input{display:none;}
 .save_data_btn{background:#8f8f8f;color:#fff;width: 150px;text-align: center;height: 40px;line-height: 40px;cursor: pointer;margin:3% auto;font-weight: 600;}
+
+/*20210915추가*/
+.search_btn {
+    background: #acb5be;
+    color: #fff !important;
+    padding: 0 2%;
+    height: 37px;
+    vertical-align: middle;
+    font-size: 13px;
+    margin-top: 0 !important;
+}
