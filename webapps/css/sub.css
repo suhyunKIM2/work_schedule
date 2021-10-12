@@ -411,4 +411,14 @@ col:first-child{width:40%;}
 }
 
 
-
+/*S: 20211012 추가*/
+.info_h4{line-height:normal;font-weight: 500;margin-bottom: 4%;    width: 92%; margin: auto;}
+.info_h4 br{display: none;}
+.info_h4 span.color_g{font-size:100%;color: #b71616;font-weight: 600;}
+@media (max-width: 1030px){
+.info_h4 br{display: block;}
+}
+@media (max-width: 500px){
+.info_h4{font-size:12px;width:100%;letter-spacing: -1px;}
+}
+/*E: 20211012 추가*/
