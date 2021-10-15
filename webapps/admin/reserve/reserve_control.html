@@ -1,0 +1,2108 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" integrity="sha384-v8BU367qNbs/aIZIxuivaU55N5GPF89WBerHoGA4QTcbUjYiLQtKdrfXnqAcXyTv" crossorigin="anonymous">
+<link rel="stylesheet" href="/admin/css/reset.css">
+<link rel="stylesheet" href="/admin/css/common.css">
+<script type="text/javascript" src="/js/jquery-1.11.3.min.js"></script>
+<script src="/admin/js/calendar.js"></script>
+<script src="/admin/js/layer_popup.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+
+<title>테니스아레나 예약관리</title>
+<!---20210708 회원검색 박스창 추가--->
+<script type="text/javascript">
+$(function(){
+  $('.btn_set').click(function(){
+    $('.search_box').css('display','table-cell');
+  });
+  $('.layer_btn_close').click(function(){
+    $('.search_box').css('display','none');
+  });
+  $('.layer_bg').click(function(){
+    $('.search_box').css('display','none');
+  });
+});
+</script>
+</head>
+<body>
+<header class="top_header"><div role="header" data-include-path="/admin/common/header.html"></div></header>
+<div role="nav_left" data-include-path="/admin/common/nav_left.html"></div>
+<section class="tab_box">
+    <div class="nav_right">예약관리 > <span class="color_point_01">예약현황관리</span></div>
+    <div class="right_set" style="height: 80vh;">
+        <div class="layer_bg"></div>
+        <table class="schedule_set schedule_set_02"><!---20210708 class추가---->
+           <caption><button type="button" onClick="" class="btn-prev">&lsaquo;</button>2021년 4월<button type="button" onClick="" class="btn_next">&rsaquo;</button></caption>
+            <colgroup>
+				<!----20210702수정 ------>
+                <col style="width:15%">
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+            </colgroup>
+            <thead>
+            <tr class="schedule_lst">
+				<th scope="col">시간</th>
+				<th scope="col">06월 27일(일)</th>
+				<th scope="col">06월 28일(월)</th>
+				<th scope="col">06월 29일(화)</th>
+				<th scope="col">06월 30일(수)</th>
+				<th scope="col">07월 01일(목)</th>
+				<th scope="col">07월 02일(금)</th>
+				<th scope="col">07월 03일(토)</th>
+			</tr>
+            </thead>
+            <tr>
+                <td>06:00~07:00</td>
+                <td>
+                    <ul>	
+                        <li>
+                            <!--a 링크 layer="n" , div 클래스 layer_wrap 안 layer="n" 숫자 동일하게 카운트 ---->
+                            <a href="javascript:;" class="btn_layer" layer="1"><b>실외  :</b> 홍길동</a>
+                            <div class="layer_wrap" layer="1">
+                                <table>
+                                    <tr>
+                                        <th>예약정보</th>
+                                        <td>실외코트-2021.04.05 / 06시~07시</td>
+                                    </tr>
+                                    <tr>
+                                        <th>예약자</th>
+                                        <td>홍길동</td>
+                                    </tr>
+                                    <tr>
+                                        <th>연락처</th>
+                                        <td>010-1111-2222</td>
+                                    </tr>
+                                </table>
+                                <a href="javascript:;" class="btn_close">예약취소</a>
+                            </div>
+                        </li>
+                        <li>
+                            <b>실내A :</b>  예약불가</a>
+                        </li>
+                        <li>
+                           <b>실내B :</b><input type='checkbox' name='check_rsv' value='' /><a href="javascript:;" class="btn_layer" layer="2"><span class="rsv_btn_box">예약가능</span></a>
+                            <div class="layer_wrap layer_wrap_search" layer="2">
+                                    <table class="search_box_table">
+                                        <tr>
+                                            <th>예약정보</th>
+                                            <td>실내B- 2021.04.05 /6시~7시<br>실내B- 2021.04.05 /6시~7시<br>실내B- 2021.04.05 /6시~7시<br>실내B- 2021.04.05 /6시~7시<br>실내B- 2021.04.05 /6시~7시<br>실내B- 2021.04.05 /6시~7시</td>
+                                        </tr>
+                                        <tr>
+                                            <th>사용인원</th>
+                                            <td><input type="text"></td>
+                                        </tr>
+                                        <!----20210721 추가 시작 ----->
+                                        <tr>
+                                            <th>예약타입</th>
+                                            <td class="type_td">
+                                                <select class="type_select">
+                                                    <option>일반예약</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <!----20210721 추가 끝 ----->
+                                        <tr>
+                                            <th>예약자</th>
+                                            <td>
+                                                <input type="search" placeholder="회원검색" onkeyup="filter();" id="value"><button class="btn_set">검색</button>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" class="search_box"><!----20210708 style="diplay:none" 기본 설정 검색 버튼 누르면 style="display: table-cell;" ---->
+                                                <div class="user_list">
+                                                    <ul class="item">
+                                                        <li class="none">검색 결과가 없습니다.</li><!---검색결과 없을시...--->
+                                                        <li class="name">
+                                                            <div class="checks"><input type="radio" name="name" id="name1"><label for="name1"></label></div>
+                                                            <div>홍길동 / sususususu / 010-1111-2222</div>
+                                                        </li>
+                                                        <li class="name">
+                                                            <div class="checks"><input type="radio" name="name"  id="name2"><label for="name2"></label></div>
+                                                            <div>홍길동 / sususususu / 010-1111-2222</div>
+                                                        </li>
+                                                        <li class="name">
+                                                            <div class="checks"><input type="radio" name="name"  id="name3"><label for="name3"></label></div>
+                                                            <div>홍길동 / sususususu / 010-1111-2222</div>
+                                                        </li>
+                                                        <li class="name">
+                                                            <div class="checks"><input type="radio" name="name"  id="name4"><label for="name4"></label></div>
+                                                            <div>홍길동 / sususususu / 010-1111-2222</div>
+                                                        </li>
+                                                        <li class="name">
+                                                            <div class="checks"><input type="radio" name="name"  id="name5"><label for="name5"></label></div>
+                                                            <div>홍길동 / sususususu / 010-1111-2222</div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    
+                                    <div><a href="javascript:;" class="btn_close layer_btn_close">닫기</a><a href="javascript:;" class="submit_btn">예약확정</a></div>
+                            </div>
+                        </li>
+                        <li>
+                            <b>실내C :</b>예약불가
+                        </li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>
+                            <!--a 링크 layer="n" , div 클래스 layer_wrap 안 layer="n" 숫자 동일하게 카운트 ---->
+                            <a href="javascript:;" class="btn_layer" layer="3"><b>실외  :</b> 홍길동</a>
+                            <div class="layer_wrap" layer="3">
+                                <table>
+                                    <tr>
+                                        <th>예약정보</th>
+                                        <td>실외코트-2021.04.05 / 06시~07시</td>
+                                    </tr>
+                                    <tr>
+                                        <th>예약자</th>
+                                        <td>홍길동</td>
+                                    </tr>
+                                    <tr>
+                                        <th>연락처</th>
+                                        <td>010-1111-2222</td>
+                                    </tr>
+                                </table>
+                                <a href="javascript:;" class="btn_close">예약취소</a>
+                            </div>
+                        </li>
+                        <li>
+                            <b>실내A :</b>  예약불가</a>
+                        </li>
+                        <li>
+                            <b>실내B :</b><input type='checkbox' name='check_rsv' value='' /><a href="javascript:;" class="btn_layer" layer="4"><span class="rsv_btn_box">예약가능</span></a>
+                            <div class="layer_wrap" layer="4">
+                                    <table class="search_box_table">
+                                        <tr>
+                                            <th>예약정보</th>
+                                            <td>실내B- 2021.04.05 /6시~7시</td>
+                                        </tr>
+                                        <tr>
+                                            <th>예약자</th>
+                                            <td>
+                                                <input type="search" placeholder="회원검색" onkeyup="filter();" id="value"><button class="btn_set">검색</button>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" class="search_box">
+                                                <div class="user_list">
+                                                    <ul class="item">
+                                                        <li class="name">
+                                                            <div class="checks"><input type="radio" name="name" id="name1"><label for="name1"></label></div>
+                                                            <div>홍길동 / sususususu / 010-1111-2222</div>
+                                                        </li>
+                                                        <li class="name">
+                                                            <div class="checks"><input type="radio" name="name"  id="name2"><label for="name2"></label></div>
+                                                            <div>홍길동 / sususususu / 010-1111-2222</div>
+                                                        </li>
+                                                        <li class="name">
+                                                            <div class="checks"><input type="radio" name="name"  id="name3"><label for="name3"></label></div>
+                                                            <div>홍길동 / sususususu / 010-1111-2222</div>
+                                                        </li>
+                                                        <li class="name">
+                                                            <div class="checks"><input type="radio" name="name"  id="name4"><label for="name4"></label></div>
+                                                            <div>홍길동 / sususususu / 010-1111-2222</div>
+                                                        </li>
+                                                        <li class="name">
+                                                            <div class="checks"><input type="radio" name="name"  id="name5"><label for="name5"></label></div>
+                                                            <div>홍길동 / sususususu / 010-1111-2222</div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    
+                                    <div><a href="javascript:;" class="btn_close layer_btn_close">닫기</a><a href="javascript:;" class="submit_btn">예약확정</a></div>
+                            </div>
+                        </li>
+                        <li>
+                            <b>실내C :</b>예약불가
+                        </li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>
+                            <!--a 링크 layer="n" , div 클래스 layer_wrap 안 layer="n" 숫자 동일하게 카운트 ---->
+                            <a href="javascript:;" class="btn_layer" layer="5"><b>실외  :</b> 홍길동</a>
+                            <div class="layer_wrap" layer="5">
+                                <table>
+                                    <tr>
+                                        <th>예약정보</th>
+                                        <td>실외코트-2021.04.05 / 06시~07시</td>
+                                    </tr>
+                                    <tr>
+                                        <th>예약자</th>
+                                        <td>홍길동</td>
+                                    </tr>
+                                    <tr>
+                                        <th>연락처</th>
+                                        <td>010-1111-2222</td>
+                                    </tr>
+                                </table>
+                                <a href="javascript:;" class="btn_close">예약취소</a>
+                            </div>
+                        </li>
+                        <li>
+                            <b>실내A :</b>  예약불가</a>
+                        </li>
+                        <li>
+                            <b>실내B :</b><input type='checkbox' name='check_rsv' value='' /><a href="javascript:;" class="btn_layer" layer="6"><span class="rsv_btn_box">예약가능</span></a>
+                            <div class="layer_wrap" layer="6">
+                                    <table class="search_box_table">
+                                        <tr>
+                                            <th>예약정보</th>
+                                            <td>실내B- 2021.04.05 /6시~7시</td>
+                                        </tr>
+                                        <tr>
+                                            <th>예약자</th>
+                                            <td>
+                                                <input type="search" placeholder="회원검색" onkeyup="filter();" id="value"><button class="btn_set">검색</button>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" class="search_box"> <!----20210708 style="diplay:none" 기본 설정 검색 버튼 누르면 style="display: table-cell;" ---->
+                                                <div class="user_list">
+                                                    <ul class="item">
+                                                        <li class="name">
+                                                            <div class="checks"><input type="radio" name="name" id="name1"><label for="name1"></label></div>
+                                                            <div>홍길동 / sususususu / 010-1111-2222</div>
+                                                        </li>
+                                                        <li class="name">
+                                                            <div class="checks"><input type="radio" name="name"  id="name2"><label for="name2"></label></div>
+                                                            <div>홍길동 / sususususu / 010-1111-2222</div>
+                                                        </li>
+                                                        <li class="name">
+                                                            <div class="checks"><input type="radio" name="name"  id="name3"><label for="name3"></label></div>
+                                                            <div>홍길동 / sususususu / 010-1111-2222</div>
+                                                        </li>
+                                                        <li class="name">
+                                                            <div class="checks"><input type="radio" name="name"  id="name4"><label for="name4"></label></div>
+                                                            <div>홍길동 / sususususu / 010-1111-2222</div>
+                                                        </li>
+                                                        <li class="name">
+                                                            <div class="checks"><input type="radio" name="name"  id="name5"><label for="name5"></label></div>
+                                                            <div>홍길동 / sususususu / 010-1111-2222</div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    
+                                    <div><a href="javascript:;" class="btn_close layer_btn_close">닫기</a><a href="javascript:;" class="submit_btn">예약확정</a></div>
+                            </div>
+                        </li>
+                        <li>
+                            <b>실내C :</b>예약불가
+                        </li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>
+                            <!--a 링크 layer="n" , div 클래스 layer_wrap 안 layer="n" 숫자 동일하게 카운트 ---->
+                            <a href="javascript:;" class="btn_layer" layer="7"><b>실외  :</b> 홍길동</a>
+                            <div class="layer_wrap" layer="7">
+                                <table>
+                                    <tr>
+                                        <th>예약정보</th>
+                                        <td>실외코트-2021.04.05 / 06시~07시</td>
+                                    </tr>
+                                    <tr>
+                                        <th>예약자</th>
+                                        <td>홍길동</td>
+                                    </tr>
+                                    <tr>
+                                        <th>연락처</th>
+                                        <td>010-1111-2222</td>
+                                    </tr>
+                                </table>
+                                <a href="javascript:;" class="btn_close">예약취소</a>
+                            </div>
+                        </li>
+                        <li>
+                            <b>실내A :</b>  예약불가</a>
+                        </li>
+                        <li>
+                            <b>실내B :</b><input type='checkbox' name='check_rsv' value='' /><a href="javascript:;" class="btn_layer" layer="8"><span class="rsv_btn_box">예약가능</span></a>
+                            <div class="layer_wrap" layer="8">
+                                    <table class="search_box_table">
+                                        <tr>
+                                            <th>예약정보</th>
+                                            <td>실내B- 2021.04.05 /6시~7시</td>
+                                        </tr>
+                                        <tr>
+                                            <th>예약자</th>
+                                            <td>
+                                                <input type="search" placeholder="회원검색" onkeyup="filter();" id="value"><button class="btn_set">검색</button>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" class="search_box">
+                                                <div class="user_list">
+                                                    <ul class="item">
+                                                        <li class="name">
+                                                            <div class="checks"><input type="radio" name="name" id="name1"><label for="name1"></label></div>
+                                                            <div>홍길동 / sususususu / 010-1111-2222</div>
+                                                        </li>
+                                                        <li class="name">
+                                                            <div class="checks"><input type="radio" name="name"  id="name2"><label for="name2"></label></div>
+                                                            <div>홍길동 / sususususu / 010-1111-2222</div>
+                                                        </li>
+                                                        <li class="name">
+                                                            <div class="checks"><input type="radio" name="name"  id="name3"><label for="name3"></label></div>
+                                                            <div>홍길동 / sususususu / 010-1111-2222</div>
+                                                        </li>
+                                                        <li class="name">
+                                                            <div class="checks"><input type="radio" name="name"  id="name4"><label for="name4"></label></div>
+                                                            <div>홍길동 / sususususu / 010-1111-2222</div>
+                                                        </li>
+                                                        <li class="name">
+                                                            <div class="checks"><input type="radio" name="name"  id="name5"><label for="name5"></label></div>
+                                                            <div>홍길동 / sususususu / 010-1111-2222</div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    
+                                    <div><a href="javascript:;" class="btn_close layer_btn_close">닫기</a><a href="javascript:;" class="submit_btn">예약확정</a></div>
+                            </div>
+                        </li>
+                        <li>
+                            <b>실내C :</b>예약불가
+                        </li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>	
+                        <li>
+                            <!--a 링크 layer="n" , div 클래스 layer_wrap 안 layer="n" 숫자 동일하게 카운트 ---->
+                            <a href="javascript:;" class="btn_layer" layer="9"><b>실외  :</b> 홍길동</a>
+                            <div class="layer_wrap" layer="9">
+                                <table>
+                                    <tr>
+                                        <th>예약정보</th>
+                                        <td>실외코트-2021.04.05 / 06시~07시</td>
+                                    </tr>
+                                    <tr>
+                                        <th>예약자</th>
+                                        <td>홍길동</td>
+                                    </tr>
+                                    <tr>
+                                        <th>연락처</th>
+                                        <td>010-1111-2222</td>
+                                    </tr>
+                                </table>
+                                <a href="javascript:;" class="btn_close">예약취소</a>
+                            </div>
+                        </li>
+                        <li>
+                            <b>실내A :</b>  예약불가</a>
+                        </li>
+                        <li>
+                            <b>실내B :</b><input type='checkbox' name='check_rsv' value='' /><a href="javascript:;" class="btn_layer" layer="8"><span class="rsv_btn_box">예약가능</span></a>
+                            <div class="layer_wrap" layer="10">
+                                    <table class="search_box_table">
+                                        <tr>
+                                            <th>예약정보</th>
+                                            <td>실내B- 2021.04.05 /6시~7시</td>
+                                        </tr>
+                                        <tr>
+                                            <th>예약자</th>
+                                            <td>
+                                                <input type="search" placeholder="회원검색" onkeyup="filter();" id="value"><button class="btn_set">검색</button>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" class="search_box">
+                                                <div class="user_list">
+                                                    <ul class="item">
+                                                        <li class="name">
+                                                            <div class="checks"><input type="radio" name="name" id="name1"><label for="name1"></label></div>
+                                                            <div>홍길동 / sususususu / 010-1111-2222</div>
+                                                        </li>
+                                                        <li class="name">
+                                                            <div class="checks"><input type="radio" name="name"  id="name2"><label for="name2"></label></div>
+                                                            <div>홍길동 / sususususu / 010-1111-2222</div>
+                                                        </li>
+                                                        <li class="name">
+                                                            <div class="checks"><input type="radio" name="name"  id="name3"><label for="name3"></label></div>
+                                                            <div>홍길동 / sususususu / 010-1111-2222</div>
+                                                        </li>
+                                                        <li class="name">
+                                                            <div class="checks"><input type="radio" name="name"  id="name4"><label for="name4"></label></div>
+                                                            <div>홍길동 / sususususu / 010-1111-2222</div>
+                                                        </li>
+                                                        <li class="name">
+                                                            <div class="checks"><input type="radio" name="name"  id="name5"><label for="name5"></label></div>
+                                                            <div>홍길동 / sususususu / 010-1111-2222</div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    
+                                    <div><a href="javascript:;" class="btn_close layer_btn_close">닫기</a><a href="javascript:;" class="submit_btn">예약확정</a></div>
+                            </div>
+                        </li>
+                        <li>
+                            <b>실내C :</b>예약불가
+                        </li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>
+                            <!--a 링크 layer="n" , div 클래스 layer_wrap 안 layer="n" 숫자 동일하게 카운트 ---->
+                            <a href="javascript:;" class="btn_layer" layer="11"><b>실외  :</b> 홍길동</a>
+                            <div class="layer_wrap" layer="11">
+                                <table>
+                                    <tr>
+                                        <th>예약정보</th>
+                                        <td>실외코트-2021.04.05 / 06시~07시</td>
+                                    </tr>
+                                    <tr>
+                                        <th>예약자</th>
+                                        <td>홍길동</td>
+                                    </tr>
+                                    <tr>
+                                        <th>연락처</th>
+                                        <td>010-1111-2222</td>
+                                    </tr>
+                                </table>
+                                <a href="javascript:;" class="btn_close">예약취소</a>
+                            </div>
+                        </li>
+                        <li>
+                            <b>실내A :</b>  예약불가</a>
+                        </li>
+                        <li>
+                            <b>실내B :</b><input type='checkbox' name='check_rsv' value='' /><a href="javascript:;" class="btn_layer" layer="12"><span class="rsv_btn_box">예약가능</span></a>
+                            <div class="layer_wrap" layer="12">
+                                    <table class="search_box_table">
+                                        <tr>
+                                            <th>예약정보</th>
+                                            <td>실내B- 2021.04.05 /6시~7시</td>
+                                        </tr>
+                                        <tr>
+                                            <th>예약자</th>
+                                            <td>
+                                                <input type="search" placeholder="회원검색" onkeyup="filter();" id="value"><button class="btn_set">검색</button>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" class="search_box">
+                                                <div class="user_list">
+                                                    <ul class="item">
+                                                        <li class="name">
+                                                            <div class="checks"><input type="radio" name="name" id="name1"><label for="name1"></label></div>
+                                                            <div>홍길동 / sususususu / 010-1111-2222</div>
+                                                        </li>
+                                                        <li class="name">
+                                                            <div class="checks"><input type="radio" name="name"  id="name2"><label for="name2"></label></div>
+                                                            <div>홍길동 / sususususu / 010-1111-2222</div>
+                                                        </li>
+                                                        <li class="name">
+                                                            <div class="checks"><input type="radio" name="name"  id="name3"><label for="name3"></label></div>
+                                                            <div>홍길동 / sususususu / 010-1111-2222</div>
+                                                        </li>
+                                                        <li class="name">
+                                                            <div class="checks"><input type="radio" name="name"  id="name4"><label for="name4"></label></div>
+                                                            <div>홍길동 / sususususu / 010-1111-2222</div>
+                                                        </li>
+                                                        <li class="name">
+                                                            <div class="checks"><input type="radio" name="name"  id="name5"><label for="name5"></label></div>
+                                                            <div>홍길동 / sususususu / 010-1111-2222</div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    
+                                    <div><a href="javascript:;" class="btn_close layer_btn_close">닫기</a><a href="javascript:;" class="submit_btn">예약확정</a></div>
+                            </div>
+                        </li>
+                        <li>
+                            <b>실내C :</b>예약불가
+                        </li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>	
+                        <li>
+                            <!--a 링크 layer="n" , div 클래스 layer_wrap 안 layer="n" 숫자 동일하게 카운트 ---->
+                            <a href="javascript:;" class="btn_layer" layer="13"><b>실외  :</b> 홍길동</a>
+                            <div class="layer_wrap" layer="13">
+                                <table>
+                                    <tr>
+                                        <th>예약정보</th>
+                                        <td>실외코트-2021.04.05 / 06시~07시</td>
+                                    </tr>
+                                    <tr>
+                                        <th>예약자</th>
+                                        <td>홍길동</td>
+                                    </tr>
+                                    <tr>
+                                        <th>연락처</th>
+                                        <td>010-1111-2222</td>
+                                    </tr>
+                                </table>
+                                <a href="javascript:;" class="btn_close">예약취소</a>
+                            </div>
+                        </li>
+                        <li>
+                            <b>실내A :</b>  예약불가</a>
+                        </li>
+                        <li>
+                            <b>실내B :</b><input type='checkbox' name='check_rsv' value='' /><a href="javascript:;" class="btn_layer" layer="14"><span class="rsv_btn_box">예약가능</span></a>
+                            <div class="layer_wrap" layer="14">
+                                    <table class="search_box_table">
+                                        <tr>
+                                            <th>예약정보</th>
+                                            <td>실내B- 2021.04.05 /6시~7시</td>
+                                        </tr>
+                                        <tr>
+                                            <th>예약자</th>
+                                            <td>
+                                                <input type="search" placeholder="회원검색" onkeyup="filter();" id="value"><button class="btn_set">검색</button>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" class="search_box">
+                                                <div class="user_list">
+                                                    <ul class="item">
+                                                        <li class="none">검색 결과가 없습니다.</li><!---검색결과 없을시...--->
+                                                        <li class="name">
+                                                            <div class="checks"><input type="radio" name="name" id="name1"><label for="name1"></label></div>
+                                                            <div>홍길동 / sususususu / 010-1111-2222</div>
+                                                        </li>
+                                                        <li class="name">
+                                                            <div class="checks"><input type="radio" name="name"  id="name2"><label for="name2"></label></div>
+                                                            <div>홍길동 / sususususu / 010-1111-2222</div>
+                                                        </li>
+                                                        <li class="name">
+                                                            <div class="checks"><input type="radio" name="name"  id="name3"><label for="name3"></label></div>
+                                                            <div>홍길동 / sususususu / 010-1111-2222</div>
+                                                        </li>
+                                                        <li class="name">
+                                                            <div class="checks"><input type="radio" name="name"  id="name4"><label for="name4"></label></div>
+                                                            <div>홍길동 / sususususu / 010-1111-2222</div>
+                                                        </li>
+                                                        <li class="name">
+                                                            <div class="checks"><input type="radio" name="name"  id="name5"><label for="name5"></label></div>
+                                                            <div>홍길동 / sususususu / 010-1111-2222</div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    
+                                    <div><a href="javascript:;" class="btn_close layer_btn_close">닫기</a><a href="javascript:;" class="submit_btn">예약확정</a></div>
+                            </div>
+                        </li>
+                        <li>
+                            <b>실내C :</b>예약불가
+                        </li>
+                    </ul>
+                </td>
+           
+           
+           
+           
+           <!--   <td>
+                    <ul>
+						<li>
+                            <a href="javascript:;" class="btn_layer" layer="6"><b>실내A :</b>  예약불가</a>
+                            <div class="layer_wrap" layer="6">
+                                <table>
+                                    <tr>
+                                        <th>예약정보</th>
+                                        <td>예약불가</td>
+                                    </tr>
+                                    <tr>
+                                        <th>예약자</th>
+                                        <td>예약불가</td>
+                                    </tr>
+                                    <tr>
+                                        <th>연락처</th>
+                                        <td>예약불가</td>
+                                    </tr>
+                                </table>
+                                <a href="javascript:;" class="btn_close">닫기</a>
+                            </div>
+                        </li>	
+                        <li>
+                            a 링크 layer="n" , div 클래스 layer_wrap 안 layer="n" 숫자 동일하게 카운트 --
+                            <a href="javascript:;" class="btn_layer" layer="1"><b>실외  :</b> 홍길동</a>
+                            <div class="layer_wrap" layer="1">
+                                <table>
+                                    <tr>
+                                        <th>예약정보</th>
+                                        <td>실외코트-2021.04.05 / 06시~07시</td>
+                                    </tr>
+                                    <tr>
+                                        <th>예약자</th>
+                                        <td>홍길동</td>
+                                    </tr>
+                                    <tr>
+                                        <th>연락처</th>
+                                        <td>010-1111-2222</td>
+                                    </tr>
+                                </table>
+                                <a href="javascript:;" class="btn_close">예약취소</a>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="javascript:;" class="btn_layer" layer="2"><b>실내A :</b>  예약불가</a>
+                            <div class="layer_wrap" layer="2">
+                                <table>
+                                    <tr>
+                                        <th>예약정보</th>
+                                        <td>예약불가</td>
+                                    </tr>
+                                    <tr>
+                                        <th>예약자</th>
+                                        <td>예약불가</td>
+                                    </tr>
+                                    <tr>
+                                        <th>연락처</th>
+                                        <td>예약불가</td>
+                                    </tr>
+                                </table>
+                                <a href="javascript:;" class="btn_close">닫기</a>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="javascript:;" class="btn_layer" layer="3"><b>실내B :</b>  -</a>
+                            <div class="layer_wrap" layer="3">
+                                <table>
+                                    <tr>
+                                        <th>예약정보</th>
+                                        <td>실내B- 2021.04.05 /6시~7시</td>
+                                    </tr>
+                                    <tr>
+                                        <th>예약자</th>
+                                        <td>
+                                            <input type="search" placeholder="회원검색"><button class="btn_set">검색</button>
+                                            <div class="user_list">
+                                                <ul>
+                                                    <li>홍길동 / 010-1111-2222</li>
+                                                    <li>홍길동이어라 / 010-1111-3333</li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <a href="javascript:;" class="btn_close">예약확정</a>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="javascript:;" class="btn_layer" layer="4"><b>실내c :</b>  -</a>
+                            <div class="layer_wrap" layer="4">
+                                <table>
+                                    <tr>
+                                        <th>예약정보</th>
+                                        <td>실내B- 2021.04.05 /6시~7시</td>
+                                    </tr>
+                                    <tr>
+                                        <th>예약자</th>
+                                        <td>
+                                            <input type="search" placeholder="회원검색"><button class="btn_set">검색</button>
+                                            <div class="user_list">
+                                                <ul>
+                                                    <li>홍길동 / 010-1111-2222</li>
+                                                    <li>홍길동이어라 / 010-1111-3333</li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <a href="javascript:;" class="btn_close">예약확정</a>
+                            </div>
+                        </li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="javascript:;" class="btn_layer" layer="5"><b>실외  :</b> 홍길동</a>
+                            <div class="layer_wrap" layer="5">
+                                <table>
+                                    <tr>
+                                        <th>예약정보</th>
+                                        <td>실외코트-2021.04.05 / 06시~07시</td>
+                                    </tr>
+                                    <tr>
+                                        <th>예약자</th>
+                                        <td>홍길동</td>
+                                    </tr>
+                                    <tr>
+                                        <th>연락처</th>
+                                        <td>010-1111-2222</td>
+                                    </tr>
+                                </table>
+                                <a href="javascript:;" class="btn_close">예약취소</a>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="javascript:;" class="btn_layer" layer="6"><b>실내A :</b>  예약불가</a>
+                            <div class="layer_wrap" layer="6">
+                                <table>
+                                    <tr>
+                                        <th>예약정보</th>
+                                        <td>예약불가</td>
+                                    </tr>
+                                    <tr>
+                                        <th>예약자</th>
+                                        <td>예약불가</td>
+                                    </tr>
+                                    <tr>
+                                        <th>연락처</th>
+                                        <td>예약불가</td>
+                                    </tr>
+                                </table>
+                                <a href="javascript:;" class="btn_close">닫기</a>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="javascript:;" class="btn_layer" layer="7"><b>실내B :</b>  -</a>
+                            <div class="layer_wrap" layer="7">
+                                <table>
+                                    <tr>
+                                        <th>예약정보</th>
+                                        <td>실내B- 2021.04.05 /6시~7시</td>
+                                    </tr>
+                                    <tr>
+                                        <th>예약자</th>
+                                        <td>
+                                            <input type="search" placeholder="회원검색"><button class="btn_set">검색</button>
+                                            <div class="user_list">
+                                                <ul>
+                                                    <li>홍길동 / 010-1111-2222</li>
+                                                    <li>홍길동이어라 / 010-1111-3333</li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <a href="javascript:;" class="btn_close">예약확정</a>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="javascript:;" class="btn_layer" layer="8"><b>실내c :</b>  -</a>
+                            <div class="layer_wrap" layer="8">
+                                <table>
+                                    <tr>
+                                        <th>예약정보</th>
+                                        <td>실내B- 2021.04.05 /6시~7시</td>
+                                    </tr>
+                                    <tr>
+                                        <th>예약자</th>
+                                        <td>
+                                            <input type="search" placeholder="회원검색"><button class="btn_set">검색</button>
+                                            <div class="user_list">
+                                                <ul>
+                                                    <li>홍길동 / 010-1111-2222</li>
+                                                    <li>홍길동이어라 / 010-1111-3333</li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <a href="javascript:;" class="btn_close">예약확정</a>
+                            </div>
+                        </li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="javascript:;" class="btn_layer" layer="9"><b>실외  :</b> 홍길동</a>
+                            <div class="layer_wrap" layer="9">
+                                <table>
+                                    <tr>
+                                        <th>예약정보</th>
+                                        <td>실외코트-2021.04.05 / 06시~07시</td>
+                                    </tr>
+                                    <tr>
+                                        <th>예약자</th>
+                                        <td>홍길동</td>
+                                    </tr>
+                                    <tr>
+                                        <th>연락처</th>
+                                        <td>010-1111-2222</td>
+                                    </tr>
+                                </table>
+                                <a href="javascript:;" class="btn_close">예약취소</a>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="javascript:;" class="btn_layer" layer="10"><b>실내A :</b>  예약불가</a>
+                            <div class="layer_wrap" layer="10">
+                                <table>
+                                    <tr>
+                                        <th>예약정보</th>
+                                        <td>예약불가</td>
+                                    </tr>
+                                    <tr>
+                                        <th>예약자</th>
+                                        <td>예약불가</td>
+                                    </tr>
+                                    <tr>
+                                        <th>연락처</th>
+                                        <td>예약불가</td>
+                                    </tr>
+                                </table>
+                                <a href="javascript:;" class="btn_close">닫기</a>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="javascript:;" class="btn_layer" layer="11"><b>실내B :</b>  -</a>
+                            <div class="layer_wrap" layer="11">
+                                <table>
+                                    <tr>
+                                        <th>예약정보</th>
+                                        <td>실내B- 2021.04.05 /6시~7시</td>
+                                    </tr>
+                                    <tr>
+                                        <th>예약자</th>
+                                        <td>
+                                            <input type="search" placeholder="회원검색"><button class="btn_set">검색</button>
+                                            <div class="user_list">
+                                                <ul>
+                                                    <li>홍길동 / 010-1111-2222</li>
+                                                    <li>홍길동이어라 / 010-1111-3333</li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <a href="javascript:;" class="btn_close">예약확정</a>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="javascript:;" class="btn_layer" layer="12"><b>실내c :</b>  -</a>
+                            <div class="layer_wrap" layer="12">
+                                <table>
+                                    <tr>
+                                        <th>예약정보</th>
+                                        <td>실내B- 2021.04.05 /6시~7시</td>
+                                    </tr>
+                                    <tr>
+                                        <th>예약자</th>
+                                        <td>
+                                            <input type="search" placeholder="회원검색"><button class="btn_set">검색</button>
+                                            <div class="user_list">
+                                                <ul>
+                                                    <li>홍길동 / 010-1111-2222</li>
+                                                    <li>홍길동이어라 / 010-1111-3333</li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <a href="javascript:;" class="btn_close">예약확정</a>
+                            </div>
+                        </li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="javascript:;" class="btn_layer" layer="13"><b>실외  :</b> 홍길동</a>
+                            <div class="layer_wrap" layer="13">
+                                <table>
+                                    <tr>
+                                        <th>예약정보</th>
+                                        <td>실외코트-2021.04.05 / 06시~07시</td>
+                                    </tr>
+                                    <tr>
+                                        <th>예약자</th>
+                                        <td>홍길동</td>
+                                    </tr>
+                                    <tr>
+                                        <th>연락처</th>
+                                        <td>010-1111-2222</td>
+                                    </tr>
+                                </table>
+                                <a href="javascript:;" class="btn_close">예약취소</a>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="javascript:;" class="btn_layer" layer="14"><b>실내A :</b>  예약불가</a>
+                            <div class="layer_wrap" layer="14">
+                                <table>
+                                    <tr>
+                                        <th>예약정보</th>
+                                        <td>예약불가</td>
+                                    </tr>
+                                    <tr>
+                                        <th>예약자</th>
+                                        <td>예약불가</td>
+                                    </tr>
+                                    <tr>
+                                        <th>연락처</th>
+                                        <td>예약불가</td>
+                                    </tr>
+                                </table>
+                                <a href="javascript:;" class="btn_close">닫기</a>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="javascript:;" class="btn_layer" layer="15"><b>실내B :</b>  -</a>
+                            <div class="layer_wrap" layer="15">
+                                <table>
+                                    <tr>
+                                        <th>예약정보</th>
+                                        <td>실내B- 2021.04.05 /6시~7시</td>
+                                    </tr>
+                                    <tr>
+                                        <th>예약자</th>
+                                        <td>
+                                            <input type="search" placeholder="회원검색"><button class="btn_set">검색</button>
+                                            <div class="user_list">
+                                                <ul>
+                                                    <li>홍길동 / 010-1111-2222</li>
+                                                    <li>홍길동이어라 / 010-1111-3333</li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <a href="javascript:;" class="btn_close">예약확정</a>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="javascript:;" class="btn_layer" layer="16"><b>실내c :</b>  -</a>
+                            <div class="layer_wrap" layer="16">
+                                <table>
+                                    <tr>
+                                        <th>예약정보</th>
+                                        <td>실내B- 2021.04.05 /6시~7시</td>
+                                    </tr>
+                                    <tr>
+                                        <th>예약자</th>
+                                        <td>
+                                            <input type="search" placeholder="회원검색"><button class="btn_set">검색</button>
+                                            <div class="user_list">
+                                                <ul>
+                                                    <li>홍길동 / 010-1111-2222</li>
+                                                    <li>홍길동이어라 / 010-1111-3333</li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <a href="javascript:;" class="btn_close">예약확정</a>
+                            </div>
+                        </li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="javascript:;" class="btn_layer" layer="17"><b>실외  :</b> 홍길동</a>
+                            <div class="layer_wrap" layer="17">
+                                <table>
+                                    <tr>
+                                        <th>예약정보</th>
+                                        <td>실외코트-2021.04.05 / 06시~07시</td>
+                                    </tr>
+                                    <tr>
+                                        <th>예약자</th>
+                                        <td>홍길동</td>
+                                    </tr>
+                                    <tr>
+                                        <th>연락처</th>
+                                        <td>010-1111-2222</td>
+                                    </tr>
+                                </table>
+                                <a href="javascript:;" class="btn_close">예약취소</a>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="javascript:;" class="btn_layer" layer="18"><b>실내A :</b>  예약불가</a>
+                            <div class="layer_wrap" layer="18">
+                                <table>
+                                    <tr>
+                                        <th>예약정보</th>
+                                        <td>예약불가</td>
+                                    </tr>
+                                    <tr>
+                                        <th>예약자</th>
+                                        <td>예약불가</td>
+                                    </tr>
+                                    <tr>
+                                        <th>연락처</th>
+                                        <td>예약불가</td>
+                                    </tr>
+                                </table>
+                                <a href="javascript:;" class="btn_close">닫기</a>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="javascript:;" class="btn_layer" layer="19"><b>실내B :</b>  -</a>
+                            <div class="layer_wrap" layer="19">
+                                <table>
+                                    <tr>
+                                        <th>예약정보</th>
+                                        <td>실내B- 2021.04.05 /6시~7시</td>
+                                    </tr>
+                                    <tr>
+                                        <th>예약자</th>
+                                        <td>
+                                            <input type="search" placeholder="회원검색"><button class="btn_set">검색</button>
+                                            <div class="user_list">
+                                                <ul>
+                                                    <li>홍길동 / 010-1111-2222</li>
+                                                    <li>홍길동이어라 / 010-1111-3333</li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <a href="javascript:;" class="btn_close">예약확정</a>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="javascript:;" class="btn_layer" layer="20"><b>실내c :</b>  -</a>
+                            <div class="layer_wrap" layer="20">
+                                <table>
+                                    <tr>
+                                        <th>예약정보</th>
+                                        <td>실내B- 2021.04.05 /6시~7시</td>
+                                    </tr>
+                                    <tr>
+                                        <th>예약자</th>
+                                        <td>
+                                            <input type="search" placeholder="회원검색"><button class="btn_set">검색</button>
+                                            <div class="user_list">
+                                                <ul>
+                                                    <li>홍길동 / 010-1111-2222</li>
+                                                    <li>홍길동이어라 / 010-1111-3333</li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <a href="javascript:;" class="btn_close">예약확정</a>
+                            </div>
+                        </li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="javascript:;" class="btn_layer" layer="21"><b>실외  :</b> 홍길동</a>
+                            <div class="layer_wrap" layer="21">
+                                <table>
+                                    <tr>
+                                        <th>예약정보</th>
+                                        <td>실외코트-2021.04.05 / 06시~07시</td>
+                                    </tr>
+                                    <tr>
+                                        <th>예약자</th>
+                                        <td>홍길동</td>
+                                    </tr>
+                                    <tr>
+                                        <th>연락처</th>
+                                        <td>010-1111-2222</td>
+                                    </tr>
+                                </table>
+                                <a href="javascript:;" class="btn_close">예약취소</a>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="javascript:;" class="btn_layer" layer="22"><b>실내A :</b>  예약불가</a>
+                            <div class="layer_wrap" layer="22">
+                                <table>
+                                    <tr>
+                                        <th>예약정보</th>
+                                        <td>예약불가</td>
+                                    </tr>
+                                    <tr>
+                                        <th>예약자</th>
+                                        <td>예약불가</td>
+                                    </tr>
+                                    <tr>
+                                        <th>연락처</th>
+                                        <td>예약불가</td>
+                                    </tr>
+                                </table>
+                                <a href="javascript:;" class="btn_close">닫기</a>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="javascript:;" class="btn_layer" layer="23"><b>실내B :</b>  -</a>
+                            <div class="layer_wrap" layer="23">
+                                <table>
+                                    <tr>
+                                        <th>예약정보</th>
+                                        <td>실내B- 2021.04.05 /6시~7시</td>
+                                    </tr>
+                                    <tr>
+                                        <th>예약자</th>
+                                        <td>
+                                            <input type="search" placeholder="회원검색"><button class="btn_set">검색</button>
+                                            <div class="user_list">
+                                                <ul>
+                                                    <li>홍길동 / 010-1111-2222</li>
+                                                    <li>홍길동이어라 / 010-1111-3333</li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <a href="javascript:;" class="btn_close">예약확정</a>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="javascript:;" class="btn_layer" layer="24"><b>실내c :</b>  -</a>
+                            <div class="layer_wrap" layer="24">
+                                <table>
+                                    <tr>
+                                        <th>예약정보</th>
+                                        <td>실내B- 2021.04.05 /6시~7시</td>
+                                    </tr>
+                                    <tr>
+                                        <th>예약자</th>
+                                        <td>
+                                            <input type="search" placeholder="회원검색"><button class="btn_set">검색</button>
+                                            <div class="user_list">
+                                                <ul>
+                                                    <li>홍길동 / 010-1111-2222</li>
+                                                    <li>홍길동이어라 / 010-1111-3333</li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <a href="javascript:;" class="btn_close">예약확정</a>
+                            </div>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>07:00~08:00</td>
+				<td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>08:00~09:00</td>
+				<td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>09:00~10:00</td>
+				<td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>10:00~11:00</td>
+				<td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>11:00~12:00</td>
+				<td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>12:00~13:00</td>
+				<td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>13:00~14:00</td>
+				<td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>14:00~15:00</td>
+				<td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>15:00~16:00</td>
+				<td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>16:00~17:00</td>
+				<td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>17:00~18:00</td>
+				<td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>18:00~19:00</td>
+				<td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>19:00~20:00</td>
+				<td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>20:00~21:00</td>
+				<td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>21:00~22:00</td>
+				<td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><b>실외  :</b> 홍길동</li>
+                        <li><b>실내A :</b>  예약불가</li>
+                        <li><b>실내B :</b>  -</li>
+                        <li><b>실내c :</b>  -</li>
+                    </ul>
+                </td>
+            </tr>-->
+        </table>
+    </div>
+</section>
+<footer><div role="footer" data-include-path="/admin/common/footer.html"></div></footer>
+<script src="/admin/js/html_load.js"></script>
+</body>
+</html>

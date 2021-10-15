@@ -15,6 +15,9 @@
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+
 <title>테니스아레나 예약관리</title>
 
 <!----코트별 일주일 체크 전체 해제 및 선택 추가 20210630 예시) 6~7시 부분 적용 ----->
@@ -61,8 +64,63 @@ $(function(){ //전체선택 체크박스 클릭
 <div role="nav_left" data-include-path="/admin/common/nav_left.html"></div>
 <section class="tab_box">
     <div class="nav_right">예약관리 > <span class="color_point_01">예약정보설정</span></div>
+    
+    <div></div>
+  
+  <!--S: 20211015추가-common.css '1363줄~1375줄' 추가-->
+    <div class="layer_bg" style="display: block;"></div>
+    <table class="schedule_set layer_table_box">
+        <tr style="border:0;">
+            <td>
+                <div class="layer_wrap" layer="1">
+                    <table>
+                        <tr>
+                            <th>기간</th>
+                            <td>
+                                <ul class="date_ul">
+                                    <li><input type="text" id="datepicker3" placeholder="0000-00-00"></li>
+                                    <li>~</li>
+                                    <li><input type="text" id="datepicker4" placeholder="0000-00-00"></li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>코트</th>
+                            <td>
+                                <ul class="ch_ul_li_input">
+                                   <li><input type="checkbox" id="ch_01" class="checkbox-style" checked /><label for="ch_01">실외코트</li>
+                                   <li><input type="checkbox" id="ch_02" class="checkbox-style" checked/><label for="ch_02">실내A</li>
+                                   <li><input type="checkbox" id="ch_03" class="checkbox-style" checked/><label for="ch_03">실내B</li>
+                                   <li><input type="checkbox" id="ch_04" class="checkbox-style" checked/><label for="ch_04">실내C</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>금액</th>
+                            <td>33,000<br>55,000</td>
+                        </tr>
+                        <tr>
+                            <th>변경금액</th>
+                            <td>
+                                <select name="">
+                                    <option value="">33,000</option>
+                                    <option value="">44,000</option>
+                                    <option value="" selected="selected">55,0000</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                    <a href="javascript:;" class="btn_close">저장</a>
+                </div>
+            </td>
+        </tr>
+    </table>
+   
     <div class="date_box_set">
-            <ul>  
+            <div class="layer_table_box_btn"><a href="javascript:;" class="btn_layer" layer="1" >대관금액관리</a></div><!---20211015 태그 추가--->
+            <ul class="right_ul_input_ch"><!----20211015 class추가---->
+    <!--E: 20211015추가--->
+    
                 <li>
                     <h4>코<span class="line_a">트 :</span> </h4>
                     <input type="checkbox" id="ch_01" class="checkbox-style" checked /><label for="ch_01">실외코트

@@ -1,0 +1,1425 @@
+﻿@charset "utf-8";
+
+/* CSS Document */
+
+/*로딩바css 추가 ★20210625★ 시작---->*/
+
+#loading {
+
+    border: 8px solid #f3f3f3;
+
+    border-top: 8px solid #173f35;
+
+    border-radius: 50%;
+
+    width: 50px;
+
+    height: 50px;
+
+    animation: spin 1s linear infinite;
+
+    position: fixed;
+
+    top: 50%;
+
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+}
+
+@keyframes spin {
+
+    0% {
+
+        transform: translate(-50%, -50%) rotate(0deg);
+
+    }
+
+    100% {
+
+        transform: translate(-50%, -50%) rotate(360deg);
+
+    }
+
+}
+
+/*<---끝--로딩바css 추가 ★20210625★*/
+
+/* admin common.css 붙임 20210524 */
+
+header {
+
+    width: 100%;
+
+    background: #173f35;
+
+    height: 50px;
+
+    line-height: 50px;
+
+    color: #fff;
+
+    position: fixed;
+
+    top: 0;
+
+    z-index: 9;
+
+}
+
+/*★20210525수정★*/
+
+a {
+
+    color: #000;
+
+}
+
+button {
+
+    cursor: pointer;
+
+}
+
+body {
+
+    min-width: 800px;
+
+    padding-top: 50px;
+
+}
+
+input[type=checkbox] {
+
+    display: none;
+
+}
+
+input[type=checkbox] + label {
+
+    display: inline-block;
+
+    cursor: pointer;
+
+    position: relative;
+
+    padding-left: 25px;
+
+    margin-right: 32px;
+
+    font-size: 13px;
+
+}
+
+input[type=checkbox] + label:before {
+
+    content: "";
+
+    display: inline-block;
+
+    width: 20px;
+
+    height: 20px;
+
+    margin-right: 10px;
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: 1px;
+
+    background-color: #ccc;
+
+    border-radius: 2px;
+
+    box-shadow: inset 0px 1px 1px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
+
+}
+
+input[type=checkbox]:checked + label:before {
+
+    content: "\2713"; /* 체크모양 */
+
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
+
+    font-size: 18px;
+
+    font-weight: 800;
+
+    color: #fff;
+
+    background: #173f35;
+
+    text-align: center;
+
+    line-height: 18px;
+
+}
+
+input[class=ch_set] {
+
+    display: block;
+
+    float: left;
+
+    clear: both;
+
+    margin: 1px;
+
+}
+
+/*레이어팝업*/
+
+.layer_bg {
+
+    position: fixed;
+
+    width: 100%;
+
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.7);
+
+    left: 0;
+
+    top: 0;
+
+    z-index: 9;
+
+    display: none;
+
+}
+
+/*★20210616추가★*/
+
+.layer_wrap {
+
+    position: fixed;
+
+    width: 500px;
+
+    height: 500px;
+
+    background: #fff;
+
+    text-align: center;
+
+    z-index: 10;
+
+    display: none;
+
+}
+
+/*★20210616추가★*/
+
+.layer_wrap table {
+
+    width: 85%;
+
+    margin: 45% 50% -48px;
+
+    transform: translate(-50%, -50%);
+
+}
+
+.layer_wrap table tr th {
+
+    width: 30%;
+
+}
+
+.layer_wrap table tr th, .layer_wrap table tr td {
+
+    padding: 20px;
+
+}
+
+.layer_wrap table tr td input {
+
+    padding: 9px;
+
+    width: 70%;
+
+    float: left;
+
+}
+
+.layer_wrap table tr td .btn_set {
+
+    float: right;
+
+    width: 28%;
+
+}
+
+.layer_wrap table tr td .user_list {
+
+    clear: both;
+
+    position: relative;
+
+}
+
+.layer_wrap table tr td .user_list ul {
+
+    width: 86%;
+
+    position: absolute;
+
+    padding: 12px 7%;
+
+    max-height: 276px;
+
+    overflow: auto;
+
+    background: #f3f3f3;
+
+}
+
+.layer_wrap table tr td .user_list ul li {
+
+    color: #000;
+
+    cursor: pointer;
+
+    margin-bottom: 13px;
+
+}
+
+.layer_wrap table tr td .user_list ul li:hover {
+
+    font-weight: 600;
+
+}
+
+.btn_close {
+
+    background: #173f35;
+
+    color: #fff;
+
+    padding: 15px 54px;
+
+    font-size: 14px;
+
+}
+
+.top_admin {
+
+    width: 90%;
+
+    margin: auto;
+
+    text-align: left;
+
+    line-height: 50px;
+
+}
+
+.top_admin div {
+
+    cursor: pointer;
+
+}
+
+.top_admin div img {
+
+    vertical-align: text-bottom;
+
+}
+
+.nav_left_body {
+
+    width: 15%;
+
+    height: 100vh;
+
+    float: left;
+
+    background: #f3f3f3;
+
+    overflow: hidden;
+
+    min-height: 568px;
+
+    position: fixed;
+
+}
+
+.nav_left_body .nav_ul_box {
+
+    width: 100%;
+
+    text-align: center;
+
+}
+
+.nav_left_body .nav_ul_box h4 {
+
+    padding: 5% 0;
+
+    background: #dedede;
+
+    border-bottom: 0.1px dotted #bdbdbd;
+
+}
+
+.nav_left_body .nav_ul_box li ul li {
+
+    padding: 5% 0;
+
+    font-size: 14px;
+
+    border-bottom: 0.1px dotted #bdbdbd;
+
+}
+
+.tab_box {
+
+    width: 85%;
+
+    float: right;
+
+    height: 100%;
+
+    margin: 0 !important;
+
+    padding-bottom: 5%;
+
+}
+
+footer {
+
+    position: relative !important;
+
+}
+
+.right_set {
+
+    width: 95%;
+
+    margin: 2.5% auto;
+
+    height: 63.7vh;
+
+    overflow: auto;
+
+    min-height: 300px;
+
+}
+
+.notice_box_body_right {
+
+    overflow: hidden;
+
+    height: 100%;
+
+}
+
+/*★210528_추가★*/
+
+.right_apply {
+
+    height: auto;
+
+    overflow: hidden;
+
+}
+
+.nav_right {
+
+    margin: 1%;
+
+    font-size: 13px;
+
+}
+
+.color_point_01 {
+
+    color: #559c8a;
+
+    font-weight: 600;
+
+}
+
+.schedule_set {
+
+    clear: both;
+
+    width: 100%;
+
+}
+
+.schedule_set caption {
+
+    margin: 0 0 1%;
+
+}
+
+.schedule_set tr {
+
+    border-top: 1px solid #eee;
+
+    border-left: 1px solid #eee;
+
+    border-right: 1px solid #eee;
+
+}
+
+.schedule_set tr:last-child {
+
+    border-bottom: 1px solid #eee;
+
+}
+
+.schedule_set tr th {
+
+    background: #f9f9f9;
+
+}
+
+.schedule_set tr td {
+
+    vertical-align: text-top;
+
+}
+
+.schedule_set tr td:first-child {
+
+    vertical-align: middle;
+
+}
+
+.schedule_set tr td, .schedule_set tr th {
+
+    text-align: center;
+
+    padding: 1% 0;
+
+    border-right: 1px solid #eee;
+
+    font-size: 14px;
+
+}
+
+.schedule_set tr td:last-child, .schedule_set tr th:last-child {
+
+    border-right: 0;
+
+}
+
+.schedule_set tr.schedule_lst th {
+
+    border-bottom: 1px solid #eee;
+
+}
+
+.tab_box .date_box_set ul {
+
+    padding: 0;
+
+    margin: 0;
+
+    border: 0;
+
+    width: 100%;
+
+}
+
+.tab_box .date_box_set {
+
+    width: 95%;
+
+    margin: auto;
+
+    text-align: center;
+
+}
+
+.tab_box .date_box_set ul li {
+
+    margin-bottom: 10px;
+
+    width: 100%;
+
+    text-align: right;
+
+}
+
+.tab_box .date_box_set ul li input {
+
+    height: 30px;
+
+    text-align: center;
+
+    width: 111px;
+
+    vertical-align: middle;
+
+}
+
+.tab_box .date_box_set ul li h4 {
+
+    width: auto;
+
+    display: inline-block;
+
+}
+
+.btn-prev, .btn_next {
+
+    background: none;
+
+    border: 0;
+
+    width: auto;
+
+    margin: 0 1%;
+
+    padding: 0;
+
+    font-weight: 600;
+
+    font-size: 25px;
+
+    color: #929292;
+
+}
+
+.btn_right {
+
+    width: 50%;
+
+    float: right;
+
+    text-align: left;
+
+}
+
+.btn_set {
+
+    background: #173f35;
+
+    color: #fff;
+
+    border: 1px solid #173f35;
+
+    width: 130px;
+
+    padding: 0;
+
+    height: 37px;
+
+    vertical-align: middle;
+
+}
+
+.lesson_numerical .btn_set {
+
+    height: 32px;
+
+    width: 90px;
+
+}
+
+.lesson_numerical_table tr td:first-child {
+
+    border-bottom: 1px solid #eee;
+
+}
+
+.lesson_numerical_table tr td {
+
+    vertical-align: middle;
+
+}
+
+.btn_set_cancel {
+
+    background: #a9a9a9;
+
+    color: #fff;
+
+    border: 1px solid #a9a9a9;
+
+    margin-right: 10px;
+
+}
+
+.table_btn_set {
+
+    width: 38%;
+
+    height: 26px;
+
+}
+
+.line_a {
+
+    margin-left: 31px;
+
+}
+
+.tab_box .schedule_set ul {
+
+    border: 0;
+
+    margin: 0 auto 0 3%;
+
+    border-radius: 0;
+
+    padding: 0;
+
+    text-align: left;
+
+    font-size: 12px;
+
+}
+
+.tab_box .schedule_set ul li {
+
+    color: #676767;
+
+}
+
+.tab_box .schedule_set ul li b {
+
+    color: #353535;
+
+}
+
+.tab_box .lesson_set ul li {
+
+    text-align: center;
+
+}
+
+.tab_box .lesson_set ul li b {
+
+    color: #0e7158;
+
+    margin-left: 3px;
+
+}
+
+.tab_box .apply_table {
+
+    width: 60%;
+
+    margin: auto;
+
+}
+
+.tab_box .current_table {
+
+    margin-bottom: 3%;
+
+}
+
+.tab_box .apply_table select, .tab_box .apply_table input {
+
+    width: 20%;
+
+    margin-left: 5px;
+
+    margin-right: 5px;
+
+    padding: 8px;
+
+    border: 1px solid #dcdcdc;
+
+}
+
+.tab_box .current_table select, .tab_box .current_table input {
+
+    width: 150px;
+
+    margin-left: 5px;
+
+    margin-right: 5px;
+
+    padding: 8px;
+
+    border: 1px solid #dcdcdc;
+
+}
+
+.tab_box .current_table td {
+
+    text-align: left;
+
+    padding-left: 10px;
+
+}
+
+.tab_box .current_set_table .datepicker {
+
+    width: 35%;
+
+}
+
+.tab_box .current_set_table input {
+
+    height: 25px;
+
+    text-align: center;
+
+    border: 1px solid #eee;
+
+    width: 90%;
+
+}
+
+.tab_box .apply_table tr td {
+
+    text-align: left;
+
+    padding: 20px;
+
+}
+
+.tab_box .apply_table tr td .hyphen {
+
+    margin-left: 5px;
+
+}
+
+.table_left {
+
+    float: left;
+
+    width: 49%;
+
+    height: 307px;
+
+}
+
+.table_right {
+
+    float: right;
+
+    width: 49%;
+
+    clear: none;
+
+    height: 307px;
+
+}
+
+.table_right tr td {
+
+    vertical-align: middle;
+
+}
+
+.name_coach {
+
+    clear: both;
+
+    padding: 20px 0 10px;
+
+}
+
+.tab_box .lesson_numerical {
+
+    margin-bottom: 20px;
+
+}
+
+/*pageing ★20210528추가★*/
+
+.pageing {
+
+    text-align: center;
+
+}
+
+.pageing strong, .pageing a {
+
+    padding: 2px 8px;
+
+    border: 1px solid #999;
+
+}
+
+.pageing strong {
+
+    background: #173f35;
+
+    color: #fff;
+
+}
+
+.pageing a:hover {
+
+    background: #173f35;
+
+    color: #fff;
+
+}
+
+.pageing a span {
+
+    position: absolute;
+
+    left: -9999px;
+
+    width: 0;
+
+    height: 0;
+
+    font-size: 0;
+
+    line-height: 0;
+
+    text-indent: -9999px;
+
+}
+
+.pageing a.pager_prev:after, .pageing a.pager_next:after {
+
+    font-family: cursive;
+
+    font-size: 0.9em;
+
+    font-weight: 600;
+
+}
+
+.pageing a.pager_prev:after {
+
+    content: '\003C';
+
+}
+
+.pageing a.pager_next:after {
+
+    content: '\003E';
+
+}
+
+/*로그인 ★210528추가★*/
+
+input:focus {
+
+    outline: none;
+
+}
+
+.login_box_body .top_header .top_admin {
+
+    text-align: center;
+
+}
+
+/*★210531추가★*/
+
+.login_box_body {
+
+    height: 100vh;
+
+    background: #eee;
+
+    position: relative;
+
+    margin-top: -50px;
+
+}
+
+.top_admin_login_box {
+
+    width: 20%;
+
+    height: 40%;
+
+    padding: 6% 5%;
+
+    background: #fff;
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    -webkit-transform: translate(-50%, -50%);
+
+    -moz-transform: translate(-50%, -50%);
+
+    -ms-transform: translate(-50%, -50%);
+
+    -o-transform: translate(-50%, -50%);
+
+    min-height: 300px;
+
+    min-width: 300px;
+
+}
+
+/*★210531추가 및 수정★*/
+
+/* Create a custom checkbox */
+
+.id_checkbox {
+
+    position: relative;
+
+    padding-left: 20px;
+
+}
+
+.top_admin_login_box h1 {
+
+    margin-bottom: 10%;
+
+}
+
+.top_admin_login_box input {
+
+    width: 100%;
+
+    height: 33px;
+
+    margin: 5px 0 13px;
+
+    border: 0;
+
+    border-bottom: 1px solid #000;
+
+}
+
+.btn_radius {
+
+    width: 100%;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    padding: 4% 0;
+
+    background: #173f35;
+
+    color: #fff;
+
+    border-radius: 40px;
+
+    border: 1px solid #173f35;
+
+    margin-top: 10%;
+
+}
+
+.checkmark {
+
+    position: absolute;
+
+    top: 2px;
+
+    left: 0;
+
+    height: 14px;
+
+    width: 13px;
+
+    background-color: #eee;
+
+    border: 1px solid #bdbdbd;
+
+}
+
+/* On mouse-over, add a grey background color */
+
+.container_input:hover input ~ .checkmark {
+
+    background-color: #173f35;
+
+}
+
+/* When the checkbox is checked, add a blue background */
+
+.container_input input:checked ~ .checkmark {
+
+    background-color: #173f35;
+
+    border: 0;
+
+}
+
+.container_input input:disabled ~ .checkmark {
+
+    background-color: #eee;
+
+    border: 0;
+
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+
+.checkmark:after {
+
+    content: "";
+
+    position: absolute;
+
+    display: none;
+
+}
+
+/* Show the checkmark when checked */
+
+.container_input input:checked ~ .checkmark:after {
+
+    display: block;
+
+}
+
+/* Style the checkmark/indicator */
+
+.container_input .checkmark:after {
+
+    left: 4px;
+
+    top: 0;
+
+    width: 4px;
+
+    height: 8px;
+
+    border: solid white;
+
+    border-width: 0 2px 2px 0;
+
+    -webkit-transform: rotate(45deg);
+
+    -ms-transform: rotate(45deg);
+
+    transform: rotate(45deg);
+
+}
+
+/*★210601추가 시작★*/
+
+.login_box_body .top_header .top_admin .top_admin_login_admin {
+
+    display: none;
+
+}
+
+.top_admin_login_admin {
+
+    position: absolute;
+
+    right: 0;
+
+    top: 0;
+
+    width: auto !important;
+
+}
+
+.top_admin_login_admin ul li {
+
+    float: left;
+
+    margin: 0 5px;
+
+    cursor: default;
+
+}
+
+.top_admin_login_admin ul li a {
+
+    color: #8eb9ae;
+
+}
+
+.top_admin {
+
+    position: relative;
+
+}
+
+.login_box_body .top_header .top_admin div {
+
+    pointer-events: none;
+
+    margin: auto;
+
+}
+
+.top_admin div {
+
+    width: 240px;
+
+}
+
+/*★210601추가 끝★*/
+
+/*★210602추가 시작★*/
+
+.btn_top_body {
+
+    width: 100%;
+
+    margin: 0 auto 1%;
+
+    text-align: right;
+
+}
+
+/*★210602추가 끝★*/
+
+/*★210616추가 시작★*/
+
+.nav_left_body .nav_ul_box li ul li.active a {
+
+    color: #559c8a;
+
+    font-weight: 600;
+
+}
+
+.nav_left_body .nav_ul_box li ul li:hover a {
+
+    color: #559c8a;
+
+    font-weight: 600;
+
+}
+
+/*★210616추가 끝★*/
+
+/*20210707 추가*/
+
+.tab_box .schedule_set ul li {
+
+    color:#b9b9b9;
+
+}
+
+.tab_box .schedule_set ul li a.btn_layer{
+
+    color: #559c8a;
+
+    font-weight: 600;
+
+}
+
+.tab_box .schedule_set ul li b{
+
+    font-weight:500;
+
+}
+
+/*20210708 추가 시작*/
+
+.schedule_set_02 .layer_wrap table tr td input{border:1px solid #999;padding:10px;}
+
+.schedule_set_02 .layer_wrap table tr td .user_list ul{margin:0;position:relative;}
+
+.schedule_set_02 .search_box{display:none;}
+
+.layer_wrap .search_box_table{margin:10% auto 5%;transform: none;height: auto;overflow: hidden;}
+
+.schedule_set_02 input[type=checkbox] + label:before{width:15px;height:15px;}
+
+.schedule_set_02 input[type=checkbox]:checked + label:before{font-size:14px;line-height: 14px;}
+
+.schedule_set_02 .layer_wrap table tr td .user_list ul{max-height:150px;}
+
+.tab_box .schedule_set ul li table,.tab_box .lesson_set ul li{color:#676767;}
+
+.layer_wrap table tr td .user_list ul li div{display: inline-block;}
+
+.checks {position: relative;}
+
+.checks input[type="radio"] { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip:rect(0,0,0,0); border: 0; }
+
+.checks input[type="radio"] + label {/* display: inline-block; */position: relative;padding-left: 18px;cursor: pointer;-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;}
+
+.checks input[type="radio"] + label:before {content: '';position: absolute;left: 0;top: 0;width: 13px;height: 13px;text-align: center;background: #fafafa;border: 1px solid #cacece;border-radius: 100%;box-shadow: 0px 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);}
+
+.checks input[type="radio"] + label:active:before, .checks input[type="radio"]:checked + label:active:before { box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1); }
+
+.checks input[type="radio"]:checked + label:before { background: #E9ECEE; border-color: #adb8c0; }
+
+.checks input[type="radio"]:checked + label:after {content: '';position: absolute;top: 3px;left: 3px;width: 9px;height: 9px;background: #99a1a7;border-radius: 100%;box-shadow: inset 0px 0px 10px rgba(0,0,0,0.3);}
+
+.submit_btn {background: #173f35;color: #fff;padding: 15px 44px;font-size: 14px;}
+
+.layer_btn_close{background: #d4d4d4;margin-right: 5px;}
+
+.none{text-align:center;}
+
+/*------//20210708 끝-----------*/
+
+/*20210709 추가 시작*/
+
+.tab_box .lesson_set_enrol ul{margin:0;}
+
+.tab_box .lesson_set_enrol ul li{margin-bottom:5px;font-size:11.5px;}
+
+.tab_box .lesson_set_enrol ul li b{font-weight:600;margin-left:0;}
+
+.tab_box .lesson_set_enrol ul li .co_b{color:#000;vertical-align: middle;}
+
+.tab_box .lesson_set_enrol ul li font{color:#d00c0f;font-weight: 500;}
+
+.lesson_set_enrol tr td:first-child{font-size:11.5px;}
+
+/*------//20210708 끝-----------*/
+
+/*20210712추가*/
+
+.lesson_set tr td, .lesson_set tr th{padding:0.5% 0;}
+
+/*20210714추가 시작*/
+
+.tab_box .schedule_set ul li a.btn_layer span.rsv_btn_box{background: #fff;
+
+    color: #d60000b8;
+
+    border-radius: 4px;
+
+    font-size: 11px;}
+
+.tab_box .schedule_set_02 ul li{height:19px;overflow: hidden;}
+
+/*20210714추가 끝*/
+
+/*20210715추가*/
+
+.layer_wrap.layer_wrap_search{min-height:500px;height:auto;overflow:hidden;padding-bottom:3%;}
+
+/*20210716추가*/
+
+input[name=check_rsv]{display: inline-block;vertical-align: middle;margin:0 2px;}
+
+/*---20210720추가 시작*/
+
+.schedule_set_02 .layer_wrap table tr td .user_list ul {
+
+    max-height: 75px;
+
+}
+
+.layer_wrap.layer_wrap_search{top:50% !important;left:50% !important;transform: translate(-50%,-50%);-webkit-transform: translate(-50%,-50%);-moz-transform: translate(-50%,-50%);-ms-transform: translate(-50%,-50%);-o-transform: translate(-50%,-50%);}
+
+.tab_box .schedule_set ul li a.btn_layer span.rsv_btn_box{color:#E50B0F;}
+
+/*20210720추가 끝-----*/
+
+/*20210721추가*/
+
+.schedule_set_02 .layer_wrap table tr td.type_td{text-align: left;}
+
+.schedule_set_02 .layer_wrap table tr td .type_select{width:78%;height: 37px;border: 1px solid #999;}
+
+/*20210729추가 시작*/
+
+.lesson_set_enrol tr td{position:relative;}
+
+.enrollment_btn{position:absolute;top:0;right:0;cursor: pointer;width:20px;height:20px;background:#000;color:#fff;}
+
+.tab_box .apply_table{width: 85%;
+
+    margin:7% auto 5%;
+
+    transform: translate(0, 0);}
+
+.enrollment_table{width: 50%;min-width: 688px;
+
+    height:90%;
+
+    min-height: 600px;
+
+    top: 50% !important;
+
+    transform: translate(-50%, -50%);
+
+    left: 50% !important;
+
+    overflow: auto;}
+
+.enrollment_table table tr td .btn_set  {float:none;}
+
+.schedule_set tr.border_0{border-left:0;border-right:0;border-bottom:0;}
+
+.tab_box .apply_table select, .tab_box .apply_table input,.tab_box .apply_table tr td .hyphen{float:left;}
+
+.tab_box .apply_table tr td .hyphen{line-height: 33px;}
+
+.tab_box .lesson_set_enrol ul li a.btn_layer{color:#000;font-weight: 500;}
+
+.close_btn{position: fixed;width:96%;top:2%;right:2%;text-align: right;cursor:pointer;font-size:25px;color:#000;background:none;padding:0;}
+
+/*//20210729추가 끝*/
+
+/*S: 20211015 추가*/
+.layer_table_box .layer_wrap{min-height:500px;height:auto;overflow: hidden;padding-bottom: 2%;}
+.layer_table_box .layer_wrap table{margin:7% auto;transform: translate(0, 0);}
+.layer_table_box ul.date_ul li{float:left;display: inline-block;width:42%;border:1px solid #999;}
+.layer_table_box ul.date_ul li:nth-child(2){width:auto;border:0;margin:0 2%;height: 33px;line-height: 33px;}
+.layer_table_box ul.date_ul li input{width:83%;border:0;float:none;}
+.layer_table_box .layer_wrap ul.ch_ul_li_input li{margin:3% 0;color: #000;}
+.layer_table_box .layer_wrap select{height:33px;width:80%;margin: auto;border:1px solid #999;}
+.layer_table_box table tr td{text-align:left;}
+.layer_table_box_btn{float:left;width:20%;max-width: 145px;position:relative;height:45px;line-height: 45px;}
+.layer_table_box_btn .btn_layer{position:absolute;left:0;top:0;width:100%;height:100%;background:#559c8a;color:#fff;font-weight:600;font-size: 14px;}
+.tab_box .date_box_set ul.right_ul_input_ch {float:right;width:80%;}
+/*E: 20211015 추가*/
+
+@media screen and (max-width: 800px) {
+
+    .nav_left_body .nav_ul_box h4, .nav_left_body .nav_ul_box li ul li, .schedule_set tr td, .schedule_set tr th {
+
+        font-size: 12px;
+
+    }
+
+    .tab_box .schedule_set ul li {
+
+        font-size: 10px;
+
+    }
+
+    .tab_box .apply_table {
+
+        width: 93%;
+
+    }
+
+    .right_apply {
+
+        height: 100vh;
+
+        overflow: auto;
+
+    }
+
+    .tab_box .current_table select, .tab_box .current_table input {
+
+        width: 100px;
+
+    }
+
+    .tab_box .current_set_table .datepicker {
+
+        font-size: 10px;
+
+    }
+
+    header {
+
+        min-width: 800px;
+
+    }
+
+    /*★210531추가★*/
+
+}
