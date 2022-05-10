@@ -1,0 +1,237 @@
+header{position:fixed;}
+
+.tab_box .nav_icon {text-align: center; margin: 4% 0;height: auto;overflow:hidden;}
+
+/*.tab_box .nav_icon li{width:calc(100%/3.1);height:213px;float:left;text-align: center;white-space: pre-line;    text-transform: uppercase;cursor: pointer;}*//*★20210616수정★*/
+
+.tab_box .nav_icon li{width:calc(100%/3.1);float:left;text-align: center;white-space: pre-line;    text-transform: uppercase;cursor: pointer;}/*★20210616수정★*/
+
+.tab_box .nav_icon li:nth-child(1){margin-left:1.5%;}
+
+.tab_box .nav_icon li a{border-radius: 50%;padding:55px 35px;line-height: 150px;}
+
+.tab_box .nav_icon li:nth-child(1) a{background:#2C539F; padding:55px 35px;}/*20220510수정*/
+
+.tab_box .nav_icon li:nth-child(2) a{background:#135145; padding:55px 33px;}/*20220510수정*/
+
+.tab_box .nav_icon li:nth-child(3) a{background:#663B80;padding:55px 38.5px;}/*20220510수정*/
+
+.tab_box .nav_icon li:nth-child(4) a{background:#d6af2d;}
+
+.tab_box .nav_icon li:nth-child(1) img{width:62px;vertical-align:middle;}/*20220510수정*/
+.tab_box .nav_icon li:nth-child(2) img{width:66px;vertical-align:middle;}/*20220510수정*/
+.tab_box .nav_icon li:nth-child(3) img{width:55px;vertical-align:middle;}/*20220510수정*/
+
+.admin_notice_box{margin:12% 0;width:100%;height:auto;overflow:hidden;}
+
+.admin_notice_box .admin_notice_left_ul{width:48%;float:left;}/*★20210608추가★*/
+
+.admin_notice_box .admin_notice_left_ul h3,.admin_notice_box .admin_notice_right_ul h3,.admin_notice_box table tr td:nth-child(1){float:left;width:70%;}
+
+.admin_notice_box .admin_notice_left_ul button,.admin_notice_box .admin_notice_right_ul button,.admin_notice_box table tr td:nth-child(2){float:right;width:20%;cursor: pointer;border:0;background:none;text-align: right;padding-left:0;padding-right:0;}
+
+.admin_notice_box .admin_notice_right_ul{width:48%;float:right;}/*★20210608수정★*/
+
+.admin_notice_box table{clear: both;display: inline-table;width:100%;margin:4% 0;}
+
+.admin_notice_box table tr{cursor:pointer;}
+
+.admin_notice_box table tr:hover td,.admin_notice_box button:hover{color:#1fa282;}
+
+.admin_notice_box table tr td{padding:1% 0;}
+
+.admin_notice_box table tr td:nth-child(1){    box-sizing: border-box;text-overflow: ellipsis; overflow: hidden;white-space: nowrap;max-width:666px;}/*★20210608수정★*/
+
+.admin_notice_box table tr td:nth-child(2){font-size:13px;font-weight: 500;margin-top:3px;}
+
+
+
+.section_tab02{width:100%;height:auto;overflow:hidden;border-top:1px solid #eee;}
+
+.address_box{width:90%;margin:10% auto 12%;}
+
+.address_box h3{margin-bottom:2%;}
+
+.daum_address{width:100%;height:500px;background:#eee;}
+
+
+
+ .banner_m{display:none;}
+ 
+ /*20220510수정*/
+.main_reserve_btn{background:rgba(44,83,159,0.9);color:#000;}
+.main_reserve_btn ul li img{width:auto;}
+
+ @media screen and (max-width:1400px){
+
+.burger-icon {right: 18%;} 
+
+.main_reserve_btn ul li img{height: 35px;} /*20220510수정*/
+
+.main_reserve_btn ul li{font-size:15px;}
+
+.font-s{font-size:12px;}
+
+.main_reserve_btn{padding:1% 0 2%;}
+
+ }
+
+@media screen and (max-width: 1070px){
+
+.burger-icon {right: 4%;}
+
+.tab_box, .footer_body{width:92%;}
+
+.main_banner_body .slick-next{right:4%;}
+
+.main_banner_body .slick-prev{left:4%;}
+
+} 
+
+@media screen and (max-width: 1000px){
+
+.banner_pc{display:none;}
+
+.banner_m{display:block;}
+
+.main_reserve_btn{width:70%;}
+
+} 
+
+
+
+@media screen and (max-width:790px){
+
+
+
+}
+
+@media screen and (max-width: 750px){
+
+.burger-icon {right: 3%;}
+
+.main_banner_body .slick-next{right:3%;}
+
+.main_banner_body .slick-prev{left:3%;}
+
+.main_banner_body .main_s_arrow i img{width:70%;}
+
+.main_reserve_btn{width:85%;}
+
+.tab_box, .footer_body {width: 95%;}
+
+.daum_address {height:350px;}
+
+}
+
+@media screen and (max-width: 710px){
+
+/*.admin_notice_box table tr td:nth-child(1){max-width: 200px;}★20210608수정★*/
+
+/*20220510수정*/
+.tab_box .nav_icon li:nth-child(1) a{padding: 44px 25px;line-height: 120px;}
+
+.tab_box .nav_icon li:nth-child(2) a{padding: 44px 23px;line-height: 120px;}
+
+.tab_box .nav_icon li:nth-child(3) a{padding: 44px 28.5px;line-height: 120px;}
+.tab_box .nav_icon li:nth-child(1) img{width:60px;}
+.tab_box .nav_icon li:nth-child(2) img{width:64px;}
+.tab_box .nav_icon li:nth-child(3) img{width:53px;}
+
+.tab_box .nav_icon li{height:197px;font-size: 15px;}
+
+.tab_box .nav_icon{margin:0;}
+
+.admin_notice_box{margin:8% 0 9%;}
+
+.admin_notice_box table tr td{font-size:13px;}
+
+.admin_notice_box table tr td:nth-child(2){font-size:11px;}
+
+.admin_notice_box .admin_notice_left_ul button, .admin_notice_box .admin_notice_right_ul button, .admin_notice_box table tr td:nth-child(2){width:30%;}
+
+}
+
+@media screen and (max-width: 640px){
+
+.main_reserve_btn ul li {font-size: 13px;}
+
+.font-s{font-size:11px;}
+
+.main_reserve_btn ul li img{height:35px;}
+
+}
+
+
+@media screen and (max-width: 500px){
+
+/*20220510수정*/
+.tab_box .nav_icon li:nth-child(1) a{padding: 28% 18%;line-height: 97px;}
+
+.tab_box .nav_icon li:nth-child(2) a{padding:28% 17%;line-height: 97px;}
+
+.tab_box .nav_icon li:nth-child(3) a{padding:28% 21%;line-height: 97px;}
+.tab_box .nav_icon li:nth-child(1) img{width:31%;}
+.tab_box .nav_icon li:nth-child(2) img{width:33%;}
+.tab_box .nav_icon li:nth-child(3) img{width:25%;}
+
+.tab_box .nav_icon li { height: auto;font-size: 13px;}
+
+.daum_address {height:300px;}
+
+.main_reserve_btn{padding:1% 0 2.5%;}
+
+}
+
+@media screen and (max-width: 414px){
+
+.tab_box .nav_icon li{font-size:12px;}
+
+.admin_notice_box .admin_notice_left_ul,.admin_notice_box .admin_notice_right_ul{width:95%;float:none;margin: auto;}/*★20210608수정★*/
+
+.admin_notice_box table tr td:nth-child(1) {max-width: 350px;}
+
+.admin_notice_box .admin_notice_left_ul{border-bottom:1px solid #eee;}
+
+.admin_notice_box .admin_notice_right_ul{padding-top:7%;}
+
+.tab_box .nav_icon{padding-bottom:10%;border-bottom:1px solid #eee;}
+
+.daum_address {height:250px;}
+
+}
+
+@media screen and (max-width: 375px){
+
+.admin_notice_box table tr td:nth-child(1) {max-width: 250px;}
+
+.admin_notice_box .admin_notice_left_ul button, .admin_notice_box .admin_notice_right_ul button{font-size:12px;}
+
+.daum_address {height:200px;}
+
+}
+
+@media screen and (max-width: 360px){
+
+/*.tab_box .nav_icon li{width: calc(100%/2.1);}★20210616수정★*/
+
+.tab_box .nav_icon li a {/*padding: 14% 8%;*/line-height: 6.5;}/*★20210608수정★*/
+
+/*.tab_box .nav_icon li img {width: 22%;}★20210616수정★*/
+/*20220510수정*/
+.tab_box .nav_icon li:nth-child(1) a{padding: 28% 18%;line-height: 90px;}
+
+.tab_box .nav_icon li:nth-child(2) a{padding:28% 17%;line-height: 90px;}
+
+.tab_box .nav_icon li:nth-child(3) a{padding:28% 21%;line-height: 90px;}
+
+}
+@media screen and (max-width: 320px){
+/*20220510수정*/
+.tab_box .nav_icon li:nth-child(1) a{padding: 28% 21%;line-height: 75px;}
+
+.tab_box .nav_icon li:nth-child(2) a{padding:28% 20%;line-height: 75px;}
+
+.tab_box .nav_icon li:nth-child(3) a{padding:28% 24%;line-height: 75px;}
+
+}

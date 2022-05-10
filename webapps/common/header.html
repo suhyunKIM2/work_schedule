@@ -1,0 +1,89 @@
+﻿<script src="/js/nav_menu.js"></script>
+<script src="/js/layer_popup.js"></script><!--210527파일추가--->
+<link rel="stylesheet" href="/css/nav_menu.css"><!--210623파일css추가--->
+<link rel="stylesheet" href="/css/layer_popup.css"><!--210527파일추가--->
+
+
+<section class="tab_box top_header">
+    <ul>
+        <li>
+            <a href="/">
+                <img src="/img/re_icon/1_main_logo.png" class="logo_pc">
+                <img src="/img/re_icon/1_main_logo.png" class="logo_m">
+            </a>
+        </li>
+        <li>
+            <input class="burger-check" type="checkbox" id="burger-check" /><label class="burger-icon" for="burger-check"><span class="burger-sticks"></span></label>
+            <div class="mask"></div>
+            <div class="menu">
+              <div class="menu_list_body">
+                  <ul class="menu_list_ul">
+                      <!------로그인하기전----->
+                      <li><a href="/member/login.html">로그인</a> <span class="menu_list_span">|</span> </li>
+                      <li><a href="javascript:;" class="btn_layer" layer="2">아이디 찾기 <span class="menu_list_span">|</span> </a><a href="javascript:;" class="btn_layer" layer="3"> 비밀번호 찾기</a></li><!--210526수정---
+                      <li class="btn_header btn_header_join">
+                          <a href="/member/join_0.html">
+                              회원가입
+                          </a>
+                      </li>
+                      <!------//------------->
+                      <!------로그인 후----- 
+                      <li class="user">홍길동님, 안녕하세요.</li><br>
+                      <li><a href="/member/myinfo_change.html">개인정보수정<span class="menu_list_span">|</span> </a><a href="" > 로그아웃</a></li>
+                      <li class="btn_header btn_header_join">
+                          <a href="/mypage/mypage_apply.html">
+                              예약현황
+                          </a>
+                      </li>
+                      <!------//------------->
+                      <li class="btn_header">
+                          <a href="/reserve/reserve.html">
+                              <img src="/img/icon_01.png" class="logo_pc">
+                              <img src="/img/icon_01_m.png" class="logo_m">
+                              온라인 예약하기
+                          </a>
+                      </li>
+                  </ul>
+                  <div id='cssmenu'>
+                      <ul>
+                         <li class='has-sub open'><a href='#'><span>테니스장소개</span></a>
+                            <ul style="display: block;">
+                               <li><a href='/sub/facilities_guide.html'><span>테니스장소개</span></a></li>
+                               <li class='last'><a href='/sub/lounge.html'><span>시설소개</span></a></li>
+                            </ul>
+                         </li>
+                         <li class='has-sub'><a href='#'><span>대관안내</span></a>
+                            <ul>
+                               <li><a href='/sub/rent.html'><span>대관안내</span></a></li>
+                               <!--<li class='last'><a href='/sub/membership.html'><span>멤버쉽안내</span></a></li>-->
+                               <li class='last'><a href='/sub/directions.html'><span>오시는길</span></a></li>
+                            </ul>
+                         </li>
+                         <li class='has-sub'><a href='#'><span>레슨안내</span></a>
+                            <ul>
+                               <li><a href='/sub/lesson.html'><span>레슨안내</span></a></li>
+                               <li class='last'><a href='/sub/coach.html'><span>강사진안내</span></a></li>
+                            </ul>
+                         </li>
+                         <li class='has-sub'><a href='#'><span>커뮤니티</span></a>
+                            <ul>
+                               <li><a href='/cust/notice_list.html'><span>공지사항</span></a></li>
+                            </ul>
+                         </li>
+                      </ul>
+                  </div>
+                  <ul class="menu_list_footer">
+                        <li>고객센터</li>
+                        <li><a href="tel:031-989-1427">031-989-1427</a></li>
+                        <li><!---20210722 수정--->
+                            <div>상담시간</div>
+                            <div>평일 10:00~17:00</div>
+                            <div>운영 시간 06 : 00 ~ 22 : 00</div>
+                            <div style="color:#bf0a0d;">( 점심시간 12:00~13:30 )</div>
+                        </li>
+                    </ul>
+              </div>
+            </div>
+        </li>
+    </ul>
+</section>

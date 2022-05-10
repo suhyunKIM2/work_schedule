@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<script src="/js/jquery-1.11.3.min.js"></script> 
+<script src="/js/main_v2.js"></script><!--추가(기존파일에서 필요부분 나눈 파일 _v2)--->
+  
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css"
+integrity="sha384-v8BU367qNbs/aIZIxuivaU55N5GPF89WBerHoGA4QTcbUjYiLQtKdrfXnqAcXyTv" crossorigin="anonymous">
+<script src="../js/layer_popup.js"></script>
+<link rel="stylesheet" href="/css/reset.css">
+<link rel="stylesheet" href="/css/common.css"><!--파일수정--->
+<link rel="stylesheet" href="/css/member.css"><!--파일추가--->
+<link rel="stylesheet" href="/css/layer_popup.css"><!--파일추가--->
+<title>테니스 아레나 로그인</title>
+
+</head>
+<body>
+<header class="top_header" role="header" data-include="/common/header.html"></header>
+
+<section class="tab_box">
+<div class="login_box_body">
+     <h1>Login.</h1>
+     <input type="text" class="id_input" placeholder="아이디">
+     <input type="password" class="id_password" placeholder="비밀번호">
+     <label class="container_input id_checkbox">아이디 저장
+       <input type="checkbox">
+       <span class="checkmark"></span>
+     </label>
+     <button type="button" onClick="" class="btn_radius">로그인</button>
+     <ul class="login_box_search">
+         <li><a href="/member/join_0.html">회원가입</a><span class="menu_list_span">|</span></li>
+         <li><a href="javascript:;" class="btn_layer" layer="2">아이디 찾기</a><span class="menu_list_span">|</span></li>
+         <li><a href="javascript:;" class="btn_layer" layer="3">비밀번호 찾기</a><span class="menu_list_span">|</span></li>
+         <li><a href="javascript:;" class="btn_layer" layer="1">개인정보처리방침</a></li>
+      </ul>
+ </div>
+<!------(개인정보처리/아이디찾기/비밀번호찾기) 레이어팝업시작--------->
+<div data-include="/popup/personal.html"></div><!---개인정보처리방침---->
+<div data-include="/popup/id_check.html"></div><!---아이디찾기---->
+<div data-include="/popup/password_check.html"></div><!---비밀번호찾기---->
+
+<!------레이어팝업끝--------->
+
+    <!--<a href="javascript:;" class="btn_layer" layer="1">레이어팝업 테스트</a>
+    <div data-include="/popup/id_check.html"></div>-->
+</section>
+
+<footer role="footer" data-include="/common/footer.html"></footer>
+</body>
+</html>
